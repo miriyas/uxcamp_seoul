@@ -25,7 +25,7 @@ gem 'mini_magick'
 group :development do
 	gem 'awesome_print'
 	gem 'quiet_assets'
-	gem 'annotate', '~> 2.4.1.beta'
+	gem 'annotate'
 	gem 'rails-erd'
 	gem 'thin'
   gem 'better_errors'

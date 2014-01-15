@@ -1,20 +1,17 @@
 # == Schema Information
 #
-# Table name: organizers
+# Table name: authentications
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
-#  photo      :string(255)
-#  link       :string(255)
-#  role       :string(255)
-#  position   :integer
-#  event_id   :integer
+#  user_id    :integer          not null
+#  provider   :string(255)      not null
+#  uid        :string(255)      not null
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 require 'spec_helper'
 
-describe Organizer do
+describe Authentication do
   pending "add some examples to (or delete) #{__FILE__}"
 end

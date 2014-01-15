@@ -43,7 +43,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    annotate (2.4.1.beta1)
+    annotate (2.6.1)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (5.0.0)
     atomic (1.1.14)
     awesome_print (1.2.0)
@@ -210,7 +212,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate (~> 2.4.1.beta)
+  annotate
   awesome_print
   better_errors
   binding_of_caller
