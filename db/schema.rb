@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115130329) do
+ActiveRecord::Schema.define(version: 20140115131003) do
+
+  create_table "authentications", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -53,5 +61,21 @@ ActiveRecord::Schema.define(version: 20140115130329) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email",                                              null: false
+    t.string   "role",                         default: "organizer"
+    t.string   "status",                       default: "pending"
+    t.string   "crypted_password",                                   null: false
+    t.string   "salt",                                               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
 
 end
