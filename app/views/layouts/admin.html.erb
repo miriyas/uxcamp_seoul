@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>UXCampSeoul</title>
+	
+	<%= stylesheet_link_tag		 "admin", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+</head>
+<!--[if lt IE 7]><body class="ie ie6"><![endif]-->
+<!--[if IE 7]>	 <body class="ie ie7"><![endif]-->
+<!--[if IE 8]>	 <body class="ie ie8"><![endif]-->
+<!--[if gt IE 8]><!--><body><!--<![endif]-->
+
+<div class="container">
+	<div id="h"%>
+		<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+			<div class="container">
+		    <div class="navbar-header">
+		      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+					<%= link_to "UXCS", "/", :class => "navbar-brand" %>
+		    </div>
+		    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+					<%= navigation_tag :class => "nav navbar-nav" do |m| %>
+						<%= m.item "행사 관리", admin_events_path, :current => params[:controller] == "admin/events" %>
+						<%= m.item "권한 관리", admin_users_path, :current => params[:controller] == "admin/users" %>
+						<%= m.item "통계", admin_stat_path, :current => params[:controller] == "admin/stat" %>
+					<% end %>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><%= link_to current_user.name, admin_user_path(current_user) %></li>
+						<li class="last">
+							<a href="<%= admin_logout_path %>"><i class="icon-off"></i> 로그아웃</a>
+						</li>
+		      </ul>
+				</nav>
+			</div>
+		</header>
+	</div>
+
+	<div id="c" class="clearfix">
+		<%= yield %>
+	</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag "admin", :media => "all" %>
+<div id="login">
+	<div class="wrapper">
+		<%= form_tag "/admin/login" do %>
+ 		 <%= text_field_tag :email, params[:email], placeholder: "메일주소" %><br />
+      <%= password_field_tag :password, nil, placeholder: "비밀번호" %><br />
+	    <%= check_box_tag :remember_me, 1, params[:remember_me], class: "di" %>
+	    <%= label_tag :remember_me, "로그인 유지", class: "di" %><br /><br />
+		  <%= submit_tag "로그인", class: "admin_login btn btn-large" %>
+			<% if msg = flash[:alert] %>
+			  <%= content_tag :div, msg, :class => "error mt10" %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

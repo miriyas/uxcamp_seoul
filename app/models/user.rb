@@ -17,4 +17,33 @@
 
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
+
+  validates_presence_of :email
+  validates_uniqueness_of :email
+	validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  validates :password, length: { minimum: 4 }, :if => :password_required?
+  validates :password, confirmation: true, :if => :password_required?
+  validates :password_confirmation, presence: true, :if => :password_required?
+  validates_presence_of :name
+  validates_inclusion_of :role, :in => %w(admin organizer), :if => lambda { |m| m.role = "organizer" if m.role.blank? }
+
+  ROLES = {
+    "최고관리자" => "admin",
+    "오거나이저" => "organizer" 
+  }
+
+	scope :organizers, -> { where(role: "organizer") }
+
+  def password_required?
+    new_record? || password
+  end
+
+  def organizer?
+    role == "admin" || "organizer"
+  end
+
+  def admin?
+    role == "admin"
+  end
+
 end

@@ -1,0 +1,42 @@
+<div class="w100p">
+	<h1>총 <%= content_tag :span, Event.count, :class => "font-important" %>건의 행사</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>순서</th>
+      <th>제목</th>
+      <th>시작일</th>
+      <th>종료일</th>
+      <th>조회수</th>
+      <th>작성일</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.id %></td>
+        <td><%= event.position %></td>
+        <td><%= event.title %></td>
+        <td><%= hdate(event.starts_at, "/") %></td>
+        <td><%= hdate(event.ends_at, "/") %></td>
+        <td><%= event.tags %></td>
+        <td><%= event.view_count %></td>
+        <td><%= hdate(event.created_at, "/") %></td>
+        <td>
+					<%= link_to(edit_admin_event_path(event), class: "btn btn-warning btn-xs") do %>
+						<span class="glyphicon glyphicon-pencil"></span> 수정 
+					<% end %>
+				</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to new_admin_event_path, :class => "btn btn-success fr" do %>
+	<span class="glyphicon glyphicon-plus"></span> 새 행사 시작하기
+<% end %>
