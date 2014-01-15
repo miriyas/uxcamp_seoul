@@ -11,6 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140115130329) do
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.date     "starts_at"
+    t.date     "ends_at"
+    t.integer  "view_count"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "organizers", force: true do |t|
+    t.string   "name"
+    t.string   "photo"
+    t.string   "link"
+    t.string   "role"
+    t.integer  "position"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "programs", force: true do |t|
+    t.string   "title"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.integer  "position"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "speakers", force: true do |t|
+    t.string   "name"
+    t.string   "photo"
+    t.text     "info"
+    t.integer  "position"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
