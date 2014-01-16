@@ -16,7 +16,7 @@ class Admin::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to admin_events_path, notice: 'Event was successfully created.'
+      redirect_to admin_events_path, no함e: 'Event was successfully created.'
     else
 			p @event.errors
       render action: 'new'
@@ -44,6 +44,6 @@ class Admin::EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:user_id, :subject_id, :category_id, :title, :body, :tags, :status, :view_type, :main_image, :comment_permission)
+      params.require(:event).permit(:title, :position, :starts_at, :ends_at)
     end
 end
