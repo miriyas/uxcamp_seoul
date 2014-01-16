@@ -2,8 +2,11 @@
 	<%= simple_form_for [:admin, @event] do |f| %>
 		<% @errors = @event.errors.messages %>
 
-		<%= f.input :title, label: "행사명", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<%= f.input :title, label: "행사 제목", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
 		<% flash_error_message(:title) %>
+		<br>
+		<%= f.input :poster, label: "행사 포스터", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:poster) %>
 		<br>
 		<%= f.label :starts_at, "행사 시작일" %>
 		<input type="text" id="event_starts_at" name="event[starts_at]" class="w150 string form-control" value="<%= 8.days.ago.to_date %>">

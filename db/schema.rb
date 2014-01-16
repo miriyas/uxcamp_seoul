@@ -23,9 +23,10 @@ ActiveRecord::Schema.define(version: 20140115131003) do
 
   create_table "events", force: true do |t|
     t.string   "title"
+    t.string   "poster"
     t.date     "starts_at"
     t.date     "ends_at"
-    t.integer  "view_count"
+    t.integer  "view_count", default: 0
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
