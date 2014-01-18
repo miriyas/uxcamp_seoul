@@ -19,7 +19,7 @@ event_camp4 = Event.create(title:"4th. UX Camp Seoul", starts_at: "2012-07-14", 
   roomc44 = Room.create(name: "4번방", event_id: event_camp4.id)
 
 puts "== CreateEvents: photo uploading ======================"
-source_path = "#{::Rails.root.to_s}/public/event_photos"
+source_path = "#{::Rails.root.to_s}/public/seed/event_photos"
 candidates = Dir.glob("#{source_path}/*.*")
 candidates.each do |fullpath|
 	begin
@@ -123,7 +123,7 @@ Organizer.create(event_id: event_camp4.id, position: 20, name:"배영하", role:
 Organizer.create(event_id: event_camp4.id, position: 21, name:"강신녀", role:"디자인", link: "http://www.facebook.com/Leopulse")
 
 puts "== CreateOrganizers: photo uploading ======================"
-source_path = "#{::Rails.root.to_s}/public/organizer_photos/camp4"
+source_path = "#{::Rails.root.to_s}/public/seed/organizer_photos/camp4"
 candidates = Dir.glob("#{source_path}/*.*")
 candidates.each do |fullpath|
 	begin
