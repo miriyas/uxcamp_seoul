@@ -2,10 +2,10 @@ class CreateSpeakers < ActiveRecord::Migration
   def change
     create_table :speakers do |t|
       t.string :name
+      t.string :link
       t.string :photo
-      t.text :info
-      t.integer :position
       t.integer :event_id
+      t.integer :program_id
 
       t.timestamps
     end

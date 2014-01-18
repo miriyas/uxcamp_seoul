@@ -3,18 +3,21 @@
 	<hr>
 </div>
 
+<% if @events.blank? %>
+<div class="w100p tac">행사가 하나도 없습니다.</div>
+<% end %>
 <ul class="events">
   <% @events.each do |event| %>
-	<li class="event tac">
-		<div class="completed"></div>
-		<%= link_to admin_event_path(event) do %>
-		<%= image_tag(event.poster.url(:w240)) %>
-		<br>
-		<h4><%= event.title %></h4>
-		<%= hdate(event.starts_at, "/") %> ~ <%= hdate(event.ends_at, "/") %><br>
-		조회수 : <%= event.view_count %><br>
-		<% end %>
-	</li>
+		<li class="event tac">
+			<%= link_to admin_event_path(event) do %>
+			<div class="poster_wrapper">
+				<%= image_tag(event.poster.url(:w240)) %>
+			</div>
+			<h4><%= event.title %></h4>
+			<%= hdate(event.starts_at, "/") %> ~ <%= hdate(event.ends_at, "/") %><br>
+			조회수 : <%= event.view_count %><br>
+			<% end %>
+		</li>
 	<% end %>
 </ul>
 

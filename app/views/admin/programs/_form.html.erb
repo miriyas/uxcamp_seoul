@@ -1,0 +1,21 @@
+<% url = params[:action] == "new" ? admin_event_period_programs_path : admin_event_period_program_path %>
+
+<div class="w300">
+	<%= simple_form_for [:admin, @program], url: url do |f| %>
+		<% @errors = @program.errors.messages %>
+
+		<%= f.input :title, label: "프로그램 제목", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:title) %>
+		<br>
+		<%= f.input :room_id, collection: Event.find(params[:event_id]).rooms, label: "장소(방)", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:room) %>
+		<br>
+		<%= f.input :content, label: "내용 설명", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:content) %>
+		<br>
+		<%= f.input :position, label: "정렬 순서", label_html: { class: "fwb" }, input_html: { class: "w75 form-control" }, error: false %>
+		<% flash_error_message(:position) %>
+		<hr>
+		<%= render "/shared/form_confirm_or_cancel" %>
+	<% end %>
+</div>

@@ -3,11 +3,12 @@ class Admin::EventsController < ApplicationController
 	layout 'admin'
 	
   def index
-    @events = Event.all
+    @events = Event.all.order("position")
   end
 
   def show
     @event = Event.find(params[:id])
+    @periods = @event.periods.order("starts_at")
   end
 
   def new
@@ -16,7 +17,7 @@ class Admin::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to admin_events_path, no함e: 'Event was successfully created.'
+      redirect_to admin_events_path, no함e: '행사가 만들어졌습니다.'
     else
 			p @event.errors
       render action: 'new'
@@ -29,7 +30,7 @@ class Admin::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      redirect_to admin_events_path, notice: 'Event was successfully updated.'
+      redirect_to admin_event_path(@event), notice: '행사가 수정되었습니다.'
     else
 			p @event.errors
       render action: 'edit'
@@ -39,7 +40,7 @@ class Admin::EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-		redirect_to events_url
+		redirect_to admin_events_path, notice: '행사가 삭제되었습니다.'
   end
 
   private

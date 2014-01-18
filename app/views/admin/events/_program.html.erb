@@ -1,0 +1,65 @@
+<section class="program_section">
+	<h3>프로그램</h3>
+	<% room_cnt = "room#{@event.rooms.count}" %>
+	<table class="programs table table-bordered table-striped <%= room_cnt %>">
+		<thead>
+			<tr>
+				<td>
+					<%= link_to "방 추가", new_admin_event_room_path(@event), class: "btn btn-success btn-xs mt5 w80" %>
+				</td>
+				<% @event.rooms.each do |room| %>
+					<td>
+						<%= room.name %>
+						<div class="btn-group fr">
+<%= link_to "방 수정", edit_admin_event_room_path(@event, room), class: "btn btn-warning btn-xs" %><%= link_to "삭제", admin_event_room_path(@event, room), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "btn btn-danger btn-xs" %>
+						</div>
+					</td>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+		<% @periods.each do |period| %>
+			<tr>
+				<td class="time">
+					<h4><%= htime(period.starts_at) %></h4><br>
+					<div class="btn-group">
+						<%= link_to "수정", edit_admin_event_period_path(@event, period), class: "btn btn-warning btn-xs w40" %>
+						<%= link_to "삭제", admin_event_period_path(@event, period), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "btn btn-danger btn-xs w40" %>
+					</div>
+					<%= link_to "프로그램 추가", new_admin_event_period_program_path(@event, period), class: "btn btn-success btn-xs mt5 w80" %>
+				</td>
+				<% if period.programs.blank? %>
+					<td colspan="<%= @event.rooms.count %>"></td>
+				<% else %>
+					<% period.programs.each do |program| %>
+					<td class="session" colspan="<%= @event.rooms.count if program.room_id.blank? %>">
+						<h4 class="title dib"><%= program.title %></h4><%= "<span class='room dib'>(#{program.room.name})</span>".html_safe if program.room_id.present? %><br>
+						<span class="speaker">
+							<% program.speakers.each do |speaker| %>
+								<% if speaker.link.present? %>
+									<%= link_to speaker.name, speaker.link %>
+								<% else %>
+									<%= speaker.name %>
+								<% end %>
+							<% end %>
+						</span>
+						<p class="content"><%= program.content %></p>
+						<div class="btn-group fr">
+							<%= link_to "수정", edit_admin_event_period_program_path(@event, period, program), class: "btn btn-warning btn-xs" %>
+							<%= link_to "삭제", admin_event_period_program_path(@event, period, program), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "btn btn-danger btn-xs" %>
+						</div>
+					</td>
+					<% end %>
+				<% end %>	
+			</tr>
+		<% end %>
+			<tr class="new_period">
+				<td colspan="<%= @event.rooms.count+1 %>">
+					<%= link_to new_admin_event_period_path(@event), :class => "btn btn-success" do %>
+						<span class="glyphicon glyphicon-plus"></span> 새 시간대 추가하기
+					<% end %>						
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

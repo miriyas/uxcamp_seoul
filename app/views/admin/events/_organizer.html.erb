@@ -1,0 +1,16 @@
+<section class="organizer_section">
+	<h3>오거나이저</h3>
+	<% if @event.organizers.blank? %>
+		<p class="w100p tac">오거나이저가 아무도 없습니다.</p>
+	<% else %>
+		<ul class="organizers">
+			<% @event.organizers.each do |organizer| %>
+			<li class="organizer"></li>
+				<%= organizer.photo %>
+				<%= organizer.name %>
+				<%= organizer.link %>
+				<%= organizer.role %>
+			<% end %>
+		</ul>
+	<% end %>
+</section>

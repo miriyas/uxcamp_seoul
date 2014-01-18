@@ -9,7 +9,12 @@ Rails.application.routes.draw do
 		get 'stat' => "stats#index", :as => "stat"
 		get 'stat_query' => "stats#query", :as => "stat_query"
 
-		resources :events
+		resources :events do
+  		resources :rooms
+  		resources :periods do
+    		resources :programs
+      end
+    end
 		resources :users
 	end  
 end

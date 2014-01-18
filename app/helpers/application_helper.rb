@@ -12,6 +12,12 @@ module ApplicationHelper
 		divider = "." if divider.blank?
 		dt.strftime("%Y#{divider}%m#{divider}%d %H:%M")
 	end
+  
+  def htime(dt)
+		return '' if dt.blank?
+		divider = ":"
+		dt.strftime("%H:%M")
+  end
 
 	# for form error message
 	def flash_error_message(association)

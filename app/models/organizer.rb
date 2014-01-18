@@ -14,4 +14,5 @@
 #
 
 class Organizer < ActiveRecord::Base
+  belongs_to :event
 end

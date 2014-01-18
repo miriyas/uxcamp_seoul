@@ -1,18 +1,15 @@
 # == Schema Information
 #
-# Table name: speakers
+# Table name: rooms
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
-#  link       :string(255)
-#  photo      :string(255)
 #  event_id   :integer
-#  program_id :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Speaker < ActiveRecord::Base
+class Room < ActiveRecord::Base
   belongs_to :event
-  belongs_to :program
+  has_many :programs, :dependent => :nullify
 end

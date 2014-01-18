@@ -1,0 +1,30 @@
+<section class="information_section">
+	<div class="poster"><%= image_tag(@event.poster.url(:w240)) if @event.poster.present? %></div>
+	<div class="info">
+		<div class="fl w100p">
+			<h2 class="fl"><%= @event.title %></h2>
+			<% if current_user.admin? %>
+				<div class="btn-group fr">
+					<%= link_to '행사 수정', edit_admin_event_path(@event), class: "btn btn-warning" %>
+					<%= link_to '행사 삭제', admin_event_path(@event), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다. 이 작업은 위험합니다."}, class: "btn btn-danger" %>
+				</div>
+			<% else %>
+				<div class="btn-group fr">
+					<%= link_to '행사 수정', "/", class: "btn btn-warning disabled" %>
+					<%= link_to '행사 삭제', "/", class: "btn btn-danger disabled" %>
+				</div>
+			<% end %>				
+		</div>
+		
+		행사 기간 : 
+		<% if hdate(@event.starts_at, "") == hdate(@event.ends_at, "") %>
+			<%= hdate(@event.starts_at, "") %> 하루
+		<% else %>
+			<%= hdate(@event.starts_at, "") %> ~ <%= hdate(@event.ends_at, "") %>
+		<% end %>
+		<br>
+		사용하는 방 수 : <%= @event.rooms.count %><br>
+		조회수 : <%= @event.view_count %><br>
+		<%= @event.position %><br>
+	</div>
+</section>

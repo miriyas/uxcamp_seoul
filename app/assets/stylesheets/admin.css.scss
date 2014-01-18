@@ -87,6 +87,10 @@ a {
 	url('../assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
+.breadcrumb {
+	margin-top: 20px;
+}
+
 .events {
 	.event {
 		float: left;
@@ -101,6 +105,53 @@ a {
 			display: block;
 			margin: 10px;
 			text-decoration: none;
+			.poster_wrapper {
+				width: 240px;
+				height: 320px;
+			}
 		}
 	}
 }
+
+.event_show {
+	section {
+		float: left;
+		width: 100%;
+	}
+	.poster {
+		float: left;
+		width: 242px;
+		min-height: 240px;
+		border: 1px solid #d6d6d6;
+	}
+	.info {
+		float: left;
+		padding: 0 10px;
+		h2 {
+			margin: 0px;
+		}
+	}
+	.programs{
+		&.room4 { 
+			.time { width: 8% }
+			.session { width: 23% }
+		}
+		.time {
+			text-align: center;
+			vertical-align: middle;
+		}
+		.speaker {
+			font-weight: bold;
+		}
+		.content {}
+		.new_period {
+			td {
+				text-align: center;
+				a {
+					width: 400px;
+				}
+			}
+		}
+	}	
+}
+

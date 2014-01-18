@@ -1,0 +1,13 @@
+<% url = params[:action] == "new" ? admin_event_rooms_path : admin_event_room_path %>
+
+<div class="w300">
+	<%= simple_form_for [:admin, @room], url: url do |f| %>
+		<% @errors = @room.errors.messages %>
+
+		<%= f.input :name, label: "방 이름", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:room) %>
+		<br>
+		<hr>
+		<%= render "/shared/form_confirm_or_cancel" %>
+	<% end %>
+</div>
