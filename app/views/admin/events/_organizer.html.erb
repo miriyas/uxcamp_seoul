@@ -1,16 +1,27 @@
-<section class="organizer_section">
+<section class="organizers_section">
 	<h3>오거나이저</h3>
-	<% if @event.organizers.blank? %>
+	<% if @organizers.blank? %>
 		<p class="w100p tac">오거나이저가 아무도 없습니다.</p>
 	<% else %>
 		<ul class="organizers">
-			<% @event.organizers.each do |organizer| %>
-			<li class="organizer"></li>
-				<%= organizer.photo %>
-				<%= organizer.name %>
-				<%= organizer.link %>
-				<%= organizer.role %>
+			<% @organizers.each do |organizer| %>
+				<li class="organizer">
+					<%= link_to edit_admin_event_organizer_path(@event, organizer) do %>
+						<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
+					<% end %>
+					<% if organizer.link.present? %>
+						<%= link_to "#{organizer.name}/#{organizer.role}", organizer.link %>
+					<% else %>
+						<%= organizer.name %>/<%= organizer.role %>
+					<% end %>
+				</li>
 			<% end %>
+			<li class="new_organizer">
+				<%= link_to new_admin_event_organizer_path(@event) do %>
+					<div class="new_photo btn btn-success">+</div>
+					오거나이저 추가 
+				<% end %>
+			</li>
 		</ul>
 	<% end %>
 </section>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   		resources :periods do
     		resources :programs
       end
+  		resources :organizers
     end
 		resources :users
 	end  

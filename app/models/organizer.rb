@@ -14,5 +14,7 @@
 #
 
 class Organizer < ActiveRecord::Base
+  mount_uploader :photo, ProfileUploader
+
   belongs_to :event
 end
