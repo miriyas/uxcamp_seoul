@@ -1,0 +1,48 @@
+<section class="programs_section">
+	<h3>프로그램</h3>
+	<% room_cnt = "room#{@event.rooms.count}" %>
+	<table class="programs table table-bordered table-striped <%= room_cnt %>">
+		<thead>
+			<tr class="rooms">
+				<td></td>
+				<% @event.rooms.each do |room| %>
+					<td>
+						<h4><%= room.name %></h4>
+					</td>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @periods.each do |period| %>
+				<tr>
+					<td class="time">
+						<h4><%= htime(period.starts_at) %></h4>
+					</td>
+					<% if period.programs.blank? %>
+						<td colspan="<%= @event.rooms.count %>"></td>
+					<% else %>
+						<% period.programs.each do |program| %>
+						<td class="session" colspan="<%= @event.rooms.count if program.room_id.blank? %>">
+							<div class="title">
+								<h4 class="di"><%= program.title %></h4><%= "<span class='room'> (#{program.room.name})</span>".html_safe if program.room_id.present? %>
+							</div>
+							<p class="content <%= 'nil' unless program.content.present? %>"><%= truncate(program.content, length: 60) %></p>
+							<div class="speakers">
+								<% program.speakers.each do |speaker| %>
+									<div class="btn-group btn-group-xs speaker mr0 mb5">
+										<% if speaker.link.present? %>
+											<%= link_to speaker.name, speaker.link %>
+										<% else %>
+											<%= speaker.name %>
+										<% end %>
+									</div>
+								<% end %>
+							</div>
+						</td>
+						<% end %>
+					<% end %>	
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</section>
