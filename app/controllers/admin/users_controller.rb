@@ -20,21 +20,23 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    unless current_user.id == params[:id].to_i
+    if current_user.id == params[:id].to_i || current_user.admin?
+      @user = User.find(params[:id])
+    else
       redirect_to admin_events_path
     end
-    @user = User.find(params[:id])
   end
   def update
-    unless current_user.id == params[:id].to_i
-      redirect_to admin_events_path
-    end
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to admin_users_path, notice: '사용자가 수정되었습니다.'
+    if current_user.id == params[:id].to_i || current_user.admin?
+      @user = User.find(params[:id])
+      if @user.update(user_params)
+        redirect_to admin_users_path, notice: '사용자가 수정되었습니다.'
+      else
+  			p @user.errors
+        render action: 'edit'
+      end
     else
-			p @user.errors
-      render action: 'edit'
+      redirect_to admin_events_path
     end
   end
 

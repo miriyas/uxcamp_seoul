@@ -25,6 +25,6 @@
 		<br>
 		사용하는 방 수 : <%= @event.rooms.count %><br>
 		조회수 : <%= @event.view_count %><br>
-		표시 순서 : <%= @event.position %><br>
+		정렬 순서 : <%= @event.position.present? ? @event.position : "따로 지정되지 않음" %><br>
 	</div>
 </section>

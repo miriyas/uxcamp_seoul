@@ -28,6 +28,11 @@ hr {
 
 .container { width: 100% !important }
 
+.alert {
+	margin-top: 10px !important;
+	margin-bottom: 0px !important;
+}
+
 #login {
 	position: fixed;
 	width: 100%;
@@ -137,7 +142,7 @@ a {
 }
 
 .breadcrumb {
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .events {

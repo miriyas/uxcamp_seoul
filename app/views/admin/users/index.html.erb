@@ -1,7 +1,11 @@
 <div class="w100p">
+	<% if notice.present? %>
+		<p class="alert alert-success"><%= notice %></p>
+	<% end %>
 	<h1 class="dib">총 <%= content_tag :span, User.count, :class => "font-important" %>명의 오거나이저</h1>
 	<hr class="mt10">
 </div>
+
 
 <% if @users.blank? %>
 	<div class="w100p tac">오거나이저가 한명도 없습니다.</div>
