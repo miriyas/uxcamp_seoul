@@ -1,4 +1,4 @@
-<section class="program_section">
+<section class="programs_section">
 	<h3>프로그램</h3>
 	<% room_cnt = "room#{@event.rooms.count}" %>
 	<table class="programs table table-bordered table-striped <%= room_cnt %>">
@@ -33,7 +33,8 @@
 				<% else %>
 					<% period.programs.each do |program| %>
 					<td class="session" colspan="<%= @event.rooms.count if program.room_id.blank? %>">
-						<h4 class="title dib"><%= program.title %></h4><%= "<span class='room dib'>(#{program.room.name})</span>".html_safe if program.room_id.present? %><br>
+						<h4 class="title"><%= truncate(program.title, length: 16) %></h4>
+						<%= "<span class='room'>(#{program.room.name})</span>".html_safe if program.room_id.present? %><br>
 						<span class="speaker">
 							<% program.speakers.each do |speaker| %>
 								<% if speaker.link.present? %>
@@ -43,7 +44,7 @@
 								<% end %>
 							<% end %>
 						</span>
-						<p class="content"><%= program.content %></p>
+						<p class="content"><%= truncate(program.content, length: 60) %></p>
 						<div class="btn-group fr">
 							<%= link_to "수정", edit_admin_event_period_program_path(@event, period, program), class: "btn btn-warning btn-xs" %>
 							<%= link_to "삭제", admin_event_period_program_path(@event, period, program), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "btn btn-danger btn-xs" %>

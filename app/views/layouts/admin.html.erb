@@ -29,13 +29,20 @@
 					<%= link_to "UXCS", "/", :class => "navbar-brand" %>
 		    </div>
 		    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-					<%= navigation_tag :class => "nav navbar-nav" do |m| %>
-						<%= m.item "행사 관리", admin_events_path, :current => params[:controller] == "admin/events" %>
-						<%= m.item "권한 관리", admin_users_path, :current => params[:controller] == "admin/users" %>
-						<%= m.item "통계", admin_stat_path, :current => params[:controller] == "admin/stat" %>
+					<% if current_user.admin? %>
+						<%= navigation_tag :class => "nav navbar-nav" do |m| %>
+							<%= m.item "행사 관리", admin_events_path, :current => params[:controller] == "admin/events" %>
+							<%= m.item "권한 관리", admin_users_path, :current => params[:controller] == "admin/users" %>
+							<%= m.item "통계", admin_stat_path, :current => params[:controller] == "admin/stat" %>
+						<% end %>
+					<% else %>
+						<%= navigation_tag :class => "nav navbar-nav" do |m| %>
+							<%= m.item "행사 관리", admin_events_path, :current => params[:controller] == "admin/events" %>
+							<%= m.item "통계", admin_stat_path, :current => params[:controller] == "admin/stat" %>
+						<% end %>
 					<% end %>
 		      <ul class="nav navbar-nav navbar-right">
-		        <li><%= link_to current_user.name, admin_user_path(current_user) %></li>
+		        <li><%= link_to "#{current_user.name} (#{User::ROLES.index(current_user.role)})", edit_admin_user_path(current_user) %></li>
 						<li class="last">
 							<a href="<%= admin_logout_path %>"><i class="icon-off"></i> 로그아웃</a>
 						</li>

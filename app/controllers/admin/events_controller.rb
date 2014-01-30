@@ -18,7 +18,7 @@ class Admin::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to admin_events_path, no함e: '행사가 만들어졌습니다.'
+      redirect_to admin_events_path, notice: '행사가 만들어졌습니다.'
     else
 			p @event.errors
       render action: 'new'

@@ -1,0 +1,47 @@
+<div class="w100p">
+	<h1 class="dib">총 <%= content_tag :span, User.count, :class => "font-important" %>명의 오거나이저</h1>
+	<hr class="mt10">
+</div>
+
+<% if @users.blank? %>
+	<div class="w100p tac">오거나이저가 한명도 없습니다.</div>
+<% end %>
+<table class="table table-condensed table-hover">
+  <thead>
+	  <tr>
+	    <th>ID</th>
+	    <th class="w50">권한/상태</th>
+	    <th>이름</th>
+	    <th>이메일</th>
+	    <th>합류일</th>
+	    <th></th>
+	  </tr>
+	</thead>
+	<tbody class="list">
+	  <% @users.each do |user| %>
+			<tr>
+				<td><%= user.id %></td>
+				<td class="role">
+					<% if user.role == "admin" %>
+						<span class="label label-success">최고관리자</span>
+					<% elsif user.role == "organizer" %>
+						<span class="label label-primary">오거나이저</span>
+					<% elsif user.role == "pending" %>
+						<span class="label label-warning">승인대기중</span>
+					<% else %>
+						<span class="label label-danger">WTF</span>
+					<% end %>
+				</td>
+				<td class="name"><%= user.name %></td>
+				<td class="email"><%= user.email %></td>
+		    <td><%= hdatetime(user.created_at, "/") %></td>
+		    <td>
+					<div class="btn-group">
+						<%= link_to '수정', edit_admin_user_path(user), class: "btn btn-xs btn-warning" %>
+		    		<%= link_to '삭제', admin_user_path(user), method: :delete, data: { confirm: '정말 삭제하겠습니까?' }, class: "btn btn-xs btn-danger" %>
+					</div>
+				</td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>

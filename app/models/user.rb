@@ -5,8 +5,7 @@
 #  id                           :integer          not null, primary key
 #  name                         :string(255)
 #  email                        :string(255)      not null
-#  role                         :string(255)      default("organizer")
-#  status                       :string(255)      default("pending")
+#  role                         :string(255)      default("pending")
 #  crypted_password             :string(255)      not null
 #  salt                         :string(255)      not null
 #  created_at                   :datetime
@@ -25,21 +24,22 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true, :if => :password_required?
   validates :password_confirmation, presence: true, :if => :password_required?
   validates_presence_of :name
-  validates_inclusion_of :role, :in => %w(admin organizer), :if => lambda { |m| m.role = "organizer" if m.role.blank? }
+  validates_inclusion_of :role, :in => %w(admin organizer pending), :if => lambda { |m| m.role = "pending" if m.role.blank? }
 
   ROLES = {
     "최고관리자" => "admin",
-    "오거나이저" => "organizer" 
+    "오거나이저" => "organizer",
+    "승인대기중" => "pending" 
   }
 
-	scope :organizers, -> { where(role: "organizer") }
+  # scope :organizers, -> { where(role: "organizer") }
 
   def password_required?
     new_record? || password
   end
 
   def organizer?
-    role == "admin" || "organizer"
+    role == ("admin" || "organizer")
   end
 
   def admin?

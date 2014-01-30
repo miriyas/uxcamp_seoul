@@ -26,6 +26,55 @@ hr {
 	width: 100%;
 }
 
+.container { width: 100% !important }
+
+#login {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+/*	background-image: url(./homeblur.jpg);*/
+	background-color: black;
+	overflow: hidden;
+
+	&.mobile {
+		width: 640px;
+	}
+
+	.wrapper {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -250px;
+		margin-top: -250px;
+		width: 500px;
+		height: 500px;
+
+		.header {
+			font-size: 48px;
+			line-height: 48px;
+			color: white;
+		}
+
+		h1 {
+			margin: 30px 0px;
+			font-size: 36px;
+			color: white;	
+		}
+
+		form {
+			label {
+				color: white;
+			}
+		}
+
+		.error {
+			color: red;
+		}
+	}
+}
+
+
 /* == ADMIN GNB == */
 #h {
 	height: 51px;

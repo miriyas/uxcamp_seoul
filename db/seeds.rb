@@ -1,6 +1,8 @@
 puts "=====================SEED====================="
 puts "== CreateUsers: seeding ======================"
-admin = User.create(name:"miriya", email:"miriya.lee@gmail.com", role:"admin", status:"running", password:"1111", password_confirmation:"1111")
+admin = User.create(name:"miriya", email:"miriya.lee@gmail.com", role:"admin", password:"1111", password_confirmation:"1111")
+organizer = User.create(name:"organizer", email:"organizer@gmail.com", role:"organizer", password:"1111", password_confirmation:"1111")
+pending = User.create(name:"pending", email:"pending@gmail.com", role:"pending", password:"1111", password_confirmation:"1111")
 
 puts "== CreateEvents: seeding ======================"
 event_camp1 = Event.create(title:"1st. UX Camp Seoul", starts_at: "2010-02-27", ends_at: "2010-02-27")

@@ -5,8 +5,7 @@
 #  id                           :integer          not null, primary key
 #  name                         :string(255)
 #  email                        :string(255)      not null
-#  role                         :string(255)      default("organizer")
-#  status                       :string(255)      default("pending")
+#  role                         :string(255)      default("pending")
 #  crypted_password             :string(255)      not null
 #  salt                         :string(255)      not null
 #  created_at                   :datetime

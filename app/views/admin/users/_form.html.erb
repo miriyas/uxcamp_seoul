@@ -1,0 +1,15 @@
+<div class="w300">
+	<%= simple_form_for [:admin, @user] do |f| %>
+		<% @errors = @user.errors.messages %>
+		<%= f.input :email, label: "메일주소", label_html: { class: "fwb" }, input_html: { class: "form-control", disabled: "disabled" }, error: false %><br>
+
+		<%= f.input :name, label: "이름", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:name) %>
+		<br>
+		<%= f.input :role, label: "권한", collection: User::ROLES, label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:role) %>
+		<br>
+		<hr>
+		<%= render "/shared/form_confirm_or_cancel" %>
+	<% end %>
+</div>
