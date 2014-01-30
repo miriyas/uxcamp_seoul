@@ -12,11 +12,12 @@ Rails.application.routes.draw do
 		resources :events do
   		resources :rooms
   		resources :periods do
-    		resources :programs
+    		resources :programs do
+          resources :speakers
+        end
       end
   		resources :organizers
     end
-
 		resources :users
-	end  
+	end
 end

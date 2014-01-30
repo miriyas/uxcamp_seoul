@@ -3,7 +3,6 @@ class CreateSpeakers < ActiveRecord::Migration
     create_table :speakers do |t|
       t.string :name
       t.string :link
-      t.string :photo
       t.integer :event_id
       t.integer :program_id
 

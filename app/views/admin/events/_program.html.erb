@@ -3,16 +3,15 @@
 	<% room_cnt = "room#{@event.rooms.count}" %>
 	<table class="programs table table-bordered table-striped <%= room_cnt %>">
 		<thead>
-			<tr>
+			<tr class="rooms">
 				<td>
-					<%= link_to "방 추가", new_admin_event_room_path(@event), class: "btn btn-success btn-xs mt5 w80" %>
+					<%= link_to "방 추가", new_admin_event_room_path(@event), class: "btn btn-success btn-xs m10 w80" %>
 				</td>
 				<% @event.rooms.each do |room| %>
 					<td>
-						<%= room.name %>
-						<div class="btn-group fr">
-<%= link_to "방 수정", edit_admin_event_room_path(@event, room), class: "btn btn-warning btn-xs" %><%= link_to "삭제", admin_event_room_path(@event, room), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "btn btn-danger btn-xs" %>
-						</div>
+						<h4><%= room.name %></h4>
+						<%= link_to "", edit_admin_event_room_path(@event, room), class: "fs10 glyphicon glyphicon-cog orange" %>
+						<%= link_to "", admin_event_room_path(@event, room), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "fs10 glyphicon glyphicon-remove fcr" %>
 					</td>
 				<% end %>
 			</tr>
@@ -21,33 +20,41 @@
 		<% @periods.each do |period| %>
 			<tr>
 				<td class="time">
-					<h4><%= htime(period.starts_at) %></h4><br>
-					<div class="btn-group">
-						<%= link_to "수정", edit_admin_event_period_path(@event, period), class: "btn btn-warning btn-xs w40" %>
-						<%= link_to "삭제", admin_event_period_path(@event, period), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "btn btn-danger btn-xs w40" %>
-					</div>
-					<%= link_to "프로그램 추가", new_admin_event_period_program_path(@event, period), class: "btn btn-success btn-xs mt5 w80" %>
+					<h4><%= htime(period.starts_at) %></h4>
+						<%= link_to "", edit_admin_event_period_path(@event, period), class: "fs10 glyphicon glyphicon-cog orange" %>
+						<%= link_to "", admin_event_period_path(@event, period), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "fs10 glyphicon glyphicon-remove fcr" %>
+						<%= link_to "프로그램 추가", new_admin_event_period_program_path(@event, period), class: "btn btn-success btn-xs mt5 mb10 w80" %>
 				</td>
 				<% if period.programs.blank? %>
 					<td colspan="<%= @event.rooms.count %>"></td>
 				<% else %>
 					<% period.programs.each do |program| %>
 					<td class="session" colspan="<%= @event.rooms.count if program.room_id.blank? %>">
-						<h4 class="title"><%= truncate(program.title, length: 16) %></h4>
-						<%= "<span class='room'>(#{program.room.name})</span>".html_safe if program.room_id.present? %><br>
-						<span class="speaker">
+						<div class="title">
+							<h4 class="di"><%= program.title %></h4><%= "<span class='room'> (#{program.room.name})</span>".html_safe if program.room_id.present? %>
+							<%= link_to "", edit_admin_event_period_program_path(@event, period, program), class: "fs10 glyphicon glyphicon-cog orange" %>
+							<%= link_to "", admin_event_period_program_path(@event, period, program), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "fs10 glyphicon glyphicon-remove fcr" %>
+						</div>
+						<p class="content <%= 'nil' unless program.content.present? %>"><%= truncate(program.content, length: 60) %></p>
+						<div class="speakers">
 							<% program.speakers.each do |speaker| %>
-								<% if speaker.link.present? %>
-									<%= link_to speaker.name, speaker.link %>
-								<% else %>
-									<%= speaker.name %>
-								<% end %>
+								<div class="btn-group btn-group-xs speaker mr0 mb5">
+									<% if speaker.link.present? %>
+										<%= link_to speaker.name, speaker.link, class: "btn btn-default" %>
+									<% else %>
+										<button class="btn btn-default" disabled=disabled><%= speaker.name %></button>
+									<% end %>
+									<%= link_to(edit_admin_event_period_program_speaker_path(@event, period, program, speaker), class: "btn btn-warning") do %>
+										<span class="fcw fwn glyphicon glyphicon-cog fs10"></span>
+									<% end %>
+									<%= link_to(admin_event_period_program_speaker_path(@event, period, program, speaker), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "btn btn-danger") do %>
+										<span class="fcw fwn glyphicon glyphicon-remove fs10"></span>
+									<% end %>
+								</div>
 							<% end %>
-						</span>
-						<p class="content"><%= truncate(program.content, length: 60) %></p>
-						<div class="btn-group fr">
-							<%= link_to "수정", edit_admin_event_period_program_path(@event, period, program), class: "btn btn-warning btn-xs" %>
-							<%= link_to "삭제", admin_event_period_program_path(@event, period, program), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "btn btn-danger btn-xs" %>
+							<%= link_to(new_admin_event_period_program_speaker_path(@event, period, program), class: "btn btn-success btn-xs mb5") do %>
+								<span class="fcw fwn glyphicon glyphicon-plus fs10"></span>
+							<% end %>
 						</div>
 					</td>
 					<% end %>

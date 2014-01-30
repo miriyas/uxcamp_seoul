@@ -1,0 +1,16 @@
+<% url = params[:action] == "new" ? admin_event_period_program_speakers_path : admin_event_period_program_speaker_path %>
+
+<div class="w300">
+	<%= simple_form_for [:admin, @speaker], url: url do |f| %>
+		<% @errors = @speaker.errors.messages %>
+
+		<%= f.input :name, label: "이름", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:speaker) %>
+		<br>
+		<%= f.input :link, label: "홈페이지", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:link) %>
+		<br>
+		<hr>
+		<%= render "/shared/form_confirm_or_cancel" %>
+	<% end %>
+</div>

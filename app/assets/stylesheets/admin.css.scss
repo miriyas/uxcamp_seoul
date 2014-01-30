@@ -187,6 +187,14 @@ a {
 	
 	.programs_section {
 		.programs{
+			td { padding: 0px }
+			.rooms {
+				background-color: silver;
+				h4 {
+					display: inline-block;
+					margin: 10px;
+				}
+			}
 			&.room4 { 
 				.time { width: 8% }
 				.session { width: 23% }
@@ -194,14 +202,33 @@ a {
 			.time {
 				text-align: center;
 				vertical-align: middle;
+				h4 {
+					margin-bottom: 0px;
+				}
 			}
-			.speaker {
-				font-weight: bold;
+			.session {
+				.title {
+					background-color: #eee;
+					margin: 0px;
+					padding: 10px;
+				}
+				.room {
+					
+				}
+				.content {
+					margin: 0px;
+					padding: 10px;
+					&.nil { padding: 6px; }
+				}
+				.speakers {
+					padding: 0 10px;
+					.speaker { font-weight: bold }
+				}
 			}
-			.content {}
 			.new_period {
 				td {
 					text-align: center;
+					padding: 10px;
 					a {
 						width: 400px;
 					}

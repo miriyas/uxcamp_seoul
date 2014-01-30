@@ -5,7 +5,6 @@
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  link       :string(255)
-#  photo      :string(255)
 #  event_id   :integer
 #  program_id :integer
 #  created_at :datetime

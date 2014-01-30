@@ -15,5 +15,5 @@
 class Program < ActiveRecord::Base
   belongs_to :period
   belongs_to :room  
-  has_many :speakers
+  has_many :speakers, :dependent => :destroy
 end

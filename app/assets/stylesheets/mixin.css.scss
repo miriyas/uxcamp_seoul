@@ -36,6 +36,7 @@
 .fl { float: left }
 .fr { float: right }
 
+.fs10 { font-size: 10px }
 .fs11 { font-size: 11px }
 .fs12 { font-size: 12px }
 .fs14 { font-size: 14px }
@@ -46,12 +47,13 @@
 .fs28 { font-size: 28px }
 
 .fwb { font-weight: bold }
-.fcb { color: blue }
-.fcr { color: red }
-.fcw { color: white }
-.fcy { color: yellow }
-.fcg { color: green }
-.fcgr { color: silver }
+.fwn { font-weight: normal }
+.fcb { color: #0074d9 !important }
+.fcr { color: #ff4136 !important }
+.fcw { color: white !important }
+.fcy { color: #ffdc00 !important }
+.fcg { color: #2ecc40 !important }
+.fcgr { color: silver !important }
 
 .lh160 { line-height: 160% }
 
@@ -161,23 +163,23 @@
 .bg-black { background-color: #111111; }
 
 /* Colors */
-.navy { color: #001f3f; }
-.blue { color: #0074d9; }
-.aqua { color: #7fdbff; }
-.teal { color: #39cccc; }
-.olive { color: #3d9970; }
-.green { color: #2ecc40; }
-.lime { color: #01ff70; }
-.yellow { color: #ffdc00; }
-.orange { color: #ff851b; }
-.red { color: #ff4136; }
-.fuchsia { color: #f012be; }
-.purple { color: #b10dc9; }
-.maroon { color: #85144b; }
-.white { color: white; }
-.silver { color: #dddddd; }
-.gray { color: #aaaaaa; }
-.black { color: #111111; }
+.navy { color: #001f3f !important }
+.blue { color: #0074d9 !important }
+.aqua { color: #7fdbff !important }
+.teal { color: #39cccc !important }
+.olive { color: #3d9970 !important }
+.green { color: #2ecc40 !important }
+.lime { color: #01ff70 !important }
+.yellow { color: #ffdc00 !important }
+.orange { color: #ff851b !important }
+.red { color: #ff4136 !important }
+.fuchsia { color: #f012be !important }
+.purple { color: #b10dc9 !important }
+.maroon { color: #85144b !important }
+.white { color: white !important }
+.silver { color: #dddddd !important }
+.gray { color: #aaaaaa !important }
+.black { color: #111111 !important }
 
 /* PRETTIER LINKS */
 a {
