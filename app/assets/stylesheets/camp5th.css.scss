@@ -2,6 +2,12 @@
 @import "compass/reset";
 @import "mixin";
 
+@mixin content_right {
+	float: right;
+	width: 820px;
+	margin-right: 10px;
+}
+
 .centering {
 	width: 1180px;
 	margin: 0 auto;
@@ -42,12 +48,23 @@
 		color: white;
 	}
 	#section_aboutus {
-		background-color: white;
+		background: white image-url('camp5th/bg_aboutus.png') no-repeat 600px 20px;
 		color: black;
 		padding-top: 30px;
+		padding-bottom: 110px;
 		h3 { 
 			@include sprite_replace_text($camp5th_sprite, 'title_aboutus');
 			margin-top: 30px;
+		}
+		.information {
+			@include content_right;
+			margin-top: 60px;
+			font-size: 14px;
+			line-height: 22px;
+			color: #666;
+			p {
+				margin-bottom: 20px;
+			}
 		}
 	}
 	
@@ -58,9 +75,7 @@
 		padding-bottom: 70px;
 		h3 { @include sprite_replace_text($camp5th_sprite, 'title_programs') }
 		.programs {
-			float: right;
-			width: 820px;
-			margin-right: 10px;
+			@include content_right;
 			margin-top: 80px;
 			.row {
 				float: left;
@@ -147,7 +162,10 @@
 					.header {
 						border-bottom: 2px solid black;
 						padding: 10px;
-						a { color: black }
+						a {
+							color: black !important;
+							text-decoration: none;
+						}
 					}
 					.content {
 						padding: 10px;
@@ -162,6 +180,52 @@
 		padding-top: 30px;
 		padding-bottom: 70px;
 		h3 { @include sprite_replace_text($camp5th_sprite, 'title_speakers') }
+		.speakers {
+			@include content_right;
+			margin-top: 80px;
+			margin-bottom: 10px;
+			.speaker {
+				float: left;
+				margin-bottom: 60px;
+				.header {
+					.name {
+						font-size: 20px;
+						font-weight: bold;
+						color: black;
+					}
+					.title {
+						font-size: 16px;
+						line-height: 30px;
+						font-weight: normal;
+						color: #666;
+						border-bottom: 1px solid #999;
+						margin-bottom: 30px;
+					}
+				}
+				.body {
+					font-size: 13px;
+					line-height: 22px;
+					color: #666;
+					.photo,
+					.col1,
+					.col2 {
+						float: left;
+						width: 260px;
+						margin-right: 20px;
+					}
+					.col1,
+					.col2 {
+						margin-top: -5px;
+					}
+					.photo {
+						height: 150px;
+					}
+					.col2 {
+						margin-right: 0px;
+					}
+				}
+			}
+		}
 	}
 	#section_sponsors {
 		background-color: white;

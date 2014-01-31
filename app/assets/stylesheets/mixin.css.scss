@@ -1,4 +1,4 @@
-$camp5th_sprite: sprite-map('camp5th/*.png');
+$camp5th_sprite: sprite-map('camp5th/s/*.png');
 
 @mixin sprite_replace_text($sprite, $img-name){
 	@include hide_text;
@@ -186,19 +186,19 @@ $camp5th_sprite: sprite-map('camp5th/*.png');
 /* PRETTIER LINKS */
 a {
   text-decoration: none;
-  -webkit-transition: color .3s ease-in-out;
-  transition: color .3s ease-in-out; }
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out; }
 a:link {
   color: #0074d9;
-  -webkit-transition: color .3s ease-in-out;
-  transition: color .3s ease-in-out; }
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out; }
 a:visited {
   color: #b10dc9; }
 a:hover {
   color: #7fdbff;
-  -webkit-transition: color .3s ease-in-out;
-  transition: color .3s ease-in-out; }
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out; }
 a:active {
   color: #ff851b;
-  -webkit-transition: color .3s ease-in-out;
-  transition: color .3s ease-in-out; }
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out; }
