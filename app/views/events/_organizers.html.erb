@@ -1,19 +1,21 @@
-<section class="organizers_section">
-	<h3>오거나이저</h3>
-	<% if @organizers.blank? %>
-		<p class="w100p tac">오거나이저가 아무도 없습니다.</p>
-	<% else %>
-		<ul class="organizers">
-			<% @organizers.each do |organizer| %>
-				<li class="organizer">
-					<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
-					<% if organizer.link.present? %>
-						<%= link_to "#{organizer.name}/#{organizer.role}", organizer.link %>
-					<% else %>
-						<%= organizer.name %>/<%= organizer.role %>
-					<% end %>
-				</li>
-			<% end %>
-		</ul>
-	<% end %>
+<section id="section_organizers">
+	<div class="centering">
+		<h3>Organizers</h3>
+		<% if @organizers.blank? %>
+			<p class="w100p tac">오거나이저가 아무도 없습니다.</p>
+		<% else %>
+			<ul class="organizers">
+				<% @organizers.each do |organizer| %>
+					<li class="organizer">
+						<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
+						<% if organizer.link.present? %>
+							<%= link_to "#{organizer.name}/#{organizer.role}", organizer.link %>
+						<% else %>
+							<%= organizer.name %>/<%= organizer.role %>
+						<% end %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
 </section>

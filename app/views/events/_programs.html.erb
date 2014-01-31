@@ -1,48 +1,69 @@
-<section class="section_programs">
-	<h3>프로그램</h3>
-	<% room_cnt = "room#{@event.rooms.count}" %>
-	<table class="programs table table-bordered table-striped <%= room_cnt %>">
-		<thead>
-			<tr class="rooms">
-				<td></td>
-				<% @event.rooms.each do |room| %>
-					<td>
-						<h4><%= room.name %></h4>
-					</td>
-				<% end %>
-			</tr>
-		</thead>
-		<tbody>
+<section id="section_programs">
+	<div class="centering">
+		<h3>Programs</h3>
+		<% room_cnt = "room#{@event.rooms.count}" %>
+		<% room_name_row = false %>
+		<div class="programs">
 			<% @periods.each do |period| %>
-				<tr>
-					<td class="time">
-						<h4><%= htime(period.starts_at) %></h4>
-					</td>
-					<% if period.programs.blank? %>
-						<td colspan="<%= @event.rooms.count %>"></td>
-					<% else %>
+				<% unless period.programs.blank? %>
+					<% if (period.programs.count > 1) && room_name_row == false %>
+						<div class="row rooms">
+							<div class="time"></div>
+							<% @event.rooms.each do |room| %>
+								<div class="title">
+									<h4><%= room.name %></h4>
+								</div>
+							<% end %>
+						</div>
+						<% room_name_row = true %>
+					<% end %>
+					<div class="row">
+						<div class="time">
+							<h4><%= htime(period.starts_at) %></h4>
+						</div>
 						<% period.programs.each do |program| %>
-						<td class="session" colspan="<%= @event.rooms.count if program.room_id.blank? %>">
-							<div class="title">
-								<h4 class="di"><%= program.title %></h4><%= "<span class='room'> (#{program.room.name})</span>".html_safe if program.room_id.present? %>
-							</div>
-							<p class="content <%= 'nil' unless program.content.present? %>"><%= truncate(program.content, length: 60) %></p>
-							<div class="speakers">
-								<% program.speakers.each do |speaker| %>
-									<div class="btn-group btn-group-xs speaker mr0 mb5">
-										<% if speaker.link.present? %>
-											<%= link_to speaker.name, speaker.link %>
-										<% else %>
-											<%= speaker.name %>
+							<div class="session">
+								<div class="title">
+									<h4 class="ellipsis">
+										<% program.speakers.each do |speaker| %>
+											<% if speaker.link.present? %>
+												<%= link_to speaker.name, speaker.link %><%= ", " if program.speakers[program.speakers.index(speaker) + 1].present? %>
+											<% else %>
+												<%= speaker.name %><%= ", " if program.speakers[program.speakers.index(speaker) + 1].present? %>
+											<% end %>
 										<% end %>
+										<%= "_" if program.speakers.present? %><%= program.title %>
+									</h4>
+								</div>
+								<% if program.content.present? %>
+									<div class="more_info">
+										<div class="header">
+											<% program.speakers.each do |speaker| %>
+												<% if speaker.link.present? %>
+													<%= link_to speaker.name, speaker.link %><%= ", " if program.speakers[program.speakers.index(speaker) + 1].present? %>
+												<% else %>
+													<%= speaker.name %><%= ", " if program.speakers[program.speakers.index(speaker) + 1].present? %>
+												<% end %>
+											<% end %>
+											<%= "_" if program.speakers.present? %><%= program.title %>
+										</div>
+										<div class="content"><%= program.content %></div>
 									</div>
 								<% end %>
 							</div>
-						</td>
 						<% end %>
-					<% end %>	
-				</tr>
+					</div>
+				<% end %>	
 			<% end %>
-		</tbody>
-	</table>
+			<script type="text/javascript" charset="utf-8">
+				$('.session').hover(
+					function(){ $(this).children('.more_info').show(); },
+					function(){ $(this).children('.more_info').hide(); }
+				)
+				$('.more_info').hover(
+					function(){ $(this).hide(); }
+				)
+			</script>
+		</div>
+	</div>
 </section>
