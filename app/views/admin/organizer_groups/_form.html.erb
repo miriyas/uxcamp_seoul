@@ -1,0 +1,19 @@
+<% url = params[:action] == "new" ? admin_event_organizer_groups_path : admin_event_organizer_group_path %>
+
+<div class="w300">
+	<%= simple_form_for [:admin, @group], url: url do |f| %>
+		<% @errors = @group.errors.messages %>
+
+		<%= f.input :name, label: "이름", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:name) %>
+		<br>
+		<%= f.input :position, label: "순서", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:position) %>
+		<br>
+		<% if params[:action] == "edit" %>
+			<%= link_to '오거나이저 그룹 삭제', admin_event_organizer_groups_path(params[:event_id]), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "btn btn-danger w100p tac" %>
+		<% end %>
+		<hr>
+		<%= render "/shared/form_confirm_or_cancel" %>
+	<% end %>
+</div>

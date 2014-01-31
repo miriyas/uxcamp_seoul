@@ -2,6 +2,7 @@
 
 <div class="w300">
 	<%= simple_form_for [:admin, @organizer], url: url do |f| %>
+		<%= hidden_field_tag :organizer_group_id, params[:organizer_group_id] if params[:action] == "new" %>
 		<% @errors = @organizer.errors.messages %>
 
 		<%= f.input :photo, label: "프로필 사진", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
@@ -12,10 +13,12 @@
 		<br>
 		<%= f.input :link, label: "링크", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
 		<% flash_error_message(:link) %>
-		<br>		
-		<%= f.input :role, label: "역할", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
-		<% flash_error_message(:role) %>
 		<br>
+		<% unless params[:action] == "new" %>
+			<%= f.input :organizer_group_id, collection: Event.find(params[:event_id]).organizer_groups, label: "그룹", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+			<% flash_error_message(:role) %>
+			<br>
+		<% end %>
 		<%= f.input :position, label: "순서", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
 		<% flash_error_message(:position) %>
 		<br>

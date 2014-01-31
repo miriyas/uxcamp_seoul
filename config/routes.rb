@@ -25,6 +25,9 @@ Rails.application.routes.draw do
           resources :speakers
         end
       end
+  		resources :organizer_groups do
+    		resources :organizers
+      end
   		resources :organizers
   		resources :supporters
     end

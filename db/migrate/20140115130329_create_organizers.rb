@@ -4,9 +4,9 @@ class CreateOrganizers < ActiveRecord::Migration
       t.string :name
       t.string :photo
       t.string :link
-      t.string :role
       t.integer :position
       t.integer :event_id
+      t.integer :organizer_group_id
 
       t.timestamps
     end

@@ -3,25 +3,52 @@
 	<% if @organizers.blank? %>
 		<p class="w100p tac">오거나이저가 아무도 없습니다.</p>
 	<% else %>
-		<ul class="organizers">
-			<% @organizers.each do |organizer| %>
-				<li class="organizer">
-					<%= link_to edit_admin_event_organizer_path(@event, organizer) do %>
-						<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
+		<div class="organizers">
+			<% @organizergroups.each do |group| %>
+				<h4 class="di w100p fl"><%= group.name %><%= link_to "", edit_admin_event_organizer_group_path(@event, group), class: "fs10 glyphicon glyphicon-cog orange" %><%= link_to "", admin_event_organizer_group_path(@event, group), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "fs10 glyphicon glyphicon-remove fcr" %></h4>
+				<ul class="group">
+					<% group.organizers.each do |organizer| %>
+						<li class="organizer">
+							<%= link_to edit_admin_event_organizer_group_organizer_path(@event, group, organizer) do %>
+								<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
+							<% end %>
+							<% if organizer.link.present? %>
+								<%= link_to organizer.name, organizer.link %>
+							<% else %>
+								<%= organizer.name %>
+							<% end %>
+						</li>
 					<% end %>
-					<% if organizer.link.present? %>
-						<%= link_to "#{organizer.name}/#{organizer.role}", organizer.link %>
-					<% else %>
-						<%= organizer.name %>/<%= organizer.role %>
-					<% end %>
-				</li>
+					<li class="new_organizer">
+						<%= link_to new_admin_event_organizer_group_organizer_path(@event, group) do %>
+							<div class="new_photo btn btn-success">+</div>
+							추가 
+						<% end %>
+					</li>
+				</ul>
 			<% end %>
-			<li class="new_organizer">
-				<%= link_to new_admin_event_organizer_path(@event) do %>
-					<div class="new_photo btn btn-success">+</div>
-					오거나이저 추가 
+			<% if @event.organizers.free_organizers.count > 0 %>
+				<h4 class="di w100p fl">미지정</h4>
+				<ul class="group">
+					<% @event.organizers.free_organizers.each do |organizer| %>
+						<li class="organizer">
+							<%= link_to edit_admin_event_organizer_path(@event, organizer) do %>
+								<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
+							<% end %>
+							<% if organizer.link.present? %>
+								<%= link_to organizer.name, organizer.link %>
+							<% else %>
+								<%= organizer.name %>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
+			<div class="new_organizer_group">
+				<%= link_to new_admin_event_organizer_group_path(@event) do %>
+					<div class="new_photo btn btn-success"><span class="fcw fwn glyphicon glyphicon-plus fs10"></span> 오거나이저 그룹 추가</div> 
 				<% end %>
-			</li>
-		</ul>
+			</div>
+		</div>
 	<% end %>
 </section>

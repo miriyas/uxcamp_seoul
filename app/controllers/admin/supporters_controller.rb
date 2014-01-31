@@ -28,6 +28,10 @@ class Admin::SupportersController < ApplicationController
       render action: 'edit'
     end
   end
+  
+  def index
+    redirect_to admin_event_path(params[:event_id])
+  end
 
   def destroy
     @supporter = Supporter.find(params[:id])

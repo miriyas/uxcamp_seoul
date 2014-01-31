@@ -7,6 +7,7 @@ class Admin::OrganizersController < ApplicationController
   end
   def create
     params[:organizer][:event_id] = params[:event_id]
+    params[:organizer][:organizer_group_id] = params[:organizer_group_id] || nil
     @organizer = Organizer.new(organizer_params)
     if @organizer.save
       redirect_to admin_event_path(params[:event_id]), notice: '오거나이저를 추가했습니다.'
@@ -28,6 +29,10 @@ class Admin::OrganizersController < ApplicationController
       render action: 'edit'
     end
   end
+  
+  def index
+    redirect_to admin_event_path(params[:event_id])
+  end
 
   def destroy
     @organizer = Organizer.find(params[:id])
@@ -37,6 +42,6 @@ class Admin::OrganizersController < ApplicationController
 
   private
   def organizer_params
-    params.require(:organizer).permit(:name, :event_id, :link, :role, :photo, :position)
+    params.require(:organizer).permit(:name, :event_id, :link, :organizer_group_id, :photo, :position)
   end
 end

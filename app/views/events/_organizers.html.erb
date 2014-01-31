@@ -9,9 +9,9 @@
 					<li class="organizer">
 						<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
 						<% if organizer.link.present? %>
-							<%= link_to "#{organizer.name}/#{organizer.role}", organizer.link %>
+							<%= link_to "#{organizer.name}/#{organizer.organizer_group.name}", organizer.link %>
 						<% else %>
-							<%= organizer.name %>/<%= organizer.role %>
+							<%= organizer.name %>/<%= organizer.organizer_group.name %>
 						<% end %>
 					</li>
 				<% end %>
