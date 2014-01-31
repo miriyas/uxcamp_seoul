@@ -2,6 +2,7 @@ class CreateOrganizers < ActiveRecord::Migration
   def change
     create_table :organizers do |t|
       t.string :name
+      t.string :name_en
       t.string :photo
       t.string :link
       t.integer :position

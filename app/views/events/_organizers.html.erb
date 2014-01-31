@@ -1,21 +1,23 @@
 <section id="section_organizers">
 	<div class="centering">
 		<h3>Organizers</h3>
-		<% if @organizers.blank? %>
-			<p class="w100p tac">오거나이저가 아무도 없습니다.</p>
-		<% else %>
-			<ul class="organizers">
-				<% @organizers.each do |organizer| %>
-					<li class="organizer">
-						<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
-						<% if organizer.link.present? %>
-							<%= link_to "#{organizer.name}/#{organizer.organizer_group.name}", organizer.link %>
-						<% else %>
-							<%= organizer.name %>/<%= organizer.organizer_group.name %>
-						<% end %>
-					</li>
-				<% end %>
-			</ul>
-		<% end %>
+		<div class="organizers">
+			<% @organizergroups.each do |group| %>
+				<h4 class="di w100p fl"><%= group.name %></h4>
+				<ul class="group">
+					<% group.organizers.each do |organizer| %>
+						<li class="organizer<%= " nolink" unless organizer.link.present? %>">
+							<% if organizer.link.present? %>
+								<%= link_to organizer.link do %>
+									<span class="name"><%= organizer.name %></span><span class="name_en"><%= organizer.name_en %></span><span class="link"><%= organizer.link.gsub("http://", "") %></span>
+								<% end %>
+							<% else %>
+								<span class="name"><%= organizer.name %></span><span class="name_en"><%= organizer.name_en %></span>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
+		</div>
 	</div>
 </section>

@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140131205452) do
 
   create_table "organizers", force: true do |t|
     t.string   "name"
+    t.string   "name_en"
     t.string   "photo"
     t.string   "link"
     t.integer  "position"

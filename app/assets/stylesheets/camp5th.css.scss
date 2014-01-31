@@ -263,6 +263,55 @@
 		padding-top: 30px;
 		padding-bottom: 70px;
 		h3 { @include sprite_replace_text($camp5th_sprite, 'title_organizers') }
+		.organizers {
+			@include content_right;
+			margin-top: 40px;
+			h4 {
+				font-size: 13px;
+				line-height: 14px;
+				color: #c8c8c8;
+				padding: 6px 0px;
+				border-top: 1px solid #e0e0e0;
+				border-bottom: 1px solid #e0e0e0;
+				margin-bottom: 12px;
+				margin-top: 20px;
+			}
+			.organizer {
+				width: 100%;
+				float: left;
+				&.nolink {
+					height: 16px;
+					padding: 7px 0px;
+				}
+				a {
+					display: block;
+					padding: 7px 0px;
+					cursor: pointer;
+					height: 16px;
+					&:hover {
+						.link { color: #0074d9 !important }
+					}
+				}
+				.name {
+					float: left;
+					width: 60px;
+					font-size: 16px;
+					font-weight: bold;
+					color: #666;
+				}
+				.name_en,
+				.link {
+					font-size: 13px;
+					line-height: 16px;
+					font-weight: normal;
+					color: #999;
+				}
+				.name_en { float: left }
+				.link {
+					float: right;
+				}
+			}
+		}
 	}
 	#section_location {
 		background-color: black;

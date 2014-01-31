@@ -42,6 +42,6 @@ class Admin::OrganizersController < ApplicationController
 
   private
   def organizer_params
-    params.require(:organizer).permit(:name, :event_id, :link, :organizer_group_id, :photo, :position)
+    params.require(:organizer).permit(:name, :name_en, :event_id, :link, :organizer_group_id, :photo, :position)
   end
 end

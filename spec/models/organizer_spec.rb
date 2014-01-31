@@ -4,6 +4,7 @@
 #
 #  id                 :integer          not null, primary key
 #  name               :string(255)
+#  name_en            :string(255)
 #  photo              :string(255)
 #  link               :string(255)
 #  position           :integer

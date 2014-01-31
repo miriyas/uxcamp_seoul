@@ -107,7 +107,7 @@ ogc42 = OrganizerGroup.create(event_id: event_camp4.id, name: "진행", position
 ogc43 = OrganizerGroup.create(event_id: event_camp4.id, name: "회계", position: 3)
 ogc44 = OrganizerGroup.create(event_id: event_camp4.id, name: "홍보", position: 4)
 ogc45 = OrganizerGroup.create(event_id: event_camp4.id, name: "디자인", position: 5)
-Organizer.create(event_id: event_camp4.id, position: 1, name:"김요한", organizer_group_id: ogc41.id, link: "http://www.facebook.com/hiphapis")
+Organizer.create(event_id: event_camp4.id, position: 1, name:"김요한", name_en:"Kim, Johan", organizer_group_id: ogc41.id, link: "http://www.facebook.com/hiphapis")
 Organizer.create(event_id: event_camp4.id, position: 2, name:"조임현", organizer_group_id: ogc42.id, link: "http://www.facebook.com/yimhyun.cho")
 Organizer.create(event_id: event_camp4.id, position: 3, name:"한지혜", organizer_group_id: ogc42.id, link: "http://www.facebook.com/jihyea.han.7")
 Organizer.create(event_id: event_camp4.id, position: 4, name:"최봉준", organizer_group_id: ogc42.id, link: "http://www.facebook.com/jjun0824")
