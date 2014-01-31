@@ -1,3 +1,5 @@
+$camp5th_sprite: sprite-map('camp5th/*.png');
+
 @mixin sprite_replace_text($sprite, $img-name){
 	@include hide_text;
 	display: block;
