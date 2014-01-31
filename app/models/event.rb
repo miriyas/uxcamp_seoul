@@ -19,6 +19,7 @@ class Event < ActiveRecord::Base
   has_many :rooms, :dependent => :destroy
   has_many :periods, :dependent => :destroy
   has_many :organizers, :dependent => :destroy
+  has_many :supporters, :dependent => :destroy
     
 	validates :title, presence: true
   

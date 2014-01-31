@@ -1,0 +1,22 @@
+<section id="section_supporters">
+	<div class="centering">
+		<h3>Sponsors</h3>
+		<% if @supporters.blank? %>
+			<p class="w100p tac">스폰서가 한군데도 없습니다.</p>
+		<% else %>
+			<ul class="supporters">
+				<% @supporters.each do |supporter| %>
+					<li class="supporter<%= " right_side" if @supporters.index(supporter) % 3 == 2 %>">
+						<% if supporter.link.present? %>
+							<%= link_to supporter.link do %>
+								<div class="photo"><%= image_tag(supporter.photo.url(:camp5th), alt: supporter.name) if supporter.photo.present? %></div>
+							<% end %>
+						<% else %>
+							<div class="photo"><%= image_tag(supporter.photo.url(:camp5th), alt: supporter.name) if supporter.photo.present? %></div>
+						<% end %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+</section>

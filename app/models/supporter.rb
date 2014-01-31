@@ -1,18 +1,19 @@
 # == Schema Information
 #
-# Table name: speakers
+# Table name: supporters
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
+#  photo      :string(255)
 #  link       :string(255)
+#  position   :integer
 #  event_id   :integer
-#  program_id :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-require 'spec_helper'
+class Supporter < ActiveRecord::Base
+  mount_uploader :photo, SupporterUploader
 
-describe Speaker do
-  pending "add some examples to (or delete) #{__FILE__}"
+  belongs_to :event
 end

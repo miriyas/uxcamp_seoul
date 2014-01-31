@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118170811) do
+ActiveRecord::Schema.define(version: 20140131193620) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -70,9 +70,18 @@ ActiveRecord::Schema.define(version: 20140118170811) do
   create_table "speakers", force: true do |t|
     t.string   "name"
     t.string   "link"
-    t.string   "photo"
     t.integer  "event_id"
     t.integer  "program_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supporters", force: true do |t|
+    t.string   "name"
+    t.string   "photo"
+    t.string   "link"
+    t.integer  "position"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

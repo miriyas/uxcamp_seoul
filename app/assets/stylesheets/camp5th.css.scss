@@ -227,12 +227,35 @@
 			}
 		}
 	}
-	#section_sponsors {
+	#section_supporters {
 		background-color: white;
 		color: black;
 		padding-top: 30px;
 		padding-bottom: 70px;
 		h3 { @include sprite_replace_text($camp5th_sprite, 'title_sponsors') }
+		.supporters {
+			@include content_right;
+			margin-top: 80px;
+			margin-bottom: 50px;
+			.supporter {
+				float: left;
+				border: 1px solid #d6d6d6;
+				text-align: center;
+				box-sizing: content-box;
+				margin-right: 17px;
+				margin-bottom: 17px;
+				&.right_side { margin-right: 0px }
+				a {
+					display: block;
+					width: 260px;
+					height: 150px;
+					line-height: 150px;
+					img {
+						vertical-align: middle;
+					}
+				}
+			}
+		}
 	}
 	#section_organizers {
 		background-color: white;

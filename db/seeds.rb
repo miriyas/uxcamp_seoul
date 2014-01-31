@@ -143,4 +143,32 @@ candidates.each do |fullpath|
 	end
 end
 
+puts "== CreateSponsors: seeding ======================"
+Supporter.create(event_id: event_camp4.id, position: 1, name:"한독미디어대학원대학교", link: "http://www.kgit.ac.kr/")
+Supporter.create(event_id: event_camp4.id, position: 2, name:"미래웹기술연구소", link: "http://w3labs.kr/")
+Supporter.create(event_id: event_camp4.id, position: 3, name:"Kobalt60", link: "http://www.kobalt60.com/")
+Supporter.create(event_id: event_camp4.id, position: 4, name:"성균관대학교 인터렉션 사이언스학과", link: "http://is.skku.edu/")
+Supporter.create(event_id: event_camp4.id, position: 5, name:"Faber-Castell", link: "http://www.faber-castell.co.kr/")
+Supporter.create(event_id: event_camp4.id, position: 6, name:"에이콘출판사", link: "http://www.acornpub.co.kr/")
+
+puts "== CreateSponsors: photo uploading ======================"
+source_path = "#{::Rails.root.to_s}/public/seed/sponsor_photos/camp4"
+candidates = Dir.glob("#{source_path}/*.*")
+candidates.each do |fullpath|
+	begin
+		puts "--- Trying file: #{fullpath}"
+		extname = File.extname(fullpath)
+		basename = File.basename(fullpath)
+		filename = basename.gsub(extname, '')
+    supporter = Supporter.find(filename)
+    supporter.update_attributes(:photo => File.open(fullpath))
+    supporter.save      
+    puts "> #{supporter.photo.current_path}"
+	rescue Exception => e
+		puts e.message
+		next
+	end
+end
+
+
 puts "=====================DONE====================="

@@ -1,0 +1,34 @@
+<section class="supporters_section">
+	<h3>스폰서</h3>
+	<% if @supporters.blank? %>
+		<div class="new_supporter w100p tac">
+			<p>스폰서가 한군데도 없습니다.</p>
+			<%= link_to new_admin_event_supporter_path(@event) do %>
+				<div class="btn btn-success">
+					<span class="fcw fwn glyphicon glyphicon-plus fs10"></span> 스폰서 추가
+				</div> 
+			<% end %>
+		</div>
+	<% else %>
+		<ul class="supporters">
+			<% @supporters.each do |supporter| %>
+				<li class="supporter">
+					<%= link_to edit_admin_event_supporter_path(@event, supporter) do %>
+						<div class="photo"><%= image_tag(supporter.photo.url(:camp5th)) if supporter.photo.present? %></div>
+					<% end %>
+					<% if supporter.link.present? %>
+						<%= link_to "#{supporter.name}", supporter.link %>
+					<% else %>
+						<%= supporter.name %>
+					<% end %>
+				</li>
+			<% end %>
+			<li class="new_supporter">
+				<%= link_to new_admin_event_supporter_path(@event) do %>
+					<div class="new_photo btn btn-success">+</div>
+					스폰서 추가 
+				<% end %>
+			</li>
+		</ul>
+	<% end %>
+</section>

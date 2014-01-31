@@ -26,6 +26,7 @@ Rails.application.routes.draw do
         end
       end
   		resources :organizers
+  		resources :supporters
     end
 		resources :users
 	end
