@@ -30,7 +30,7 @@
 			&.aboutus { @include sprite_replace_text($camp5th_sprite, 'gnb_aboutus') }
 			&.programs { @include sprite_replace_text($camp5th_sprite, 'gnb_programs') }
 			&.speakers { @include sprite_replace_text($camp5th_sprite, 'gnb_speakers') }
-			&.sponsors { @include sprite_replace_text($camp5th_sprite, 'gnb_sponsors') }
+			&.supporters { @include sprite_replace_text($camp5th_sprite, 'gnb_sponsors') }
 			&.organizers { @include sprite_replace_text($camp5th_sprite, 'gnb_organizers') }
 			&.location { @include sprite_replace_text($camp5th_sprite, 'gnb_location') }
 			&.history { @include sprite_replace_text($camp5th_sprite, 'gnb_history') }
@@ -43,9 +43,91 @@
 		width: 100%;
 		float: left;
 	}
+
+	#register {
+		@include sprite_replace_text_anchor($camp5th_sprite, 'btn_register');
+		position: fixed;
+		bottom: 30px;
+		left: 50%;
+		margin-left: -590px;
+	}
+
 	#section_uxcamp {
 		background-color: black;
 		color: white;
+		height: 800px;
+		.centering {
+			position: relative;
+			.parrellex {
+				position: relative;
+				top: 80px;
+				left: 0px;
+				width: 610px;
+				height: 440px;
+				h2 {
+					width: 0px;
+					height: 0px;
+					text-indent: -9900px;
+				}
+				#img0,
+				#img1,
+				#img2,
+				#img3 {
+					position: absolute;
+					width: 610px;
+					height: 440px;
+				}
+				#img0 {
+					background: image-url('camp5th/title_fixed.png') no-repeat;
+					z-index: 30;
+				}
+				#img1 {
+					background: image-url('camp5th/title_01.png') no-repeat;
+					z-index: 10;
+				}
+				#img2 {
+					background: image-url('camp5th/title_02.png') no-repeat;
+					z-index: 20;
+				}
+				#img3 {
+					background: image-url('camp5th/title_03.png') no-repeat;
+					z-index: 40;
+				}
+			}
+			.information {
+				position: absolute;
+				top: 565px;
+				h1 { @include sprite_replace_text($camp5th_sprite, 'title_uxcamp') }
+				dl {
+					position: relative;
+					top: 20px;
+					left: 0px;
+					dt {
+						position: absolute;
+						top: 0px;
+						width: 150px;
+						margin-right: 20px;
+						padding: 10px 0px;
+						border-top: 1px solid #808080;
+						border-bottom: 1px solid #808080;
+						font-size: 16px;
+						line-height: 26px;
+						&.where { left: 0px }
+						&.when { left: 170px }
+					}
+					dd {
+						position: absolute;
+						top: 60px;
+						width: 150px;
+						font-size: 13px;
+						line-height: 19px;
+						color: #999;
+						&.where { left: 0px }
+						&.when { left: 170px }
+					}
+				}
+			}
+		}
 	}
 	#section_aboutus {
 		background: white image-url('camp5th/bg_aboutus.png') no-repeat 600px 20px;
@@ -316,9 +398,38 @@
 	#section_location {
 		background-color: black;
 		color: white;
-		padding-top: 30px;
-		padding-bottom: 70px;
-		h3 { @include sprite_replace_text($camp5th_sprite, 'title_location') }
+		height: 800px;
+		.centering {
+			position: relative;
+			h3 {
+				@include sprite_replace_text($camp5th_sprite, 'title_location');
+				position: absolute;
+				z-index: 10;
+				top: 100px;
+				left: 0px;
+			}
+			.location {
+				position: absolute;
+				top: 180px;
+				left: 10px;
+				z-index: 10;
+				p {
+					font-size: 13px;
+					line-height: 20px;
+					margin-bottom: 10px;
+				}
+				a {
+					@include sprite_replace_text_anchor($camp5th_sprite, 'btn_location');
+					margin-top: 15px;
+				}
+			}
+			img {
+				position: absolute;
+				top: 100px;
+				left: 180px;
+				z-index: 1;
+			}
+		}
 	}
 }
 

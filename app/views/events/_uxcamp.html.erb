@@ -1,12 +1,20 @@
 <section id="section_uxcamp">
 	<div class="centering">
-		<h2>Behind the Curtain</h2>
-		<h1><%= @event.title %></h1>
-		<dl>
-		  <dt>Where</dt>
-		    <dd>서울 은평구 녹번동 5 질병관리본부 21동 3층 서울크리에이티브랩</dd>
-		  <dt>When</dt>
-		    <dd>2014년 3월 15일 토요일 오전 11시 ~ 오후 6시</dd>
-		</dl>
+		<div class="parrellex">
+			<h2>Behind the Curtain</h2>
+			<div id="img0"></div>
+			<div id="img1"></div>
+			<div id="img2"></div>
+			<div id="img3"></div>
+		</div>
+		<div class="information">
+			<h1><%= @event.title %></h1>
+			<dl>
+			  <dt class="where">Where</dt>
+			    <dd class="where">서울 은평구 녹번동 5<br>질병관리본부 21동 3층<br>서울크리에이티브랩</dd>
+			  <dt class="when">When</dt>
+			    <dd class="when">2014.03.15 (토)<br>11:00 am - 6:00 pm</dd>
+			</dl>
+		</div>
 	</div>
 </section>
