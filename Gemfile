@@ -23,13 +23,16 @@ gem "carrierwave"
 gem "carrierwave_backgrounder"
 gem "mini_magick"
 
-group :development do
-	gem "awesome_print"
-	gem "quiet_assets"
-	gem "annotate"
-	gem "rails-erd"
-	gem "thin"
-  gem "better_errors"
-	gem "binding_of_caller"
-	gem "rspec-rails"
-end
+
+gem "unicorn", group: :production
+
+gem "capistrano-rails", group: :development
+gem "capistrano-rbenv", group: :development
+gem "awesome_print", group: :development
+gem "quiet_assets", group: :development
+gem "annotate", group: :development
+gem "rails-erd", group: :development
+gem "thin", group: :development
+gem "better_errors", group: :development
+gem "binding_of_caller", group: :development
+gem "rspec-rails", group: :development
