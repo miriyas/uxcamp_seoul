@@ -26,6 +26,7 @@ gem "mini_magick"
 
 gem "unicorn", group: :production
 
+gem "capistrano", group: :development
 gem "capistrano-bundler", group: :development
 gem "capistrano-rails", group: :development
 gem "capistrano-rbenv", group: :development
