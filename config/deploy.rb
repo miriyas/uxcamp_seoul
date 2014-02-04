@@ -57,7 +57,8 @@ set :assets_roles, [:app]
 # set :assets_prefix, 'prepackaged-assets'
 
 # If you need to touch public/images, public/javascripts and public/stylesheets on each deploy:
-set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
+# set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
+set :normalize_asset_timestamps, false
 
 
 # using ForwardAgent
