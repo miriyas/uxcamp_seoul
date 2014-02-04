@@ -30,6 +30,7 @@ gem "capistrano", group: :development
 gem "capistrano-bundler", group: :development
 gem "capistrano-rails", group: :development
 gem "capistrano-rbenv", group: :development
+gem "capistrano-unicorn", group: :development
 gem "awesome_print", group: :development
 gem "quiet_assets", group: :development
 gem "annotate", group: :development
