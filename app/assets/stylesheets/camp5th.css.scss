@@ -58,40 +58,121 @@
 		height: 800px;
 		.centering {
 			position: relative;
-			.parrellex {
+			#parrellex {
 				position: relative;
 				top: 80px;
 				left: 0px;
 				width: 610px;
-				height: 440px;
+				height: 700px;
+
+				/* Animation */
+				@-ms-keyframes top1_visible {
+					0%{ top: -1000px; opacity: 0; }
+					100%{ top: 120px; opacity: 1; }
+				}
+				@-webkit-keyframes top1_visible {
+					0%{ top: -1000px; opacity: 0; }
+					100%{ top: 120px; opacity: 1; }
+				}
+				@-moz-keyframes top1_visible{
+					0%{ top: -1000px; opacity: 0; }
+					100%{ top: 120px; opacity: 1; }
+				}
+
+				@-ms-keyframes top2_visible{
+					0%{ top: -500px; opacity: 0; }
+					100%{ top: 120px; opacity: 1; }
+				}
+				@-webkit-keyframes top2_visible{
+					0%{ top: -500px; opacity: 0; }
+					100%{ top: 120px; opacity: 1; }
+				}
+				@-moz-keyframes top2_visible{
+					0%{ top: -500px; opacity: 0; }
+					100%{ top: 120px; opacity: 1; }
+				}
+
+				@-ms-keyframes bottom_visible{
+					0%{ top: 1000px; opacity: 0; }
+					100%{ top: 120px; opacity: 1; }
+				}
+				@-webkit-keyframes bottom_visible{
+					0%{ top: 1000px; opacity: 0; }
+					100%{ top: 120px; opacity: 1; }
+				}
+				@-moz-keyframes bottom_visible{
+					0%{ top: 1000px; opacity: 0; }
+					100%{ top: 120px; opacity: 1; }
+				}
+				
+				.ly_group {
+					width: 610px;
+					height: 440px;
+				}
+				.ly_dynamic {
+					position: absolute;
+					left: 50px;
+				}
+				.ly_fixed {
+					position: absolute;
+					top: 120px;
+					left: 50px;
+					z-index: 30;
+					background: image-url('camp5th/title_fixed.png') no-repeat;
+				}
+				.visible {
+					top: 120px;
+					opacity: 1;
+				}
+				.ly_top1,
+				.ly_top2,
+				.ly_bottom {
+					position: absolute;
+					top: 0px;
+					opacity: 1;
+					&.hidden { opacity: 0 }
+				}
+				.ly_top1 {
+					background: image-url('camp5th/title_02.png') no-repeat;
+					z-index: 20;
+					&.hidden {
+						top: -1000px;
+					}
+					&.visible {
+						-ms-animation: top1_visible 1.5s ease;
+						-webkit-animation: top1_visible 1.5s ease;
+						-moz-animation: top1_visible 1.5s ease;
+					}
+				}
+				.ly_top2 {
+					background: image-url('camp5th/title_03.png') no-repeat;
+					z-index: 40;
+					&.hidden {
+						top: -500px;
+					}
+					&.visible {
+						-ms-animation: top2_visible 1.5s ease;
+						-webkit-animation: top2_visible 1.5s ease;
+						-moz-animation: top2_visible 1.5s ease;
+					}
+				}
+				.ly_bottom {
+					background: image-url('camp5th/title_01.png') no-repeat;
+					z-index: 10;
+					&.hidden {
+						top: 1000px;
+					}
+					&.visible {
+						-ms-animation: bottom_visible 1.5s ease;
+						-webkit-animation: bottom_visible 1.5s ease;
+						-moz-animation: bottom_visible 1.5s ease;
+					}
+				}
+
 				h2 {
 					width: 0px;
 					height: 0px;
 					text-indent: -9900px;
-				}
-				#img0,
-				#img1,
-				#img2,
-				#img3 {
-					position: absolute;
-					width: 610px;
-					height: 440px;
-				}
-				#img0 {
-					background: image-url('camp5th/title_fixed.png') no-repeat;
-					z-index: 30;
-				}
-				#img1 {
-					background: image-url('camp5th/title_01.png') no-repeat;
-					z-index: 10;
-				}
-				#img2 {
-					background: image-url('camp5th/title_02.png') no-repeat;
-					z-index: 20;
-				}
-				#img3 {
-					background: image-url('camp5th/title_03.png') no-repeat;
-					z-index: 40;
 				}
 			}
 			.information {

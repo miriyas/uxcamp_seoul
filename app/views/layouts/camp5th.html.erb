@@ -7,7 +7,6 @@
 	<title>UXCampSeoul</title>
 	
 	<%= stylesheet_link_tag		 "camp5th", :media => "all" %>
-	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
 </head>
 <!--[if lt IE 7]><body class="ie ie6"><![endif]-->
@@ -16,6 +15,7 @@
 <!--[if gt IE 8]><!--><body><!--<![endif]-->
 
 <%= yield %>
+<%= javascript_include_tag "camp5th" %>
 
 </body>
 </html>
