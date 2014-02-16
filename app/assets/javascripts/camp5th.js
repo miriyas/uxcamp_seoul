@@ -38,9 +38,7 @@ $(window).bind('scroll', function(event) {
 	var $register = $('#register'),
 		$body = $('body'),
 		$window = $(this),
-		y = $window.scrollTop(),
-		x = $window.scrollLeft(),
-		height = $register.height();
+		y = $window.scrollTop();
 
 	if ($register.length === 0) {
 		return;
@@ -49,12 +47,8 @@ $(window).bind('scroll', function(event) {
 	if (!$register.attr('original_top')) {
 		$register.attr('original_top', $register.offset().top);
 	}
-  console.log($(window).scrollTop() + "," + $register.offset().top)
-  // alert($(window).height())
-  // 702 - 133
-  // 474 - 370
-  // 444 - =
-	if (y >= 395) {
+
+	if (y >= 133) {
 		$register.addClass("scroll");
 	} else {
 		$register.removeClass("scroll");
