@@ -51,22 +51,8 @@ body,input,textarea,select,button,table,pre{
 		float: left;
 	}
 
-	#register {
-		@include sprite_replace_text_anchor($camp5th_sprite, 'btn_register');
-		display: block;
-		position: absolute;
-		z-index: 100;
-		top: 762px;
-		left: 50%;
-		margin-left: -590px;
-		&.scroll {
-			position: fixed;
-			bottom: 30px;
-			top: initial;
-		}
-	}
-
 	#section_uxcamp {
+		position: relative;
 		background-color: black;
 		color: white;
 		height: 1200px;
@@ -137,149 +123,6 @@ body,input,textarea,select,button,table,pre{
 						opacity: 0;
 					}
 				}
-
-
-				/* Animation */
-				@keyframes top1_visible {
-					0%{ top: -1000px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-				@-ms-keyframes top1_visible {
-					0%{ top: -1000px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-				@-webkit-keyframes top1_visible {
-					0%{ top: -1000px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-				@-moz-keyframes top1_visible {
-					0%{ top: -1000px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-
-				@keyframes top2_visible {
-					0%{ top: -500px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-				@-ms-keyframes top2_visible {
-					0%{ top: -500px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-				@-webkit-keyframes top2_visible {
-					0%{ top: -500px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-				@-moz-keyframes top2_visible {
-					0%{ top: -500px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-
-				@keyframes bottom_visible {
-					0%{ top: 1000px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-				@-ms-keyframes bottom_visible {
-					0%{ top: 1000px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-				@-webkit-keyframes bottom_visible {
-					0%{ top: 1000px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-				@-moz-keyframes bottom_visible {
-					0%{ top: 1000px; opacity: 0; }
-					100%{ top: 0px; opacity: 1; }
-				}
-				
-				.ly_top1.visible {
-					animation: top1_visible 1.5s ease;
-					-ms-animation: top1_visible 1.5s ease;
-					-webkit-animation: top1_visible 1.5s ease;
-					-moz-animation: top1_visible 1.5s ease;
-				}
-				.ly_top2.visible {
-					animation: top2_visible 1.5s ease;
-					-ms-animation: top2_visible 1.5s ease;
-					-webkit-animation: top2_visible 1.5s ease;
-					-moz-animation: top2_visible 1.5s ease;
-				}
-				.ly_bottom.visible {
-					animation: bottom_visible 1.5s ease;
-					-ms-animation: bottom_visible 1.5s ease;
-					-webkit-animation: bottom_visible 1.5s ease;
-					-moz-animation: bottom_visible 1.5s ease;
-				}
-				
-				
-				@keyframes top1_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: -1000px; opacity: 0 }
-				}
-				@-ms-keyframes top1_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: -1000px; opacity: 0 }
-				}
-				@-webkit-keyframes top1_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: -1000px; opacity: 0 }
-				}
-				@-moz-keyframes top1_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: -1000px; opacity: 0 }
-				}
-
-				@keyframes top2_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: -500px; opacity: 0 }
-				}
-				@-ms-keyframes top2_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: -500px; opacity: 0 }
-				}
-				@-webkit-keyframes top2_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: -500px; opacity: 0 }
-				}
-				@-moz-keyframes top2_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: -500px; opacity: 0 }
-				}
-
-				@keyframes bottom_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: 1000px; opacity: 0 }
-				}
-				@-ms-keyframes bottom_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: 1000px; opacity: 0 }
-				}
-				@-webkit-keyframes bottom_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: 1000px; opacity: 0 }
-				}
-				@-moz-keyframes bottom_hidden {
-					0%	{ top: 0px; opacity: 1 }
-					100%{ top: 1000px; opacity: 0 }
-				}
-				
-				.ly_top1.hidden {
-					animation: top1_hidden 1.5s ease;
-					-ms-animation: top1_hidden 1.5s ease;
-					-webkit-animation: top1_hidden 1.5s ease;
-					-moz-animation: top1_hidden 1.5s ease;
-				}
-				.ly_top2.hidden {
-					animation: top2_hidden 1.5s ease;
-					-ms-animation: top2_hidden 1.5s ease;
-					-webkit-animation: top2_hidden 1.5s ease;
-					-moz-animation: top2_hidden 1.5s ease;
-				}
-				.ly_bottom.hidden{
-					animation: bottom_hidden 1.5s ease;
-					-ms-animation: bottom_hidden 1.5s ease;
-					-webkit-animation: bottom_hidden 1.5s ease;
-					-moz-animation: bottom_hidden 1.5s ease;
-				}
 			}
 			.information {
 				position: absolute;
@@ -309,11 +152,24 @@ body,input,textarea,select,button,table,pre{
 						font-size: 13px;
 						line-height: 19px;
 						color: #999;
-/*						letter-spacing: -1px;*/
 						&.where { left: 0px }
 						&.when { left: 170px }
 					}
 				}
+			}
+		}
+		#register {
+			@include sprite_replace_text_anchor($camp5th_sprite, 'btn_register');
+			display: block;
+			position: absolute;
+			z-index: 100;
+			bottom: 444px;
+			left: 50%;
+			margin-left: -590px;
+			&.scroll {
+				position: fixed;
+				bottom: 30px;
+				top: initial;
 			}
 		}
 	}
@@ -622,29 +478,147 @@ body,input,textarea,select,button,table,pre{
 	}
 }
 
-#footer {
-	float: left;
-	width: 100%;
-	background-color: black;
-	.centering {
-		padding-top: 25px;
-		padding-bottom: 10px;
-		border-top: 1px solid #999;
-		text-align: center;
-		ul {
-			li {
-				display: inline-block;
-				margin: 0px 4px 14px;
-				a {
-					&.mail { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_mail'); }
-					&.twitter { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_twitter'); }
-					&.facebook { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_facebook'); }
-				}
-			}
-		}
-		.copyright {
-			font-size: 11px;
-			color: #999;
-		}
-	}
+/* Animation */
+@keyframes top1_visible {
+	0%{ top: -1000px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
 }
+@-ms-keyframes top1_visible {
+	0%{ top: -1000px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+@-webkit-keyframes top1_visible {
+	0%{ top: -1000px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+@-moz-keyframes top1_visible {
+	0%{ top: -1000px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+
+@keyframes top2_visible {
+	0%{ top: -500px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+@-ms-keyframes top2_visible {
+	0%{ top: -500px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+@-webkit-keyframes top2_visible {
+	0%{ top: -500px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+@-moz-keyframes top2_visible {
+	0%{ top: -500px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+
+@keyframes bottom_visible {
+	0%{ top: 1000px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+@-ms-keyframes bottom_visible {
+	0%{ top: 1000px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+@-webkit-keyframes bottom_visible {
+	0%{ top: 1000px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+@-moz-keyframes bottom_visible {
+	0%{ top: 1000px; opacity: 0; }
+	100%{ top: 0px; opacity: 1; }
+}
+
+.ly_top1.visible {
+	animation: top1_visible 1.5s ease;
+	-ms-animation: top1_visible 1.5s ease;
+	-webkit-animation: top1_visible 1.5s ease;
+	-moz-animation: top1_visible 1.5s ease;
+}
+.ly_top2.visible {
+	animation: top2_visible 1.5s ease;
+	-ms-animation: top2_visible 1.5s ease;
+	-webkit-animation: top2_visible 1.5s ease;
+	-moz-animation: top2_visible 1.5s ease;
+}
+.ly_bottom.visible {
+	animation: bottom_visible 1.5s ease;
+	-ms-animation: bottom_visible 1.5s ease;
+	-webkit-animation: bottom_visible 1.5s ease;
+	-moz-animation: bottom_visible 1.5s ease;
+}
+
+
+@keyframes top1_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: -1000px; opacity: 0 }
+}
+@-ms-keyframes top1_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: -1000px; opacity: 0 }
+}
+@-webkit-keyframes top1_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: -1000px; opacity: 0 }
+}
+@-moz-keyframes top1_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: -1000px; opacity: 0 }
+}
+
+@keyframes top2_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: -500px; opacity: 0 }
+}
+@-ms-keyframes top2_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: -500px; opacity: 0 }
+}
+@-webkit-keyframes top2_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: -500px; opacity: 0 }
+}
+@-moz-keyframes top2_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: -500px; opacity: 0 }
+}
+
+@keyframes bottom_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: 1000px; opacity: 0 }
+}
+@-ms-keyframes bottom_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: 1000px; opacity: 0 }
+}
+@-webkit-keyframes bottom_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: 1000px; opacity: 0 }
+}
+@-moz-keyframes bottom_hidden {
+	0%	{ top: 0px; opacity: 1 }
+	100%{ top: 1000px; opacity: 0 }
+}
+
+.ly_top1.hidden {
+	animation: top1_hidden 1.5s ease;
+	-ms-animation: top1_hidden 1.5s ease;
+	-webkit-animation: top1_hidden 1.5s ease;
+	-moz-animation: top1_hidden 1.5s ease;
+}
+.ly_top2.hidden {
+	animation: top2_hidden 1.5s ease;
+	-ms-animation: top2_hidden 1.5s ease;
+	-webkit-animation: top2_hidden 1.5s ease;
+	-moz-animation: top2_hidden 1.5s ease;
+}
+.ly_bottom.hidden{
+	animation: bottom_hidden 1.5s ease;
+	-ms-animation: bottom_hidden 1.5s ease;
+	-webkit-animation: bottom_hidden 1.5s ease;
+	-moz-animation: bottom_hidden 1.5s ease;
+}
+
+
+@include footer;

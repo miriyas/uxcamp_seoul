@@ -23,6 +23,35 @@ $camp5th_sprite: sprite-map('camp5th/s/*.png');
 	}
 }
 
+@mixin footer {
+	#footer {
+		float: left;
+		width: 100%;
+		background-color: black;
+		.centering {
+			padding-top: 25px;
+			padding-bottom: 10px;
+			border-top: 1px solid #999;
+			text-align: center;
+			ul {
+				li {
+					display: inline-block;
+					margin: 0px 4px 14px;
+					a {
+						&.mail { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_mail'); }
+						&.twitter { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_twitter'); }
+						&.facebook { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_facebook'); }
+					}
+				}
+			}
+			.copyright {
+				font-size: 11px;
+				color: #999;
+			}
+		}
+	}
+}
+
 .ellipsis {
 	white-space:nowrap;
 	overflow:hidden;
@@ -32,6 +61,8 @@ $camp5th_sprite: sprite-map('camp5th/s/*.png');
 	-moz-binding:url('/ellipsis.xml#ellipsis');
 	display:block;
 }
+
+.clearfix { @include clearfix }
 
 ///////////////////////////////////
 // usefulls

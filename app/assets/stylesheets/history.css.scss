@@ -1,0 +1,99 @@
+@import "compass";
+@import "compass/reset";
+@import "mixin";
+
+.centering {
+	width: 1180px;
+	margin: 0 auto;
+}
+
+#header {
+	width: 100%;
+	height: 50px;
+	background-color: white;
+	border-bottom: 2px solid black;
+	.logo {
+		float: left;
+		@include sprite_replace_text($camp5th_sprite, 'header_logo');
+	}
+	.gnb {
+		float: right;
+		li {
+			float: left;
+			color: black;
+			a {
+				&.uxcamp { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_uxcamp') }
+				&.history { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_history') }
+			}
+		}
+	}
+}
+
+@media all and (min-width:1280px) {
+	.events {
+		float: left;
+		width: 100%;
+		.event {
+			@include clearfix;
+			position: relative;
+			border-bottom: 2px solid black;
+			width: 100%;
+			height: 400px;
+			.cover {
+				position: absolute;
+				width: 100%;
+				height: auto;
+				max-height: 400px;
+			}
+			.title {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				color: white;
+				font-size: 70px;
+				line-height: 75px;
+				font-weight: bold;
+				width: 100%;
+				padding-top: 100px;
+				padding-left: 60px;
+				padding-bottom: 75px;
+				z-index: 9;
+				&.hover {
+					opacity: 0;
+				}
+			}
+			.shade {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				background-color: black;
+				opacity: 0.85;
+				z-index: 8;
+				&.hover {
+					opacity: 0;
+				}
+			}
+			img {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 400px;
+				z-index: 7;
+			}
+		}
+	}
+
+}
+@media all and (max-width:1279px) {
+
+}
+
+@include footer;
+#footer {
+	.centering {
+		border: none;
+	}
+}

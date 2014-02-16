@@ -15,6 +15,7 @@
 
 class Event < ActiveRecord::Base
   mount_uploader :poster, PosterUploader
+  mount_uploader :history_image, HistoryImageUploader
 
   has_many :rooms, :dependent => :destroy
   has_many :periods, :dependent => :destroy

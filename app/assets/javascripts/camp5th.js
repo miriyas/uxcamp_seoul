@@ -49,20 +49,15 @@ $(window).bind('scroll', function(event) {
 	if (!$register.attr('original_top')) {
 		$register.attr('original_top', $register.offset().top);
 	}
-
-	if (y >= $register.attr('original_top')) {
-		$register.css({
-			'position': 'fixed',
-			'bottom': 0,
-			'z-index': 500
-		});
+  console.log($(window).scrollTop() + "," + $register.offset().top)
+  // alert($(window).height())
+  // 702 - 133
+  // 474 - 370
+  // 444 - =
+	if (y >= 395) {
+		$register.addClass("scroll");
 	} else {
-		$register.css({
-			'position': 'absolute',
-			'bottom': '',
-			'left': '',
-			'z-index': ''
-		});
+		$register.removeClass("scroll");
 	}
 });
 
