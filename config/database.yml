@@ -14,13 +14,13 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  host: 127.0.0.1
-  port: 3306
   # socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: uxcamp_seoul_development
+  host: 127.0.0.1
+  port: 3306
   password:
 
 # Warning: The database defined as "test" will be erased and
@@ -29,9 +29,14 @@ development:
 test:
   <<: *default
   database: uxcamp_seoul_test
+  host: 127.0.0.1
+  port: 3306
   password:
 
 production:
   <<: *default
   database: uxcamp_seoul_production
+  # host: 192.241.203.133
+  host: 162.243.129.10
+  port: 3306
   password: 12345

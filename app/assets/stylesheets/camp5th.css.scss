@@ -8,6 +8,11 @@
 	margin-right: 10px;
 }
 
+body,input,textarea,select,button,table,pre{
+	font-family: Helvetica,'Apple SD Gothic Neo','돋움',Dotum,Sans-serif;
+	font-size: 12px;
+}
+
 .centering {
 	width: 1180px;
 	margin: 0 auto;
@@ -26,14 +31,16 @@
 		li {
 			float: left;
 			color: black;
-			&.uxcamp { @include sprite_replace_text($camp5th_sprite, 'gnb_uxcamp') }
-			&.aboutus { @include sprite_replace_text($camp5th_sprite, 'gnb_aboutus') }
-			&.programs { @include sprite_replace_text($camp5th_sprite, 'gnb_programs') }
-			&.speakers { @include sprite_replace_text($camp5th_sprite, 'gnb_speakers') }
-			&.supporters { @include sprite_replace_text($camp5th_sprite, 'gnb_sponsors') }
-			&.organizers { @include sprite_replace_text($camp5th_sprite, 'gnb_organizers') }
-			&.location { @include sprite_replace_text($camp5th_sprite, 'gnb_location') }
-			&.history { @include sprite_replace_text($camp5th_sprite, 'gnb_history') }
+			a {
+				&.uxcamp { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_uxcamp') }
+				&.aboutus { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_aboutus') }
+				&.programs { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_programs') }
+				&.speakers { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_speakers') }
+				&.supporters { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_sponsors') }
+				&.organizers { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_organizers') }
+				&.location { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_location') }
+				&.history { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_history') }
+			}
 		}
 	}
 }
@@ -46,82 +53,56 @@
 
 	#register {
 		@include sprite_replace_text_anchor($camp5th_sprite, 'btn_register');
-		position: fixed;
-		bottom: 30px;
+		display: block;
+		position: absolute;
+		z-index: 100;
+		top: 762px;
 		left: 50%;
 		margin-left: -590px;
+		&.scroll {
+			position: fixed;
+			bottom: 30px;
+			top: initial;
+		}
 	}
 
 	#section_uxcamp {
 		background-color: black;
 		color: white;
-		height: 800px;
+		height: 1200px;
 		.centering {
 			position: relative;
+			
+			h2 {
+				width: 0px;
+				height: 0px;
+				text-indent: -9900px;
+			}
+			
 			#parrellex {
 				position: relative;
-				top: 80px;
+				top: 70px;
 				left: 0px;
 				width: 610px;
 				height: 700px;
 
-				/* Animation */
-				@-ms-keyframes top1_visible {
-					0%{ top: -1000px; opacity: 0; }
-					100%{ top: 120px; opacity: 1; }
-				}
-				@-webkit-keyframes top1_visible {
-					0%{ top: -1000px; opacity: 0; }
-					100%{ top: 120px; opacity: 1; }
-				}
-				@-moz-keyframes top1_visible{
-					0%{ top: -1000px; opacity: 0; }
-					100%{ top: 120px; opacity: 1; }
-				}
-
-				@-ms-keyframes top2_visible{
-					0%{ top: -500px; opacity: 0; }
-					100%{ top: 120px; opacity: 1; }
-				}
-				@-webkit-keyframes top2_visible{
-					0%{ top: -500px; opacity: 0; }
-					100%{ top: 120px; opacity: 1; }
-				}
-				@-moz-keyframes top2_visible{
-					0%{ top: -500px; opacity: 0; }
-					100%{ top: 120px; opacity: 1; }
-				}
-
-				@-ms-keyframes bottom_visible{
-					0%{ top: 1000px; opacity: 0; }
-					100%{ top: 120px; opacity: 1; }
-				}
-				@-webkit-keyframes bottom_visible{
-					0%{ top: 1000px; opacity: 0; }
-					100%{ top: 120px; opacity: 1; }
-				}
-				@-moz-keyframes bottom_visible{
-					0%{ top: 1000px; opacity: 0; }
-					100%{ top: 120px; opacity: 1; }
-				}
-				
 				.ly_group {
 					width: 610px;
 					height: 440px;
 				}
 				.ly_dynamic {
 					position: absolute;
-					left: 50px;
+					left: 0px;
 				}
 				.ly_fixed {
 					position: absolute;
-					top: 120px;
-					left: 50px;
+					top: 0px;
+					left: 0px;
 					z-index: 30;
 					background: image-url('camp5th/title_fixed.png') no-repeat;
 				}
 				.visible {
-					top: 120px;
+					top: 0px;
 					opacity: 1;
 				}
 				.ly_top1,
@@ -129,19 +110,15 @@
 				.ly_bottom {
 					position: absolute;
 					top: 0px;
+					left: 0px;
 					opacity: 1;
-					&.hidden { opacity: 0 }
 				}
 				.ly_top1 {
 					background: image-url('camp5th/title_02.png') no-repeat;
 					z-index: 20;
 					&.hidden {
 						top: -1000px;
-					}
-					&.visible {
-						-ms-animation: top1_visible 1.5s ease;
-						-webkit-animation: top1_visible 1.5s ease;
-						-moz-animation: top1_visible 1.5s ease;
+						opacity: 0;
 					}
 				}
 				.ly_top2 {
@@ -149,11 +126,7 @@
 					z-index: 40;
 					&.hidden {
 						top: -500px;
-					}
-					&.visible {
-						-ms-animation: top2_visible 1.5s ease;
-						-webkit-animation: top2_visible 1.5s ease;
-						-moz-animation: top2_visible 1.5s ease;
+						opacity: 0;
 					}
 				}
 				.ly_bottom {
@@ -161,34 +134,167 @@
 					z-index: 10;
 					&.hidden {
 						top: 1000px;
-					}
-					&.visible {
-						-ms-animation: bottom_visible 1.5s ease;
-						-webkit-animation: bottom_visible 1.5s ease;
-						-moz-animation: bottom_visible 1.5s ease;
+						opacity: 0;
 					}
 				}
 
-				h2 {
-					width: 0px;
-					height: 0px;
-					text-indent: -9900px;
+
+				/* Animation */
+				@keyframes top1_visible {
+					0%{ top: -1000px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+				@-ms-keyframes top1_visible {
+					0%{ top: -1000px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+				@-webkit-keyframes top1_visible {
+					0%{ top: -1000px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+				@-moz-keyframes top1_visible {
+					0%{ top: -1000px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+
+				@keyframes top2_visible {
+					0%{ top: -500px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+				@-ms-keyframes top2_visible {
+					0%{ top: -500px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+				@-webkit-keyframes top2_visible {
+					0%{ top: -500px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+				@-moz-keyframes top2_visible {
+					0%{ top: -500px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+
+				@keyframes bottom_visible {
+					0%{ top: 1000px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+				@-ms-keyframes bottom_visible {
+					0%{ top: 1000px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+				@-webkit-keyframes bottom_visible {
+					0%{ top: 1000px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+				@-moz-keyframes bottom_visible {
+					0%{ top: 1000px; opacity: 0; }
+					100%{ top: 0px; opacity: 1; }
+				}
+				
+				.ly_top1.visible {
+					animation: top1_visible 1.5s ease;
+					-ms-animation: top1_visible 1.5s ease;
+					-webkit-animation: top1_visible 1.5s ease;
+					-moz-animation: top1_visible 1.5s ease;
+				}
+				.ly_top2.visible {
+					animation: top2_visible 1.5s ease;
+					-ms-animation: top2_visible 1.5s ease;
+					-webkit-animation: top2_visible 1.5s ease;
+					-moz-animation: top2_visible 1.5s ease;
+				}
+				.ly_bottom.visible {
+					animation: bottom_visible 1.5s ease;
+					-ms-animation: bottom_visible 1.5s ease;
+					-webkit-animation: bottom_visible 1.5s ease;
+					-moz-animation: bottom_visible 1.5s ease;
+				}
+				
+				
+				@keyframes top1_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: -1000px; opacity: 0 }
+				}
+				@-ms-keyframes top1_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: -1000px; opacity: 0 }
+				}
+				@-webkit-keyframes top1_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: -1000px; opacity: 0 }
+				}
+				@-moz-keyframes top1_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: -1000px; opacity: 0 }
+				}
+
+				@keyframes top2_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: -500px; opacity: 0 }
+				}
+				@-ms-keyframes top2_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: -500px; opacity: 0 }
+				}
+				@-webkit-keyframes top2_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: -500px; opacity: 0 }
+				}
+				@-moz-keyframes top2_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: -500px; opacity: 0 }
+				}
+
+				@keyframes bottom_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: 1000px; opacity: 0 }
+				}
+				@-ms-keyframes bottom_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: 1000px; opacity: 0 }
+				}
+				@-webkit-keyframes bottom_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: 1000px; opacity: 0 }
+				}
+				@-moz-keyframes bottom_hidden {
+					0%	{ top: 0px; opacity: 1 }
+					100%{ top: 1000px; opacity: 0 }
+				}
+				
+				.ly_top1.hidden {
+					animation: top1_hidden 1.5s ease;
+					-ms-animation: top1_hidden 1.5s ease;
+					-webkit-animation: top1_hidden 1.5s ease;
+					-moz-animation: top1_hidden 1.5s ease;
+				}
+				.ly_top2.hidden {
+					animation: top2_hidden 1.5s ease;
+					-ms-animation: top2_hidden 1.5s ease;
+					-webkit-animation: top2_hidden 1.5s ease;
+					-moz-animation: top2_hidden 1.5s ease;
+				}
+				.ly_bottom.hidden{
+					animation: bottom_hidden 1.5s ease;
+					-ms-animation: bottom_hidden 1.5s ease;
+					-webkit-animation: bottom_hidden 1.5s ease;
+					-moz-animation: bottom_hidden 1.5s ease;
 				}
 			}
 			.information {
 				position: absolute;
-				top: 565px;
+				top: 550px;
 				h1 { @include sprite_replace_text($camp5th_sprite, 'title_uxcamp') }
 				dl {
 					position: relative;
-					top: 20px;
+					top: 14px;
 					left: 0px;
 					dt {
 						position: absolute;
 						top: 0px;
 						width: 150px;
 						margin-right: 20px;
-						padding: 10px 0px;
+						padding: 6px 0px 2px 0px;
 						border-top: 1px solid #808080;
 						border-bottom: 1px solid #808080;
 						font-size: 16px;
@@ -198,11 +304,12 @@
 					}
 					dd {
 						position: absolute;
-						top: 60px;
+						top: 44px;
 						width: 150px;
 						font-size: 13px;
 						line-height: 19px;
 						color: #999;
+/*						letter-spacing: -1px;*/
 						&.where { left: 0px }
 						&.when { left: 170px }
 					}
@@ -210,18 +317,23 @@
 			}
 		}
 	}
+	.curtain {
+		float: left;
+		width: 100%;
+		height: 22px;
+		background: white image-url('camp5th/curtain.png') repeat-x;
+	}
 	#section_aboutus {
-		background: white image-url('camp5th/bg_aboutus.png') no-repeat 600px 20px;
+		background: white image-url('camp5th/bg_aboutus.png') no-repeat 580px 110px;
 		color: black;
-		padding-top: 30px;
-		padding-bottom: 110px;
+		padding-top: 170px;
+		padding-bottom: 100px;
 		h3 { 
 			@include sprite_replace_text($camp5th_sprite, 'title_aboutus');
-			margin-top: 30px;
 		}
 		.information {
 			@include content_right;
-			margin-top: 60px;
+			margin-top: 45px;
 			font-size: 14px;
 			line-height: 22px;
 			color: #666;
@@ -234,12 +346,11 @@
 	#section_programs {
 		background-color: white;
 		color: black;
-		padding-top: 30px;
-		padding-bottom: 70px;
+		padding-top: 60px;
 		h3 { @include sprite_replace_text($camp5th_sprite, 'title_programs') }
 		.programs {
 			@include content_right;
-			margin-top: 80px;
+			margin-top: 78px;
 			.row {
 				float: left;
 				width: 100%;
@@ -340,8 +451,7 @@
 	#section_speakers {
 		background-color: white;
 		color: black;
-		padding-top: 30px;
-		padding-bottom: 70px;
+		padding-top: 140px;
 		h3 { @include sprite_replace_text($camp5th_sprite, 'title_speakers') }
 		.speakers {
 			@include content_right;
@@ -393,13 +503,11 @@
 	#section_supporters {
 		background-color: white;
 		color: black;
-		padding-top: 30px;
-		padding-bottom: 70px;
+		padding-top: 100px;
 		h3 { @include sprite_replace_text($camp5th_sprite, 'title_sponsors') }
 		.supporters {
 			@include content_right;
 			margin-top: 80px;
-			margin-bottom: 50px;
 			.supporter {
 				float: left;
 				border: 1px solid #d6d6d6;
@@ -423,7 +531,7 @@
 	#section_organizers {
 		background-color: white;
 		color: black;
-		padding-top: 30px;
+		padding-top: 150px;
 		padding-bottom: 70px;
 		h3 { @include sprite_replace_text($camp5th_sprite, 'title_organizers') }
 		.organizers {
@@ -436,7 +544,7 @@
 				padding: 6px 0px;
 				border-top: 1px solid #e0e0e0;
 				border-bottom: 1px solid #e0e0e0;
-				margin-bottom: 12px;
+				margin-bottom: 4px;
 				margin-top: 20px;
 			}
 			.organizer {
@@ -459,7 +567,6 @@
 					float: left;
 					width: 60px;
 					font-size: 16px;
-					font-weight: bold;
 					color: #666;
 				}
 				.name_en,
@@ -480,6 +587,7 @@
 		background-color: black;
 		color: white;
 		height: 800px;
+		padding-bottom: 70px;
 		.centering {
 			position: relative;
 			h3 {
@@ -492,10 +600,10 @@
 			.location {
 				position: absolute;
 				top: 180px;
-				left: 10px;
+				left: 0px;
 				z-index: 10;
 				p {
-					font-size: 13px;
+					font-size: 14px;
 					line-height: 20px;
 					margin-bottom: 10px;
 				}
@@ -515,6 +623,28 @@
 }
 
 #footer {
+	float: left;
+	width: 100%;
 	background-color: black;
-	color: white;
+	.centering {
+		padding-top: 25px;
+		padding-bottom: 10px;
+		border-top: 1px solid #999;
+		text-align: center;
+		ul {
+			li {
+				display: inline-block;
+				margin: 0px 4px 14px;
+				a {
+					&.mail { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_mail'); }
+					&.twitter { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_twitter'); }
+					&.facebook { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_facebook'); }
+				}
+			}
+		}
+		.copyright {
+			font-size: 11px;
+			color: #999;
+		}
+	}
 }

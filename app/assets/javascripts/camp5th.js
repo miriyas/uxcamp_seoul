@@ -1,6 +1,4 @@
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
 
 (function($){
   var container = $("#parrellex");
@@ -35,6 +33,40 @@
   }
 }(jQuery));
 
+
+$(window).bind('scroll', function(event) {
+	var $register = $('#register'),
+		$body = $('body'),
+		$window = $(this),
+		y = $window.scrollTop(),
+		x = $window.scrollLeft(),
+		height = $register.height();
+
+	if ($register.length === 0) {
+		return;
+	}
+
+	if (!$register.attr('original_top')) {
+		$register.attr('original_top', $register.offset().top);
+	}
+
+	if (y >= $register.attr('original_top')) {
+		$register.css({
+			'position': 'fixed',
+			'bottom': 0,
+			'z-index': 500
+		});
+	} else {
+		$register.css({
+			'position': 'absolute',
+			'bottom': '',
+			'left': '',
+			'z-index': ''
+		});
+	}
+});
+
+
 $('.session').hover(
 	function(){ $(this).children('.more_info').show(); },
 	function(){ $(this).children('.more_info').hide(); }
@@ -42,3 +74,8 @@ $('.session').hover(
 $('.more_info').hover(
 	function(){ $(this).hide(); }
 )
+
+$(".gnb a").click(function(e) {
+	var target = $($(e.target).attr("href"));
+	$.scrollTo(target, 500);
+});

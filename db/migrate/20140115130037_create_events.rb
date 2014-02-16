@@ -2,6 +2,7 @@ class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
       t.string :title
+      t.text :summary
       t.string :poster
       t.date :starts_at
       t.date :ends_at
