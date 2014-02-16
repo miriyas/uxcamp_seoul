@@ -1,9 +1,9 @@
 <div id="header">
 	<div class="centering">
-		<div class="logo">UXCampSeoul</div>
+		<div class="logo"><a class="uxcamp" href="/">UXCampSeoul</a></div>
 		<ul class="gnb">
-			<li><a class="uxcamp" href="#section_uxcamp">UX Camp Seoul 2014</a></li>
-			<li><%= link_to "History", history_path, class: "history" %></li>
+			<li><a class="uxcamp" href="/">UX Camp Seoul 2014</a></li>
+			<li class="history active">History</li>
 		</ul>		
 	</div>
 </div>
@@ -15,17 +15,17 @@
 		<%= image_tag(Event.find(4).history_image.url(:w1280), class: "banner") %>
 	</li>
 	<li class="event">
-		<a class="title" href="/">THE 3RD<br>UX CAMP SEOUL<br>2013</a>
+		<a class="title" href="/">THE 3RD<br>UX CAMP SEOUL<br>2012</a>
 		<div class="shade"></div>
 		<%= image_tag(Event.find(3).history_image.url(:w1280), class: "banner") %>
 	</li>
 	<li class="event">
-		<a class="title" href="/">THE 2ND<br>UX CAMP SEOUL<br>2013</a>
+		<a class="title" href="/">THE 2ND<br>UX CAMP SEOUL<br>2011</a>
 		<div class="shade"></div>
 		<%= image_tag(Event.find(2).history_image.url(:w1280), class: "banner") %>
 	</li>
 	<li class="event">
-		<a class="title" href="/">THE 1ST<br>UX CAMP SEOUL<br>2013</a>
+		<a class="title" href="/">THE 1ST<br>UX CAMP SEOUL<br>2010</a>
 		<div class="shade"></div>
 		<%= image_tag(Event.find(1).history_image.url(:w1280), class: "banner") %>
 	</li>

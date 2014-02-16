@@ -53,6 +53,18 @@ $(window).bind('scroll', function(event) {
 	} else {
 		$register.removeClass("scroll");
 	}
+  
+  
+  var $gnb = $('#header'),
+    $contents = $('#section_uxcamp');
+	if (y >= 1) {
+		$gnb.addClass("scroll");
+		$contents.addClass("scroll");
+	} else {
+		$gnb.removeClass("scroll");
+		$contents.removeClass("scroll");
+	}
+  
 });
 
 
