@@ -44,7 +44,6 @@ $(window).bind('scroll', function(event) {
 
   if ((regtop+30+30) < $(window).height()) {
   	if ((regtop+30) < woffset) {
-      console.log(regtop_origin)
   		$register.addClass("scroll");
       $register.css("top", regtop_origin);
       $register.css("bottom", "");
