@@ -14,10 +14,10 @@
 	border-bottom: 2px solid black;
 	.logo {
 		float: left;
-		@include sprite_replace_text($camp5th_sprite, 'header_logo');
 		a {
 			display: block;
 			height: 50px;
+			h1 { @include hide_text }
 		}
 	}
 	.gnb {
