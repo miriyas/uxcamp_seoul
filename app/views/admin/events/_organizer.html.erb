@@ -1,7 +1,12 @@
 <section class="organizers_section">
 	<h3>오거나이저</h3>
-	<% if @organizers.blank? %>
+	<% if @organizergroups.blank? %>
 		<p class="w100p tac">오거나이저가 아무도 없습니다.</p>
+		<div class="new_organizer_group">
+			<%= link_to new_admin_event_organizer_group_path(@event) do %>
+				<div class="new_photo btn btn-success"><span class="fcw fwn glyphicon glyphicon-plus fs10"></span> 오거나이저 그룹 추가</div>
+			<% end %>
+				
 	<% else %>
 		<div class="organizers">
 			<% @organizergroups.each do |group| %>
