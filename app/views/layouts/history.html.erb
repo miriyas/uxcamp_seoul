@@ -5,13 +5,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>UXCampSeoul</title>
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicons/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/favicon-144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicons/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/favicon-114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" href="/images/favicons/favicon-60.png">
-	<link rel="shortcut icon" href="/images/favicons/favicon.ico">
+	<%= render '/shared/favicons' %>
 	<%= stylesheet_link_tag		 "history", :media => "all" %>
 	<%= javascript_include_tag "css3-mediaqueries" %>
 	<%= csrf_meta_tags %>
