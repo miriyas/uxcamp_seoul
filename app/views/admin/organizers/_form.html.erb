@@ -11,6 +11,9 @@
 		<%= f.input :name, label: "이름", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
 		<% flash_error_message(:name) %>
 		<br>
+		<%= f.input :name_en, label: "영문 이름", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<% flash_error_message(:name_en) %>
+		<br>
 		<%= f.input :link, label: "링크", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
 		<% flash_error_message(:link) %>
 		<br>
