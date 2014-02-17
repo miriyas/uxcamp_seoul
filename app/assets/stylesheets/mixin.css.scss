@@ -52,6 +52,11 @@ $camp5th_sprite: sprite-map('camp5th/s/*.png');
 	}
 }
 
+header, nav, section, article, aside, footer {
+	// for IE8 under.
+	display:block;
+}
+
 .ellipsis {
 	white-space:nowrap;
 	overflow:hidden;

@@ -15,6 +15,16 @@
 	<%= stylesheet_link_tag		 "camp5th", :media => "all" %>
 	<%= javascript_include_tag "css3-mediaqueries" %>
 	<%= csrf_meta_tags %>
+	<!--[if lt IE 9]>
+	   <script>
+	      document.createElement('header');
+	      document.createElement('nav');
+	      document.createElement('section');
+	      document.createElement('article');
+	      document.createElement('aside');
+	      document.createElement('footer');
+	   </script>
+	<![endif]-->
 </head>
 <!--[if lt IE 7]><body class="ie ie6"><![endif]-->
 <!--[if IE 7]>	 <body class="ie ie7"><![endif]-->
