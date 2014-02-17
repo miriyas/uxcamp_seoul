@@ -89,3 +89,8 @@ $(".gnb a").click(function(e) {
 	var target = $($(e.target).attr("href"));
 	$.scrollTo(target, 500);
 });
+
+// 금방 지우자 이건
+$('#register').click(function(){
+	alert("아직 준비중입니다.")
+})
