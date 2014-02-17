@@ -34,37 +34,46 @@
 }(jQuery));
 
 
+
+var regtop = $("#register").offset().top + $("#register").height() - 30;
+var regtop_origin = $("#register").offset().top;
 $(window).bind('scroll', function(event) {
-	var $register = $('#register'),
-		$body = $('body'),
-		$window = $(this),
-		y = $window.scrollTop();
+	var $register = $('#register');
+	var scrtop = $(window).scrollTop();
+  var woffset = scrtop + $(window).height() - 57;
 
-	if ($register.length === 0) {
-		return;
-	}
-
-	if (!$register.attr('original_top')) {
-		$register.attr('original_top', $register.offset().top);
-	}
-
-	if (y >= 133) {
-		$register.addClass("scroll");
-	} else {
-		$register.removeClass("scroll");
-	}
-  
+  if ((regtop+30+30) < $(window).height()) {
+  	if ((regtop+30) < woffset) {
+      console.log(regtop_origin)
+  		$register.addClass("scroll");
+      $register.css("top", regtop_origin);
+      $register.css("bottom", "");
+  	} else {
+      $register.removeClass("scroll");
+      $register.css("top", "");
+      $register.css("bottom", "");
+  	}
+  } else {
+  	if ((regtop+30) < woffset) {
+      $register.css("top", "");
+      $register.css("bottom", "");
+  		$register.addClass("scroll");
+  	} else {
+      $register.css("top", "");
+      $register.css("bottom", "");
+      $register.removeClass("scroll");
+  	}
+  }
   
   var $gnb = $('#header'),
     $contents = $('#section_uxcamp');
-	if (y >= 1) {
-		$gnb.addClass("scroll");
-		$contents.addClass("scroll");
-	} else {
-		$gnb.removeClass("scroll");
-		$contents.removeClass("scroll");
-	}
-  
+  if (scrtop >= 1) {
+    $gnb.addClass("scroll");
+    $contents.addClass("scroll");
+  } else {
+    $gnb.removeClass("scroll");
+    $contents.removeClass("scroll");
+  }
 });
 
 
