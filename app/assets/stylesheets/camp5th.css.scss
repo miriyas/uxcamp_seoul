@@ -31,10 +31,13 @@ body,input,textarea,select,button,table,pre{
 	.logo {
 		float: left;
 		height: 50px;
-		h1 { @include hide_text }
 		&.big {
 			width: 0px;
 			height: 0px;
+		}
+		a {
+			display: block;
+			h1 { @include hide_text }
 		}
 	}
 	.gnb {
