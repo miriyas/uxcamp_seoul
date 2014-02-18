@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get "5" => "events#show", id: 5
   get "uxeye" => "events#show", id: 4
   get "history" => "histories#index"
+  get "history/1" => "histories#show", id: 1
+  get "history/2" => "histories#show", id: 2
+  get "history/3" => "histories#show", id: 3
+  get "history/4" => "histories#show", id: 4
 
 	namespace :admin do
     root :to => "events#index"

@@ -15,7 +15,8 @@
 				</div>
 			<% end %>				
 		</div>
-		
+		<br>
+		<%= @event.summary.html_safe if @event.summary.present? %><br><br>
 		행사 기간 : 
 		<% if hdate(@event.starts_at, "") == hdate(@event.ends_at, "") %>
 			<%= hdate(@event.starts_at, "") %> 하루

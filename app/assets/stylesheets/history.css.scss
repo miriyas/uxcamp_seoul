@@ -2,6 +2,11 @@
 @import "compass/reset";
 @import "mixin";
 
+body {
+	&.show { background-color: white; }
+	&.index { background-color: black; }
+}
+
 .centering {
 	width: 1180px;
 	margin: 0 auto;
@@ -11,7 +16,6 @@
 	width: 100%;
 	height: 50px;
 	background-color: white;
-	border-bottom: 2px solid black;
 	.logo {
 		float: left;
 		a {
@@ -20,53 +24,69 @@
 			h1 { @include hide_text }
 		}
 	}
-	.gnb {
-		float: right;
-		li {
-			float: left;
-			color: black;
-			a {
-				&.uxcamp { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_uxcamp') }
+
+	&.show {
+		border-bottom: 2px solid #8dc63f;
+		.gnb {
+			float: right;
+			li {
+				float: left;
+				color: black;
+				a.uxcamp { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_uxcamp') }
+				&.history {	@include sprite_replace_text_anchor_selected($camp5th_sprite, 'gnb_history') }
 			}
-			&.history {
-				@include sprite_replace_text_anchor_selected($camp5th_sprite, 'gnb_history');
+		}
+	}
+	&.index {
+		border-bottom: 2px solid black;
+		.gnb {
+			float: right;
+			li {
+				float: left;
+				color: black;
+				a.uxcamp { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_uxcamp') }
+				&.history {	@include sprite_replace_text_anchor_selected($camp5th_sprite, 'gnb_history') }
 			}
 		}
 	}
 }
 
-@media all and (min-width:1280px) {
+@include footer;
+#footer {
+	.centering {
+		border: none;
+	}
+}
+
+@media all and (min-width:1281px) {
 	.events {
 		float: left;
 		width: 100%;
+		background-color: black;
 		.event {
-			@include clearfix;
 			position: relative;
-			border-bottom: 2px solid black;
+			margin-top: -2px;
 			width: 100%;
 			height: 400px;
-			.cover {
-				position: absolute;
-				width: 100%;
-				height: auto;
-				max-height: 400px;
-			}
-			.title {
-				position: absolute;
-				top: 0px;
-				left: 0px;
-				color: white;
-				font-size: 70px;
-				line-height: 75px;
-				font-weight: bold;
-				width: 100%;
-				padding-top: 100px;
-				padding-left: 60px;
-				padding-bottom: 75px;
-				z-index: 9;
-				opacity: 1;
-				&.hover {
-					opacity: 0;
+			overflow: hidden;
+			.centering {
+				position: relative;
+				.title {
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					display: block;
+					width: 100%;
+					height: auto;
+					z-index: 10;
+					color: white;
+					font-size: 70px;
+					line-height: 75px;
+					font-weight: bold;
+					width: 100%;
+					padding-top: 100px;
+					padding-bottom: 75px;
+					&.hover { opacity: 0 }
 				}
 			}
 			.shade {
@@ -74,35 +94,69 @@
 				top: 0px;
 				left: 0px;
 				width: 100%;
+				height: 400px;
+				z-index: 9;
+				background: image-url('history/shade.png') repeat;
+				&.hover { opacity: 0 }
+			}
+			.cover {
+				display: none;
+			}
+			.banner {
+				position: relative;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: auto;
+				z-index: 7;
+			}
+		}
+	}
+}
+@media all and (max-width:1280px) {
+	.events {
+		float: left;
+		width: 100%;
+		background-color: black;
+		.event {
+			position: relative;
+			margin-top: -2px;
+			width: 100%;
+			height: auto;
+			.title {
+				position: absolute;
+				display: block;
+				width: 100%;
 				height: 100%;
-				background-color: black;
-				opacity: 0.85;
+				opacity: 0;
+				z-index: 10;
+			}
+			.shade {
+				display: none;
+			}
+			.cover {
+				position: absolute;
+				width: 100%;
+				height: auto;
+				max-height: 400px;
 				z-index: 8;
-				transition: opacity 0.2s;
-				-webkit-transition: opacity 0.2s;
 				&.hover {
 					opacity: 0;
 				}
 			}
-			img {
-				position: absolute;
+			.banner {
+				position: relative;
 				top: 0px;
 				left: 0px;
 				width: 100%;
-				height: 400px;
+				height: auto;
 				z-index: 7;
 			}
 		}
 	}
 
-}
-@media all and (max-width:1279px) {
-
-}
-
-@include footer;
-#footer {
-	.centering {
-		border: none;
+	#header .centering,
+	#footer .centering {
+		width: initial;
 	}
 }

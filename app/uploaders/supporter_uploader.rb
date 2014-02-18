@@ -11,7 +11,7 @@ class SupporterUploader < CarrierWave::Uploader::Base
 
 	version :camp5th do
 		process :resize_to_fit => [260, 150]
-		process :convert => 'jpg'
+		process :convert => 'png'
 	end
 
 end

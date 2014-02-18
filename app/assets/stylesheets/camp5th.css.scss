@@ -194,6 +194,7 @@ body,input,textarea,select,button,table,pre{
 		color: black;
 		padding-top: 170px;
 		padding-bottom: 100px;
+		height: 520px;
 		h3 { 
 			@include sprite_replace_text($camp5th_sprite, 'title_aboutus');
 		}

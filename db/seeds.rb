@@ -18,6 +18,8 @@ event_camp4 = Event.create(title:"4th. UX Camp Seoul", starts_at: "2012-07-14", 
   roomc42 = Room.create(name: "2번방", event_id: event_camp4.id)
   roomc43 = Room.create(name: "3번방", event_id: event_camp4.id)
   roomc44 = Room.create(name: "4번방", event_id: event_camp4.id)
+event_camp5 = Event.create(title:"5th. UX Camp Seoul", starts_at: "2012-07-14", ends_at: "2012-07-14")
+  date_c5 = event_camp5.starts_at.strftime("%Y-%m-%d")
 
 puts "== CreateEvents: photo uploading ======================"
 source_path = "#{::Rails.root.to_s}/public/seed/event_photos"

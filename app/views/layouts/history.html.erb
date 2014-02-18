@@ -23,9 +23,21 @@
 <!--[if lt IE 7]><body class="ie ie6"><![endif]-->
 <!--[if IE 7]>	 <body class="ie ie7"><![endif]-->
 <!--[if IE 8]>	 <body class="ie ie8"><![endif]-->
-<!--[if gt IE 8]><!--><body><!--<![endif]-->
+<!--[if gt IE 8]><!--><body class="<%= params[:action] %>"><!--<![endif]-->
+
+<div id="header" class="<%= params[:action] %>">
+	<div class="centering">
+		<div class="logo"><a class="uxcamp" href="/"><%= image_tag "camp5th/uxcamp_logo.png" %><h1>UXCampSeoul</h1></a></div>
+		<ul class="gnb">
+			<li><a class="uxcamp" href="/">UX Camp Seoul 2014</a></li>
+			<li class="history active">History</li>
+		</ul>		
+	</div>
+</div>
 
 <%= yield %>
+
+<%= render 'shared/footer' %>
 
 <%= javascript_include_tag "history" %>
 

@@ -1,0 +1,43 @@
+<section class="organizers_section">
+	<h3>주최자</h3>
+	<% if @organizergroups.blank? %>
+		<p class="w100p tac">오거나이저가 아무도 없습니다.</p>
+	<% else %>
+		<div class="organizers">
+			<% @organizergroups.each do |group| %>
+				<h4 class="di w100p fl"><%= group.name %><%= link_to "", edit_admin_event_organizer_group_path(@event, group), class: "fs10 glyphicon glyphicon-cog orange" %><%= link_to "", admin_event_organizer_group_path(@event, group), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "fs10 glyphicon glyphicon-remove fcr" %></h4>
+				<ul class="group">
+					<% group.organizers.each do |organizer| %>
+						<li class="organizer">
+							<%= link_to edit_admin_event_organizer_group_organizer_path(@event, group, organizer) do %>
+								<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
+							<% end %>
+							<% if organizer.link.present? %>
+								<%= link_to organizer.name, organizer.link %>
+							<% else %>
+								<%= organizer.name %>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
+			<% if @event.organizers.free_organizers.count > 0 %>
+				<h4 class="di w100p fl">미지정</h4>
+				<ul class="group">
+					<% @event.organizers.free_organizers.each do |organizer| %>
+						<li class="organizer">
+							<%= link_to edit_admin_event_organizer_path(@event, organizer) do %>
+								<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
+							<% end %>
+							<% if organizer.link.present? %>
+								<%= link_to organizer.name, organizer.link %>
+							<% else %>
+								<%= organizer.name %>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
+		</div>
+	<% end %>
+</section>
