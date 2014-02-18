@@ -8,7 +8,7 @@
 				<% @supporters.each do |supporter| %>
 					<li class="supporter<%= " right_side" if @supporters.index(supporter) % 3 == 2 %>">
 						<% if supporter.link.present? %>
-							<%= link_to supporter.link do %>
+							<%= link_to supporter.link, target: "_blank" do %>
 								<div class="photo"><%= image_tag(supporter.photo.url(:camp5th), alt: supporter.name) if supporter.photo.present? %></div>
 							<% end %>
 						<% else %>

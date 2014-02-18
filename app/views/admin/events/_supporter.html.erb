@@ -17,7 +17,7 @@
 						<div class="photo"><%= image_tag(supporter.photo.url(:camp5th)) if supporter.photo.present? %></div>
 					<% end %>
 					<% if supporter.link.present? %>
-						<%= link_to "#{supporter.name}", supporter.link %>
+						<%= link_to "#{supporter.name}", supporter.link, target: "_blank" %>
 					<% else %>
 						<%= supporter.name %>
 					<% end %>
