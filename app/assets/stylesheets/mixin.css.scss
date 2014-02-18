@@ -86,11 +86,13 @@ header, nav, section, article, aside, footer {
 .fwb { font-weight: bold }
 .fwn { font-weight: normal }
 .fcb { color: #0074d9 !important }
+.fcbl { color: black !important }
 .fcr { color: #ff4136 !important }
 .fcw { color: white !important }
 .fcy { color: #ffdc00 !important }
 .fcg { color: #2ecc40 !important }
 .fcgr { color: silver !important }
+.tdu { text-decoration: underline !important }
 
 .lh160 { line-height: 160% }
 
@@ -228,7 +230,7 @@ a:link {
   -webkit-transition: color .2s ease-in-out;
   transition: color .2s ease-in-out; }
 a:visited {
-  color: #b10dc9; }
+  color: #0074d9; }
 a:hover {
   color: #7fdbff;
   -webkit-transition: color .2s ease-in-out;
