@@ -377,7 +377,6 @@ body,input,textarea,select,button,table,pre{
 			margin-top: 80px;
 			.supporter {
 				float: left;
-				border: 1px solid #d6d6d6;
 				text-align: center;
 				box-sizing: content-box;
 				margin-right: 17px;
@@ -388,6 +387,8 @@ body,input,textarea,select,button,table,pre{
 					width: 260px;
 					height: 150px;
 					line-height: 150px;
+					border: 1px solid #d6d6d6;
+					&:hover { border: 1px solid #999 }
 					img {
 						vertical-align: middle;
 					}
