@@ -60,7 +60,7 @@ set :assets_roles, [:app]
 # set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
 set :normalize_asset_timestamps, false
 
-set :shared_children, %w{public/uploads}
+set :linked_dirs, fetch(:linked_dirs) + %w{public/system public/uploads}
 
 # using ForwardAgent
 set :ssh_options, { forward_agent: true }
