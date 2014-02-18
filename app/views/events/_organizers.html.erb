@@ -8,7 +8,7 @@
 					<% group.organizers.each do |organizer| %>
 						<li class="organizer<%= " nolink" unless organizer.link.present? %>">
 							<% if organizer.link.present? %>
-								<%= link_to organizer.link do %>
+								<%= link_to "http://" + organizer.link.gsub("http://", "").gsub("https://", "") do %>
 									<span class="name"><%= organizer.name %></span><span class="name_en"><%= organizer.name_en %></span><span class="link"><%= organizer.link.gsub("http://", "").gsub("https://", "") %></span>
 								<% end %>
 							<% else %>

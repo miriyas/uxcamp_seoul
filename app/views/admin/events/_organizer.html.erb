@@ -18,7 +18,7 @@
 								<div class="photo"><%= image_tag(organizer.photo.url(:w80)) if organizer.photo.present? %></div>
 							<% end %>
 							<% if organizer.link.present? %>
-								<%= link_to organizer.name, organizer.link %>
+								<%= link_to organizer.name, "http://" + organizer.link.gsub("http://", "").gsub("https://", "")  %>
 							<% else %>
 								<%= organizer.name %>
 							<% end %>
