@@ -1,4 +1,4 @@
-<section class="information_section">
+<div class="information_section">
 	<div class="poster"><%= image_tag(@event.poster.url(:w240)) if @event.poster.present? %></div>
 	<div class="info">
 		<div class="fl w100p">
@@ -28,4 +28,4 @@
 		조회수 : <%= @event.view_count %><br>
 		정렬 순서 : <%= @event.position.present? ? @event.position : "따로 지정되지 않음" %><br>
 	</div>
-</section>
+</div>
