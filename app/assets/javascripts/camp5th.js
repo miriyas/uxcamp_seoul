@@ -1,40 +1,5 @@
 //= require jquery
 
-(function($){
-  var container = $("#parrellex");
-  var topEl = $(".ly_top", container);
-  var bottomEl = $(".ly_bottom", container);
-
-  function combineTitle(){
-    topEl.removeClass("hidden");
-    bottomEl.removeClass("hidden");
-    topEl.addClass("visible");
-    bottomEl.addClass("visible");
-  }
-
-  function divideTitle(){
-    topEl.removeClass("visible");
-    bottomEl.removeClass("visible");
-    topEl.addClass("hidden");
-    bottomEl.addClass("hidden");
-  }
-
-  function afterScroll(){
-    if($(document).scrollTop() >= 400 ){
-      divideTitle();
-    } else {
-      combineTitle();
-    }
-  }
-
-  window.onload = function(){
-    combineTitle();
-    $(document).on("scroll", afterScroll);
-  }
-}(jQuery));
-
-
-
 var regtop = $("#register").offset().top + $("#register").height() - 30;
 var regtop_origin = $("#register").offset().top;
 $(window).bind('scroll', function(event) {

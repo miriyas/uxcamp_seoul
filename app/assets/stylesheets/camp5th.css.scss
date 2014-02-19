@@ -69,7 +69,7 @@ body,input,textarea,select,button,table,pre{
 		position: relative;
 		background-color: black;
 		color: white;
-		height: 1200px;
+		height: 1060px;
 		&.scroll {
 			padding-top: 50px;
 		}
@@ -77,73 +77,13 @@ body,input,textarea,select,button,table,pre{
 			position: relative;
 			
 			h2 {
-				width: 0px;
-				height: 0px;
-				text-indent: -9900px;
-			}
-			
-			#parrellex {
-				position: relative;
-				top: 70px;
-				left: 0px;
-				width: 610px;
-				height: 700px;
-
-				.ly_group {
-					width: 610px;
-					height: 440px;
-				}
-				.ly_dynamic {
-					position: absolute;
-					left: 0px;
-				}
-				.ly_fixed {
-					position: absolute;
-					top: 0px;
-					left: 0px;
-					z-index: 30;
-					background: image-url('camp5th/title_fixed.png') no-repeat;
-				}
-				.visible {
-					top: 0px;
-					opacity: 1;
-				}
-				.ly_top1,
-				.ly_top2,
-				.ly_bottom {
-					position: absolute;
-					top: 0px;
-					left: 0px;
-					opacity: 1;
-				}
-				.ly_top1 {
-					background: image-url('camp5th/title_02.png') no-repeat;
-					z-index: 20;
-					&.hidden {
-						top: -1000px;
-						opacity: 0;
-					}
-				}
-				.ly_top2 {
-					background: image-url('camp5th/title_03.png') no-repeat;
-					z-index: 40;
-					&.hidden {
-						top: -500px;
-						opacity: 0;
-					}
-				}
-				.ly_bottom {
-					background: image-url('camp5th/title_01.png') no-repeat;
-					z-index: 10;
-					&.hidden {
-						top: 1000px;
-						opacity: 0;
-					}
-				}
+				margin-top: 60px;
+				font-size: 100px;
+				font-weight: bold;
 			}
 			.information {
 				position: absolute;
-				top: 550px;
+				top: 350px;
 				h1 { @include sprite_replace_text($camp5th_sprite, 'title_uxcamp') }
 				dl {
 					position: relative;
