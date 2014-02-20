@@ -36,6 +36,8 @@ $camp5th_sprite: sprite-map('camp5th/s/*.png');
 			ul {
 				li {
 					display: inline-block;
+					*display: inline;
+					zoom: 1;
 					margin: 0px 4px 14px;
 					a {
 						&.mail { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_mail'); }
