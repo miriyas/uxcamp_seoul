@@ -1,4 +1,4 @@
-class OauthController < ApplicationController
+class Admin::OauthController < ApplicationController
 
 	def nothing
 		render :nothing => true, :status => :ok
@@ -8,8 +8,7 @@ class OauthController < ApplicationController
   # sends the user on a trip to the provider,
   # and after authorizing there back to the callback url.
   def oauth
-    p 2222222222222222222222222222222222222222222222222222
-		store_location
+		session[:return_to_url] = request.referer
     login_at(params[:provider])
   end
 
@@ -18,7 +17,7 @@ class OauthController < ApplicationController
     
     if current_user
       connect_authentication_to_user(provider)
-      redirect_back_or_to(root_path)
+      redirect_back_or_to admin_root_path
       return
     end
     
@@ -27,7 +26,7 @@ class OauthController < ApplicationController
         auth = @user.authentications.where(:provider => provider.to_s).first
         auth.update_attributes(access_token: token.token)
       end
-    	redirect_back_or_to root_path, :notice => "Logged in from #{provider.titleize}!"
+    	redirect_back_or_to admin_root_path, :notice => "페이스북으로 로그인 성공."
     else
       begin
         @user = find_or_create_from(provider)
@@ -37,9 +36,9 @@ class OauthController < ApplicationController
 
         reset_session # protect from session fixation attack
         auto_login(@user)
-        redirect_back_or_to root_path, :notice => "Logged in from #{provider.titleize}!"
+        redirect_back_or_to admin_root_path, :notice => "페이스북으로 로그인 성공."
       rescue Exception => e
-        redirect_back_or_to root_path, :alert => "Failed to login from #{provider.titleize}!"
+        redirect_back_or_to admin_root_path, :alert => "Failed to login from #{provider.titleize}! 이준혁을 불러주세요."
       end
     end
   end
@@ -155,7 +154,7 @@ class OauthController < ApplicationController
     def find_or_create_from(provider)
       provider = provider.to_sym
       @provider = Config.send(provider)
-      @user_hash = @provider.get_user_hash
+      @user_hash = @provider.get_user_hash(@access_token)
       config = user_class.sorcery_config
       attrs = {}
       @provider.user_info_mapping.each do |k,v|
@@ -181,8 +180,6 @@ class OauthController < ApplicationController
           attrs.each do |k,v|
             @user.send(:"#{k}=", v)
           end
-					signup_device = (mobile_device?)? "mobile" : "web"
-					@user.signup_device = signup_device
           @user.save(:validate => false)
         end
         user_class.sorcery_config.authentications_class.create!({

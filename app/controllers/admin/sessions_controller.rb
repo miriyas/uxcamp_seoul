@@ -3,7 +3,11 @@ class Admin::SessionsController < ApplicationController
 	layout "admin"
 
   def new
-		render :layout => false
+    if current_user.present? && current_user.organizer?
+      redirect_to admin_root_path
+    else
+  		render :layout => false
+    end
   end
 
   def create
@@ -23,6 +27,6 @@ class Admin::SessionsController < ApplicationController
 
   def destroy
 		logout
-    redirect_to admin_root_path, notice: "고생하셨습니다."
+    redirect_to root_path, notice: "고생하셨습니다."
   end
 end

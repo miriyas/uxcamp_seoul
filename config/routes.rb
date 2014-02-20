@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 		get 'stat' => "stats#index", :as => "stat"
 		get 'stat_query' => "stats#query", :as => "stat_query"
 
+		match "oauth/callback" => "oauth#callback", :via => :all
 		match "oauth/:provider" => "oauth#oauth", :as => :auth_at_provider, :via => :all
 
 		resources :events do
