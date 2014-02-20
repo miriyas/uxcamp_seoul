@@ -43,5 +43,3 @@ $(".gnb a").click(function(e) {
 $('#register').click(function(){
 	alert("아직 준비중입니다.")
 })
-
-$('#header').height() + $('#section_uxcamp').height() + $('#section_aboutus').height() + $('#section_programs').height() + $('#section_speakers').height() + $('#section_supporters').height() + $('#section_organizers').height() + $('#section_organizers').height()
