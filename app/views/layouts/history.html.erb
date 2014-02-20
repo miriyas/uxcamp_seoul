@@ -27,7 +27,9 @@
 
 <div id="header" class="<%= params[:action] %>">
 	<div class="centering">
-		<div class="logo"><a class="uxcamp" href="/"><%= image_tag "camp5th/uxcamp_logo.png" %><h1>UXCampSeoul</h1></a></div>
+		<div class="logo"><a class="uxcamp" href="/">
+			<%= image_tag (params[:action] == "index" ? "camp5th/uxcamp_logo.png" : "history/uxcamp_logo.png") %>
+			<h1>UXCampSeoul</h1></a></div>
 		<ul class="gnb">
 			<li><a class="uxcamp" href="/">UX Camp Seoul 2014</a></li>
 			<li class="history active">History</li>

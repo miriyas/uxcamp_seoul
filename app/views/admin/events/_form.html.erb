@@ -5,7 +5,7 @@
 		<%= f.input :title, label: "행사 제목", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
 		<% flash_error_message(:title) %>
 		<br>
-		<%= f.input :summary, label: "행사 개요", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>
+		<%= f.input :summary, label: "행사 개요", label_html: { class: "fwb" }, input_html: { class: "form-control", rows: 10 }, error: false %>
 		<% flash_error_message(:summary) %>
 		<br>
 		<%= f.input :poster, label: "행사 포스터", label_html: { class: "fwb" }, input_html: { class: "form-control" }, error: false %>

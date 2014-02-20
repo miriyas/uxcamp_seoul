@@ -8,7 +8,8 @@ body {
 }
 
 .centering {
-	width: 1180px;
+	max-width: 1160px;
+	min-width: 960px;
 	margin: 0 auto;
 }
 
@@ -32,13 +33,14 @@ body {
 			li {
 				float: left;
 				color: black;
-				a.uxcamp { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_uxcamp') }
-				&.history {	@include sprite_replace_text_anchor_selected($camp5th_sprite, 'gnb_history') }
+				a.uxcamp { @include sprite_replace_text_anchor($history_sprite, 'gnb_uxcamp') }
+				&.history {	@include sprite_replace_text_anchor($history_sprite, 'gnb_history') }
 			}
 		}
 	}
 	&.index {
 		border-bottom: 2px solid black;
+		margin-bottom: 2px;
 		.gnb {
 			float: right;
 			li {
@@ -51,12 +53,50 @@ body {
 	}
 }
 
-@include footer;
-#footer {
-	.centering {
-		border: none;
+.history {
+	background: white image-url('history/bg_aboutus.png') no-repeat 580px 0px;
+	#section_about {
+		color: black;
+		padding-bottom: 100px;
+		height: 410px;
+		h3 {
+			@include sprite_replace_text($history_sprite, 'title_aboutus');
+			margin-top: 170px;
+		}
+		.information {
+			@include content_right;
+			margin-top: 45px;
+			font-size: 16px;
+			line-height: 28px;
+			color: #666;
+			p {
+				margin-bottom: 20px;
+			}
+		}
+	}
+	#section_photos {
+		height: 850px;
+		h3 {
+			@include sprite_replace_text($history_sprite, 'title_photos');
+			margin-bottom: 80px;
+		}
+		#photos {
+			float: right;
+			margin-right: 15px;
+			width: 810px;
+			height: 540px;
+			background-color: #e8f4d9;
+		}
+	}
+	#organizers_section {
+		h3 { @include sprite_replace_text($history_sprite, 'title_organizers') }
+		@include organizers;
+		.organizers { margin-bottom: 170px }
 	}
 }
+
+
+@include footer;
 
 @media all and (min-width:1281px) {
 	.events {
@@ -76,7 +116,6 @@ body {
 					top: 0px;
 					left: 0px;
 					display: block;
-					width: 100%;
 					height: auto;
 					z-index: 10;
 					color: white;
@@ -86,7 +125,13 @@ body {
 					width: 100%;
 					padding-top: 100px;
 					padding-bottom: 75px;
-					&.hover { opacity: 0 }
+					-webkit-transition: opacity .2s ease-in-out;
+					transition: opacity .2s ease-in-out;
+					&.hover {
+						opacity: 0;
+						-webkit-transition: opacity .2s ease-in-out;
+						transition: opacity .2s ease-in-out;
+					}
 				}
 			}
 			.shade {
@@ -97,7 +142,13 @@ body {
 				height: 400px;
 				z-index: 9;
 				background: image-url('history/shade.png') repeat;
-				&.hover { opacity: 0 }
+				-webkit-transition: opacity .2s ease-in-out;
+				transition: opacity .2s ease-in-out;
+				&.hover {
+					opacity: 0;
+					-webkit-transition: opacity .2s ease-in-out;
+					transition: opacity .2s ease-in-out;
+				}
 			}
 			.cover {
 				display: none;
@@ -109,11 +160,21 @@ body {
 				width: 100%;
 				height: auto;
 				z-index: 7;
+				-webkit-transition: opacity .2s ease-in-out;
+				transition: opacity .2s ease-in-out;
+				&.hover {
+					opacity: 0;
+					-webkit-transition: opacity .2s ease-in-out;
+					transition: opacity .2s ease-in-out;
+				}
 			}
 		}
 	}
 }
 @media all and (max-width:1280px) {
+	h3, #header img {
+		margin-left: 15px;
+	}
 	.events {
 		float: left;
 		width: 100%;
@@ -140,8 +201,12 @@ body {
 				height: auto;
 				max-height: 400px;
 				z-index: 8;
+				-webkit-transition: opacity .2s ease-in-out;
+				transition: opacity .2s ease-in-out;
 				&.hover {
 					opacity: 0;
+					-webkit-transition: opacity .2s ease-in-out;
+					transition: opacity .2s ease-in-out;
 				}
 			}
 			.banner {
@@ -151,6 +216,13 @@ body {
 				width: 100%;
 				height: auto;
 				z-index: 7;
+				-webkit-transition: opacity .2s ease-in-out;
+				transition: opacity .2s ease-in-out;
+				&.hover {
+					opacity: 0;
+					-webkit-transition: opacity .2s ease-in-out;
+					transition: opacity .2s ease-in-out;
+				}
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 $camp5th_sprite: sprite-map('camp5th/s/*.png');
+$history_sprite: sprite-map('history/s/*.png');
  
 @mixin sprite_replace_text($sprite, $img-name){
 	@include hide_text;
@@ -22,11 +23,85 @@ $camp5th_sprite: sprite-map('camp5th/s/*.png');
 	}
 }
 
+@mixin content_right {
+	float: right;
+	width: 820px;
+	margin-right: 10px;
+}
+
+@mixin organizers {
+	.organizers {
+		@include content_right;
+		margin-top: 40px;
+		h4 {
+			font-size: 13px;
+			line-height: 14px;
+			color: #c8c8c8;
+			padding: 6px 0px;
+			border-top: 1px solid #e0e0e0;
+			border-bottom: 1px solid #e0e0e0;
+			margin-bottom: 4px;
+			margin-top: 20px;
+		}
+		.organizer {
+			width: 100%;
+			float: left;
+			&.nolink {
+				height: 16px;
+				padding: 7px 0px;
+			}
+			a {
+				display: block;
+				padding: 7px 0px;
+				cursor: pointer;
+				height: 16px;
+				&:hover {
+					.link { color: #0074d9 !important }
+				}
+			}
+			.name {
+				float: left;
+				width: 60px;
+				font-size: 16px;
+				color: #666;
+			}
+			.name_en,
+			.link {
+				font-size: 13px;
+				line-height: 16px;
+				font-weight: normal;
+				color: #999;
+			}
+			.name_en { float: left }
+			.link {
+				float: right;
+			}
+		}
+	}
+}
+
+
 @mixin footer {
 	#footer {
 		float: left;
 		width: 100%;
 		background-color: black;
+		&.histories {
+			&.show {
+				background-color: #8dc63f;
+				a {
+					&.mail { @include sprite_replace_text_anchor($history_sprite, 'footer_btn_mail'); }
+					&.twitter { @include sprite_replace_text_anchor($history_sprite, 'footer_btn_twitter'); }
+					&.facebook { @include sprite_replace_text_anchor($history_sprite, 'footer_btn_facebook'); }
+				}
+				.copyright {
+					color: white;
+				}
+			}
+			.centering {
+				border: none;
+			}
+		}
 		.centering {
 			padding-top: 25px;
 			padding-bottom: 10px;
@@ -57,6 +132,12 @@ header, nav, section, article, aside, footer {
 	// for IE8 under.
 	display:block;
 }
+
+body,input,textarea,select,button,table,pre{
+	font-family: "Helvetica", "Arial", "Apple SD Gothic Neo", "나눔고딕", "NanumGothic", "NanumGothicOTF", "맑은고딕", "Malgun Gothic", dotum, '돋움', "Trebuchet MS", "Lucida Grande", "Tahoma", sans-serif;
+	font-size: 12px;
+}
+
 
 .ellipsis {
 	white-space:nowrap;

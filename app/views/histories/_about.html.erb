@@ -1,4 +1,8 @@
 <div id="section_about">
-	<h3>행사 개요</h3>
-	<%= @event.summary.html_safe if @event.summary.present? %><br><br>
+	<div class="centering">
+		<h3>행사 개요</h3>
+		<div class="information">
+			<%= @event.summary.html_safe if @event.summary.present? %>
+		</div>
+	</div>
 </div>
