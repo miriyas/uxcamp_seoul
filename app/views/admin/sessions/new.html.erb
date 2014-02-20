@@ -3,6 +3,7 @@
 	<div class="wrapper">
 		<%= image_tag "back.png" %>
 		<h1>로그인</h1>
+<%= link_to("dddddddddddddddddddd", admin_auth_at_provider_path(provider: "facebook"), class: "fblogin") %>
 		<%= form_tag "/admin/login", class: "form-horizontal" do %>
 			<%= text_field_tag :email, params[:email], placeholder: "메일주소", class: "form-control w250 m0auto" %>
 	    <%= password_field_tag :password, nil, placeholder: "비밀번호", class: "form-control w250 m0auto mt10" %>
@@ -13,4 +14,3 @@
 		<% end %>
 	</div>
 </div>
-<%= link_to("ff", auth_at_provider_path(provider: provider), :class => "sns_login_#{provider} #{provider}") %>

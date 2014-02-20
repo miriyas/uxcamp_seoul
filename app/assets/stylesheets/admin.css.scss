@@ -80,6 +80,16 @@ hr {
 }
 
 
+
+
+.fblogin {
+	color: white !important;
+}
+
+
+
+
+
 /* == ADMIN GNB == */
 #h {
 	height: 51px;
@@ -146,6 +156,7 @@ a {
 }
 
 .events {
+	margin-right: -10px;
 	.event {
 		float: left;
 		background-color: white;

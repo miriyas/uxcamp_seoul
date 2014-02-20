@@ -7,6 +7,7 @@ class EventsController < ApplicationController
     @organizergroups = @event.organizer_groups.order("position")
     @organizers = @event.organizers.order("position")
     @supporters = @event.supporters.order("position")
+		@event.increment!(:view_count)
   end
 
 end
