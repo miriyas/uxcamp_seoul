@@ -1,32 +1,17 @@
 //= require jquery
 
-var regtop = $("#register").offset().top + $("#register").height() - 30;
-var regtop_origin = $("#register").offset().top;
 $(window).bind('scroll', function(event) {
-	var $register = $('#register');
+  var $register = $('#register');
 	var scrtop = $(window).scrollTop();
   var woffset = scrtop + $(window).height() - 57;
 
-  if ((regtop+30+30) < $(window).height()) {
-  	if ((regtop+30) < woffset) {
-  		$register.addClass("scroll");
-      $register.css("top", regtop_origin);
-      $register.css("bottom", "");
-  	} else {
-      $register.removeClass("scroll");
-      $register.css("top", "");
-      $register.css("bottom", "");
-  	}
+  var docheight = $(document).height();
+  var regtop = $('#register').offset().top;
+
+  if (docheight <= (regtop+330)) {
+    $('.register_wrap').addClass("scroll");
   } else {
-  	if ((regtop+30) < woffset) {
-      $register.css("top", "");
-      $register.css("bottom", "");
-  		$register.addClass("scroll");
-  	} else {
-      $register.css("top", "");
-      $register.css("bottom", "");
-      $register.removeClass("scroll");
-  	}
+    $('.register_wrap').removeClass("scroll");
   }
   
   var $gnb = $('#header'),
@@ -58,3 +43,5 @@ $(".gnb a").click(function(e) {
 $('#register').click(function(){
 	alert("아직 준비중입니다.")
 })
+
+$('#header').height() + $('#section_uxcamp').height() + $('#section_aboutus').height() + $('#section_programs').height() + $('#section_speakers').height() + $('#section_supporters').height() + $('#section_organizers').height() + $('#section_organizers').height()
