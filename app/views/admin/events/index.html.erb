@@ -1,4 +1,7 @@
 <div class="w100p">
+	<% if notice.present? %>
+		<p class="alert alert-success"><%= notice %></p>
+	<% end %>
 	<h1 class="dib">총 <%= content_tag :span, Event.count, :class => "font-important" %>건의 행사</h1>
 	<%= link_to new_admin_event_path, :class => "btn btn-success fr mt15" do %>
 		<span class="glyphicon glyphicon-plus"></span> 새 행사 시작하기
