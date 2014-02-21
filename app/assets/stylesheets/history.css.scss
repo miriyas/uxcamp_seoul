@@ -54,6 +54,25 @@ body {
 
 .history {
 	background: white image-url('history/bg_aboutus.png') no-repeat 580px 0px;
+	.another_wrap {
+		position: fixed;
+		width: 100%;
+		height: 45px;
+		z-index: 99999;
+		bottom: 80px;
+		left: 50%;
+		margin-left: -590px;
+		&.scroll {
+			bottom: 180px;
+		}
+		#another {
+			@include sprite_replace_text_anchor($camp5th_sprite, 'btn_register');
+			display: block;
+			position: absolute;
+			z-index: 100;
+			left: 0px;
+		}
+	}
 	#section_about {
 		color: black;
 		padding-bottom: 100px;

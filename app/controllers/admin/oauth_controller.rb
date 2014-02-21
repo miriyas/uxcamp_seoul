@@ -148,7 +148,7 @@ class Admin::OauthController < ApplicationController
 			provider = provider.to_sym
 			@provider = Config.send(provider.to_sym)
 			@provider.process_callback(params,session)
-			@user_hash = @provider.get_user_hash
+			@user_hash = @provider.get_user_hash(@access_token)
 			config = user_class.sorcery_config
 
 			if auth = Authentication.where(:provider => "facebook", :uid => @user_hash[:uid]).first
