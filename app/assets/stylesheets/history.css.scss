@@ -8,7 +8,7 @@ body {
 }
 
 .centering {
-	max-width: 1160px;
+	max-width: 1180px;
 	min-width: 960px;
 	margin: 0 auto;
 }
@@ -73,10 +73,16 @@ body {
 			left: 0px;
 		}
 	}
+
+	.section {
+		float: left;
+		width: 100%;
+	}
+	
 	#section_about {
 		color: black;
 		padding-bottom: 100px;
-		height: 410px;
+		height: 700px;
 		h2 {
 			color: #dbecc8;
 			font-size: 26px;
