@@ -5,6 +5,7 @@ class Admin::SessionsController < ApplicationController
   def new
     logger.info current_user
     logger.info current_user.organizer?
+    logger.info "22222222222222222222222222222222"
     
     if current_user.present? && current_user.organizer?
       redirect_to admin_root_path
