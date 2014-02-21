@@ -145,6 +145,8 @@ class Admin::OauthController < ApplicationController
 	protected
 		
 		def connect_authentication_to_user(provider)
+      p @access_token
+      p 2222222222222222222222222222222
 			provider = provider.to_sym
 			@provider = Config.send(provider.to_sym)
 			@provider.process_callback(params,session)

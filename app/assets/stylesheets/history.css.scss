@@ -66,7 +66,7 @@ body {
 			bottom: 180px;
 		}
 		#another {
-			@include sprite_replace_text_anchor($camp5th_sprite, 'btn_register');
+			@include sprite_replace_text_anchor($history_sprite, 'btn_another');
 			display: block;
 			position: absolute;
 			z-index: 100;
