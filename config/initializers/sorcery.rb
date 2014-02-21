@@ -3,7 +3,8 @@ Rails.application.config.sorcery.submodules = [:external, :remember_me]
 Rails.application.config.sorcery.configure do |config|
   config.external_providers = [:facebook]
 
-	CALLBACK_HOST = "uxcamp.co.kr"
+  CALLBACK_HOST = "uxcamp.co.kr"
+  # CALLBACK_HOST = "localhost:3000"
   
   config.facebook.key = "1379852698941469"  # Facebook App ID
   config.facebook.secret = "a063c07deacab55351d2fa6a9051974f" # Facebook App Secret
