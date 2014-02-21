@@ -9,11 +9,15 @@ class Admin::SessionsController < ApplicationController
     if current_user.present?
       logger.info "AaAAAAAAAAAAAAAAAAAAAAAA"
       logger.info current_user
+      logger.info current_user.role
       if current_user.pending?
         logger.info "CCCCCCCCCCCCCCC"
         render :layout => false
       else
         logger.info "BBBBBBBBBBBBB"
+        logger.info current_user.role
+        logger.info current_user.organizer?
+        logger.info current_user.pending?
         redirect_to admin_root_path
       end
     else
