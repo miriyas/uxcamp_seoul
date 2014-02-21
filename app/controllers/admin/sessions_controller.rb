@@ -7,12 +7,16 @@ class Admin::SessionsController < ApplicationController
     logger.info "22222222222222222222222222222222"
     
     if current_user.present?
+       logger.info "AaAAAAAAAAAAAAAAAAAAAAAA"
       if current_user.organizer?
+        logger.info "BBBBBBBBBBBBB"
         redirect_to admin_root_path
       else
+        logger.info "CCCCCCCCCCCCCCC"
         render :layout => false
       end
     else
+      logger.info "DDDDDDDDDDDDDDDDD"
           render :layout => false
     end
     
