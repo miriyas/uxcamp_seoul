@@ -161,7 +161,7 @@ a {
 		float: left;
 		background-color: white;
 		border: 1px solid #d6d6d6;
-		width: 262px;
+		width: 264px;
 		margin-right: 10px;
 		margin-bottom: 10px;
 		&:hover {
@@ -171,9 +171,13 @@ a {
 			display: block;
 			margin: 10px;
 			text-decoration: none;
+			color: #444 !important;
 			.poster_wrapper {
-				width: 240px;
+				width: 242px;
 				height: 360px;
+				img {
+					border: 1px solid #eee;
+				}
 			}
 		}
 	}

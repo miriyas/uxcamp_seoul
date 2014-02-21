@@ -3,7 +3,7 @@ class Admin::EventsController < ApplicationController
 	layout 'admin'
 	
   def index
-    @events = Event.all.order("position")
+    @events = Event.all.order("id desc")
   end
 
   def show
