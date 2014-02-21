@@ -61,7 +61,6 @@ $history_sprite: sprite-map('history/s/*.png');
 			}
 			.name {
 				float: left;
-				width: 60px;
 				font-size: 16px;
 				color: #666;
 			}
@@ -72,7 +71,10 @@ $history_sprite: sprite-map('history/s/*.png');
 				font-weight: normal;
 				color: #999;
 			}
-			.name_en { float: left }
+			.name_en {
+				float: left;
+				margin-left: 16px;
+			}
 			.link {
 				float: right;
 			}
