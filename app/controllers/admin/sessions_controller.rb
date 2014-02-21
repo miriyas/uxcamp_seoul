@@ -4,26 +4,18 @@ class Admin::SessionsController < ApplicationController
 
   def new
     logger.info current_user
-    logger.info current_user.organizer?
     logger.info "22222222222222222222222222222222"
     
-    if current_user.present? && current_user.organizer?
-      redirect_to admin_root_path
+    if current_user.present?
+      if current_user.organizer?
+        redirect_to admin_root_path
+      else
+        render :layout => false
+      end
     else
-  		render :layout => false
+          render :layout => false
     end
-    # 
-    # 
-    # if current_user.present?
-    #   if current_user.organizer?
-    #     redirect_to admin_root_path
-    #   else
-    #     render :layout => false
-    #   end
-    # else
-    #       render :layout => false
-    # end
-    # 
+    
   end
 
   def create
