@@ -53,7 +53,7 @@ body {
 }
 
 .history {
-	background: white image-url('history/bg_aboutus.png') no-repeat 580px 0px;
+	background: white image-url('history/bg_aboutus.png') no-repeat 580px 180px;
 	.another_wrap {
 		position: fixed;
 		width: 100%;
@@ -77,9 +77,15 @@ body {
 		color: black;
 		padding-bottom: 100px;
 		height: 410px;
+		h2 {
+			color: #dbecc8;
+			font-size: 26px;
+			line-height: 26px;
+			margin-top: 30px;
+		}
 		h3 {
 			@include sprite_replace_text($history_sprite, 'title_aboutus');
-			margin-top: 170px;
+			margin-top: 160px;
 		}
 		.information {
 			@include content_right;
@@ -102,7 +108,7 @@ body {
 			float: right;
 			margin-right: 15px;
 			width: 810px;
-			height: 540px;
+			height: 544px;
 			background-color: black;
 			iframe {
 				margin-left: 10px;

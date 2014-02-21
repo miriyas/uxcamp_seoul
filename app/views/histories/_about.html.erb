@@ -1,5 +1,17 @@
+<% case params[:id]
+	when 1
+		title = "The 1st<br>UXCampSeoul<br>2010"
+	when 2
+		title = "The 2nd<br>UXCampSeoul<br>2011"
+	when 3
+		title = "The 3rd<br>UXCampSeoul<br>2011"
+	when 4
+		title = "The 4th<br>UXCampSeoul<br>2012"
+end %>
+
 <div id="section_about">
 	<div class="centering">
+		<h2><%= title.html_safe %></h2>
 		<h3>행사 개요</h3>
 		<div class="information">
 			<%= @event.summary.html_safe if @event.summary.present? %>

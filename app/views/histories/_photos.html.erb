@@ -1,8 +1,19 @@
+<% case params[:id]
+	when 1
+		uri = "https://www.flickr.com/photos/uxcampseoul/12672725113/player/aa24af01a9"
+	when 2
+		uri = "https://www.flickr.com/photos/uxcampseoul/12673331454/player/24e3b12a39"
+	when 3
+		uri = "https://www.flickr.com/photos/uxcampseoul/12673194393/player/4354b19a90"
+	when 4
+		uri = "https://www.flickr.com/photos/uxcampseoul/12673290793/player/ec963daa6c"
+end %>
+
 <div id="section_photos">
 	<div class="centering">
 		<h3>행사 사진</h3>
 		<div id="photos">
-			<iframe src="https://www.flickr.com/photos/uxcampseoul/5491696835/player/cf77a7c60b" height="520" width="790"  frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+			<iframe src="<%= uri %>" height="524" width="790"  frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 		</div>
 	</div>
 </div>
