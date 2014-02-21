@@ -13,43 +13,43 @@ class Admin::OauthController < ApplicationController
 	end
 
 	def callback
-		p "callback - 1"
+		logger.info "callback - 1"
 		provider = params[:provider]
 		
 		if current_user
-		p "callback - 2"
+		logger.info "callback - 2"
 			connect_authentication_to_user(provider)
-					p "callback - 3"
+					logger.info "callback - 3"
 			redirect_back_or_to(admin_root_path)
-					p "callback - 4"
+					logger.info "callback - 4"
 			return
 		end
 		
 		if @user = login_from(provider)
-					p "callback - 5"
+					logger.info "callback - 5"
 			if token = access_token(provider.to_sym)
-						p "callback - 6"
+						logger.info "callback - 6"
 				auth = @user.authentications.where(:provider => provider.to_s).first
-						p "callback - 7"
+						logger.info "callback - 7"
 				auth.update_attributes(access_token: token.token)
-						p "callback - 8"
+						logger.info "callback - 8"
 			end
 			redirect_back_or_to admin_root_path, :notice => "Logged in from #{provider.titleize}!"
 		else
 			begin
-						p "callback - 9"
+						logger.info "callback - 9"
 				@user = find_or_create_from(provider)
 
 				# @user = create_from(provider)
 				# NOTE: this is the place to add '@user.activate!' if you are using user_activation submodule
-		p "callback - 10"
+		logger.info "callback - 10"
 				reset_session # protect from session fixation attack
-						p "callback - 11"
+						logger.info "callback - 11"
 				auto_login(@user)
-						p "callback - 12"
+						logger.info "callback - 12"
 				redirect_back_or_to admin_root_path, :notice => "Logged in from #{provider.titleize}!"
 			rescue Exception => e
-						p "callback - 13"
+						logger.info "callback - 13"
 				redirect_back_or_to admin_root_path, :alert => "Failed to login from #{provider.titleize}!"
 			end
 		end
@@ -145,8 +145,8 @@ class Admin::OauthController < ApplicationController
 	protected
 		
 		def connect_authentication_to_user(provider)
-      p @access_token
-      p 2222222222222222222222222222222
+      logger.info  @access_token
+      logger.info 2222222222222222222222222222222
 			provider = provider.to_sym
 			@provider = Config.send(provider.to_sym)
 			@provider.process_callback(params,session)
@@ -166,15 +166,15 @@ class Admin::OauthController < ApplicationController
 		end
 
 		def find_or_create_from(provider)
-			p "fc - 1"
+			logger.info "fc - 1"
 			provider = provider.to_sym
-			p "fc - 2"
+			logger.info "fc - 2"
 			@provider = Config.send(provider)
-						p "fc - 3"
+						logger.info "fc - 3"
 			@user_hash = @provider.get_user_hash(@access_token)
-						p "fc - 4"
+						logger.info "fc - 4"
 			config = user_class.sorcery_config
-						p "fc - 5"
+						logger.info "fc - 5"
 			attrs = {}
 			@provider.user_info_mapping.each do |k,v|
 				if (varr = v.split("/")).size > 1
@@ -185,34 +185,34 @@ class Admin::OauthController < ApplicationController
 				end
 			end
 
-      p @user_hash[:user_info]["email"]
-      p @provider.user_info_mapping
-      p "@@"
-      p attrs
+      logger.info @user_hash[:user_info]["email"]
+      logger.info @provider.user_info_mapping
+      logger.info "@@"
+      logger.info attrs
 
 			user_class.transaction do
-							p "fc - 6"
+							logger.info "fc - 6"
 				unless @user = User.find_by_email(attrs[:email])
-								p "fc - 7"
+								logger.info "fc - 7"
 					@user = user_class.new()
-								p "fc - 8"
+								logger.info "fc - 8"
 					attrs.each do |k,v|
-														p "fc - 9 #{k}: #{v}"
+														logger.info "fc - 9 #{k}: #{v}"
 						@user.send(:"#{k}=", v) if @user.respond_to?(k)
 					end
 					@user.save(:validate => false)
 				end
-							p "fc - 10"
+							logger.info "fc - 10"
 				user_class.sorcery_config.authentications_class.create!({
 					config.authentications_user_id_attribute_name => @user.id, 
 					config.provider_attribute_name => provider, 
 					config.provider_uid_attribute_name => @user_hash[:uid],
 					:access_token => access_token(provider).token
 				})
-							p "fc - 11"
+							logger.info "fc - 11"
 			end
 
-			p "fc - 12"
+			logger.info "fc - 12"
 
 			@user
 		end
