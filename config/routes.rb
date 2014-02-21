@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
 	namespace :admin do
     root :to => "events#index"
+		get "/" => "events#index"
 	
 	  get "logout" => "sessions#destroy", as: "logout"
 	  get "login" => "sessions#new", as: "login"

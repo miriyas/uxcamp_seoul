@@ -26,7 +26,6 @@ class Admin::SessionsController < ApplicationController
   end
 
   def destroy
-    Authentication.where(user_id: current_user.id).last.destroy
     logout
     redirect_to admin_root_path, notice: "고생하셨습니다."
   end
