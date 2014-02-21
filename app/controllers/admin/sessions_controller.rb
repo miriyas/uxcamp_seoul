@@ -7,7 +7,8 @@ class Admin::SessionsController < ApplicationController
     logger.info "22222222222222222222222222222222"
     
     if current_user.present?
-       logger.info "AaAAAAAAAAAAAAAAAAAAAAAA"
+      logger.info "AaAAAAAAAAAAAAAAAAAAAAAA"
+      logger.info current_user
       if current_user.organizer?
         logger.info "BBBBBBBBBBBBB"
         redirect_to admin_root_path
