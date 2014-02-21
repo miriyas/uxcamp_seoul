@@ -3,10 +3,11 @@
 	<div class="wrapper">
 		<%= image_tag "back.png" %>
 		<h1>로그인</h1>
-		<% if current_user.present? && current_user.pending? %>
-			<p class="fcw mt10"><%= current_user.name %>님은 아직 승인 대기중입니다.<br>빠른 처리를 위해 <a href="https://www.facebook.com/groups/797665643583902/" class="tdu">페이스북 그룹</a>에 글을 남겨주세요.</p>
+		<% if current_user.present? %>
+			<% unless current_user.organizer? %>
+				<p class="fcw mt10"><%= current_user.name %>님은 아직 승인 대기중입니다.<br>빠른 처리를 위해 <a href="https://www.facebook.com/groups/797665643583902/" class="tdu">페이스북 그룹</a>에 글을 남겨주세요.</p>
+			<% end %>
 		<% else %>
-		<%= current_user.present? %>
 			<%= link_to("페이스북으로 로그인", admin_auth_at_provider_path(provider: "facebook"), class: "admin_login btn btn-large btn-success w250 mt10") %>
 		<% end %>
 	</div>
