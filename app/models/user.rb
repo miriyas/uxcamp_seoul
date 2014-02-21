@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   end
 
   def organizer?
-    role == ("admin" || "organizer")
+    (role == "admin") || (role == "organizer")
   end
 
   def admin?
