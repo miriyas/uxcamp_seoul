@@ -16,14 +16,14 @@ class Admin::OauthController < ApplicationController
 		logger.info "callback - 1"
 		provider = params[:provider]
 		
-		if current_user
-		logger.info "callback - 2"
-			connect_authentication_to_user(provider)
-					logger.info "callback - 3"
-			redirect_back_or_to(admin_root_path)
-					logger.info "callback - 4"
-			return
-		end
+    # if current_user
+    # logger.info "callback - 2"
+    #   connect_authentication_to_user(provider)
+    #       logger.info "callback - 3"
+    #   redirect_back_or_to(admin_root_path)
+    #       logger.info "callback - 4"
+    #   return
+    # end
 		
 		if @user = login_from(provider)
 					logger.info "callback - 5"
