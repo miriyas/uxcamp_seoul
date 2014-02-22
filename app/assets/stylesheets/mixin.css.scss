@@ -1,4 +1,5 @@
 $camp5th_sprite: sprite-map('camp5th/s/*.png');
+$camp5th_mobile_sprite: sprite-map('camp5th/mobile/s/*.png');
 $history_sprite: sprite-map('history/s/*.png');
  
 @mixin sprite_replace_text($sprite, $img-name){
@@ -104,27 +105,53 @@ $history_sprite: sprite-map('history/s/*.png');
 				border: none;
 			}
 		}
-		.centering {
-			padding-top: 25px;
-			padding-bottom: 10px;
-			border-top: 1px solid #999;
-			text-align: center;
-			ul {
-				li {
-					display: inline-block;
-					*display: inline;
-					zoom: 1;
-					margin: 0px 4px 14px;
-					a {
-						&.mail { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_mail'); }
-						&.twitter { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_twitter'); }
-						&.facebook { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_facebook'); }
+		@media all and (min-width:768px) {
+			.centering {
+				padding: 25px 0px 10px 0px;
+				border-top: 1px solid #999;
+				text-align: center;
+				ul {
+					li {
+						display: inline-block;
+						*display: inline;
+						zoom: 1;
+						margin: 0px 4px 14px;
+						a {
+							&.mail { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_mail'); }
+							&.twitter { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_twitter'); }
+							&.facebook { @include sprite_replace_text_anchor($camp5th_sprite, 'footer_btn_facebook'); }
+						}
 					}
 				}
+				.copyright {
+					color: #999;
+					font-size: 11px;
+				}
 			}
-			.copyright {
-				font-size: 11px;
-				color: #999;
+		}
+		@media all and (max-width:767px) {
+			.centering {
+				padding: 30px 0px 20px 0px;
+				margin: 0 50px;
+				text-align: center;
+				border-top: 1px solid white;
+				ul {
+					li {
+						display: inline-block;
+						*display: inline;
+						zoom: 1;
+						margin: 0px 8px 25px;
+						a {
+							&.mail { @include sprite_replace_text($camp5th_mobile_sprite, 'footer_btn_mail'); }
+							&.twitter { @include sprite_replace_text($camp5th_mobile_sprite, 'footer_btn_twitter'); }
+							&.facebook { @include sprite_replace_text($camp5th_mobile_sprite, 'footer_btn_facebook'); }
+						}
+					}
+				}
+				.copyright {
+					color: #999;
+					font-size: 13px;
+				}
 			}
 		}
 	}

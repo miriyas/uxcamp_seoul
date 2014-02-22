@@ -335,3 +335,18 @@ a {
 	}	
 }
 
+@media all and (max-width:1180px) {
+	body {
+		background-color: red !important;
+	}
+}
+@media all and (max-width:767px) {
+	body {
+		background-color: yellow !important;
+	}
+}
+@media all and (max-width:480px) {
+	body {
+		background-color: blue !important;
+	}
+}

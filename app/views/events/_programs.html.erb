@@ -1,16 +1,17 @@
 <div id="section_programs" class="section">
 	<div class="centering">
 		<h3>Programs</h3>
+		<p class="information">강의 명을 탭 하시면 상세 설명을 보실 수 있습니다.</p>
 		<% room_cnt = "room#{@event.rooms.count}" %>
 		<% room_name_row = false %>
-		<div class="programs">
+		<div class="programs <%= room_cnt %>">
 			<% @periods.each do |period| %>
 				<% unless period.programs.blank? %>
 					<% if (period.programs.count > 1) && room_name_row == false %>
 						<div class="row rooms">
 							<div class="time"></div>
 							<% @event.rooms.each do |room| %>
-								<div class="title">
+								<div class="session">
 									<h4><%= room.name %></h4>
 								</div>
 							<% end %>
@@ -19,20 +20,20 @@
 					<% end %>
 					<div class="row">
 						<div class="time">
-							<h4><%= htime(period.starts_at) %></h4>
+							<p><%= htime(period.starts_at) %></p>
 						</div>
 						<% period.programs.each do |program| %>
-							<div class="session">
-								<div class="title">
-									<h4 class="ellipsis">
+							<div class="session <%= "full" if period.programs.count == 1 %>">
+								<div class="head">
+									<h4>
 										<% program.speakers.each do |speaker| %>
 											<% if speaker.link.present? %>
-												<%= link_to speaker.name, speaker.link %><%= ", " if program.speakers[program.speakers.index(speaker) + 1].present? %>
+												<span class="name"><%= link_to speaker.name, speaker.link %><%= ", " if program.speakers[program.speakers.index(speaker) + 1].present? %></span>
 											<% else %>
-												<%= speaker.name %><%= ", " if program.speakers[program.speakers.index(speaker) + 1].present? %>
+												<span class="name"><%= speaker.name %><%= ", " if program.speakers[program.speakers.index(speaker) + 1].present? %></span>
 											<% end %>
 										<% end %>
-										<%= "_" if program.speakers.present? %><%= program.title %>
+										<%= "<span class='d'>_</span>".html_safe if program.speakers.present? %><span class="title"><%= program.title %></span>
 									</h4>
 								</div>
 								<% if program.content.present? %>
@@ -60,3 +61,4 @@
 현장 선착순으로도 세션 접수는 가능 합니다.<br>더불어 세션 접수를 현장에서 하실 경우 앞서 말씀드린 바와 같이 선착순으로 접수가 되므로 세션을 배정 받지 못할 수 있는 점 참고 부탁 드립니다.</p>
 	</div>
 </div>
+<div class="mobile_spacer"></div>

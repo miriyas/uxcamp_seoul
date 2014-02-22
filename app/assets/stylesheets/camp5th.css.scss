@@ -2,6 +2,7 @@
 @import "compass/reset";
 @import "mixin";
 
+
 .centering {
 	max-width: 1180px;
 	min-width: 960px;
@@ -73,6 +74,7 @@
 			left: 0px;
 		}
 	}
+	.mobile_spacer { display: none; }
 
 	#section_uxcamp {
 		position: relative;
@@ -85,8 +87,13 @@
 		.centering {
 			position: relative;
 			text-align: center;
-			.hero {
+			.uxcamp_title {
 				margin-top: 100px;
+				font-size: 30px;
+				font-weight: 500;
+			}
+			.hero {
+				margin-top: 40px;
 			}
 			h1,h2 {
 				overflow: hidden;
@@ -149,101 +156,109 @@
 		color: black;
 		padding-top: 60px;
 		h3 { @include sprite_replace_text($camp5th_sprite, 'title_programs') }
+		.information { display: none }
 		.programs {
 			@include content_right;
 			margin-top: 78px;
 			.row {
 				float: left;
 				width: 100%;
-			}
-			.rooms {
+				&.rooms {
+					.time {
+						padding: 0px;
+					}
+					.session {
+						width: 175px;
+						height: initial !important;
+						margin-right: 18px;
+						float: left;
+						&:last-child {
+							margin-right: 0px;
+						}
+						h4 {
+							font-size: 13px;
+							color: #c8c8c8;
+							padding: 10px 0px;
+							border-top: 1px solid #e0e0e0;
+						}
+					}
+				}
+				div {
+					vertical-align: top;
+				}
 				.time {
-					padding: 0px;
-				}
-				.title {
-					width: 175px;
-					margin-right: 18px;
 					float: left;
-					&:last-child {
-						margin-right: 0px;
-					}
-					h4 {
-						font-size: 13px;
-						color: #c8c8c8;
-						padding: 10px 0px;
-						border-top: 1px solid #e0e0e0;
-					}
-				}
-			}
-			.row div {
-				vertical-align: top;
-			}
-			.time {
-				float: left;
-				width: 65px;
-				text-align: left;
-				font-size: 16px;
-				font-weight: bold;
-				color: #666;
-				border-top: 1px solid #e0e0e0;
-				padding-top: 10px;
-				padding-bottom: 30px;
-			}
-			.session {
-				position: relative;
-				float: left;
-				width: 173px;
-				height: 58px;
-				margin-right: 20px;
-				cursor: pointer;
-				&:last-child {
-					margin-right: 0px;
-					.more_info {
-						margin-left: -193px;
-					}
-				}
-				&:hover {
-					a {
-						text-decoration: underline;
-						color: #0074d9 !important;
-					}
-				}
-				.title {
+					width: 65px;
+					text-align: left;
+					font-size: 16px;
+					font-weight: bold;
+					color: #666;
 					border-top: 1px solid #e0e0e0;
 					padding-top: 10px;
-					font-size: 13px;
-					line-height: 14px;
-					color: #666;
-					a {
-						color: black;
-						&:hover {
-							color: #0074d9;
-						}
-					}
+					padding-bottom: 30px;
 				}
-				.more_info {
-					display: none;
-					position: absolute;
-					top: 0px;
-					left: 0px;
-					margin-top: 58px;
-					width: 365px;
-					font-size: 13px;
-					line-height: 20px;
-					color: #666;
-					background-color: white;
-					border: 2px solid black;
-					z-index: 99;
-					.header {
-						border-bottom: 2px solid black;
-						padding: 10px;
-						a {
-							color: black !important;
-							text-decoration: none;
+				.session {
+					position: relative;
+					float: left;
+					width: 173px;
+					height: 58px;
+					margin-right: 20px;
+					cursor: pointer;
+					&:last-child {
+						margin-right: 0px;
+						.more_info {
+							margin-left: -193px;
 						}
 					}
-					.content {
-						padding: 10px;
+					&:hover {
+						a {
+							text-decoration: underline;
+							color: #0074d9 !important;
+						}
+					}
+					.head {
+						border-top: 1px solid #e0e0e0;
+						padding-top: 10px;
+						font-size: 13px;
+						line-height: 14px;
+						color: #666;
+						h4 {
+							@include ellipsis;
+						}
+						a {
+							color: black;
+							&:hover {
+								color: #0074d9;
+							}
+						}
+						.title {
+							@include ellipsis;
+						}
+					}
+					.more_info {
+						display: none;
+						position: absolute;
+						top: 0px;
+						left: 0px;
+						margin-top: 58px;
+						width: 365px;
+						font-size: 13px;
+						line-height: 20px;
+						color: #666;
+						background-color: white;
+						border: 2px solid black;
+						z-index: 99;
+						.header {
+							border-bottom: 2px solid black;
+							padding: 10px;
+							a {
+								color: black !important;
+								text-decoration: none;
+							}
+						}
+						.content {
+							padding: 10px;
+						}
 					}
 				}
 			}
@@ -276,6 +291,10 @@
 						font-size: 20px;
 						font-weight: bold;
 						color: black;
+						span {
+							color: gray;
+							font-size: 14px;
+						}
 					}
 					.title {
 						font-size: 16px;
@@ -286,28 +305,26 @@
 						margin-bottom: 20px;
 					}
 				}
-				.body {
+				.photo,
+				.col1,
+				.col2 {
+					float: left;
+					width: 326px;
+					margin-right: 20px;
+				}
+				.col1,
+				.col2 {
+					margin-top: -5px;
 					font-size: 13px;
 					line-height: 22px;
 					color: #666;
-					.photo,
-					.col1,
-					.col2 {
-						float: left;
-						width: 326px;
-						margin-right: 20px;
-					}
-					.col1,
-					.col2 {
-						margin-top: -5px;
-					}
-					.photo {
-						width: 128px;
-						height: 150px;
-					}
-					.col2 {
-						margin-right: 0px;
-					}
+				}
+				.photo {
+					width: 128px;
+					height: 150px;
+				}
+				.col2 {
+					margin-right: 0px;
 				}
 			}
 		}
@@ -381,9 +398,12 @@
 					line-height: 20px;
 					margin-bottom: 10px;
 				}
-				a {
-					@include sprite_replace_text_anchor($camp5th_sprite, 'btn_location');
-					margin-top: 15px;
+				@media all and (min-width:768px) {
+					a {
+						@include sprite_replace_text_anchor($camp5th_sprite, 'btn_location');
+						display: block;
+						margin-top: 15px;
+					}
 				}
 			}
 			img {
@@ -398,6 +418,7 @@
 
 @include footer;
 
+
 @media all and (max-width:1180px) {
 	h3 { margin-left: 20px }
 	#contents {
@@ -410,4 +431,405 @@
 			}
 		}
 	}		
+}
+
+@media all and (max-width:767px) {
+	// FOR MOBILE
+	body {
+		background-color: black !important;
+		.centering {
+			max-width: initial;
+			min-width: initial;
+		}
+		#header {
+			height: 80px;
+			&.scroll { position: relative; }
+			.logo {
+				width: 100%;
+				height: 80px;
+				border-bottom: 2px solid black;
+				img { display: none; }
+				h1 {
+					@include sprite_replace_text($camp5th_mobile_sprite, 'uxcamp_logo');
+					margin: 0 auto;
+				}
+			}
+			.gnb {
+				width: 100%;
+				overflow: hidden;
+				background-color: white;
+				li {
+					display: none;
+					&.m {
+						display: block;
+						width: 50%;
+						height: 78px;
+						&:first-child {
+							background-color: black;
+						}
+						a {
+							width: 100%;
+							height: 100%;
+							margin: 0 auto;
+						}
+						.uxcamp { background: image-url('camp5th/mobile/gnb_uxcamp.png') center center no-repeat; }
+						.history { background: image-url('camp5th/mobile/gnb_history.png') center center no-repeat; }
+					}
+				}
+				
+			}
+		}
+		#contents {
+			.register_wrap {
+				left: 50px;
+				margin-left: 0px;
+				bottom: 50px;
+				&.scroll {
+					bottom: 190px;
+				}
+			}
+			.mobile_spacer {
+				@include sprite_replace_text($camp5th_mobile_sprite, 'mobile_spacer');
+				margin: 0 auto;
+			}
+			h3 { margin: 0 auto }
+
+			#section_uxcamp {
+				height: 810px !important;
+				&.scroll { padding-top: 0px; }
+				.uxcamp_title {
+					display: none;
+				}
+				.hero {
+					max-width: 500px;
+					width: 90%;
+					margin-top: 100px !important;
+				}
+				.information {
+					padding: 0 30px;
+					dl {
+						width: initial !important;
+						max-width: 500px !important;
+						dt {
+							font-size: 18px !important;
+						}
+						dd {
+							font-size: 16px !important;
+							line-height: 24px !important;
+							color: #c8c8c8 !important;
+						}
+					}
+				}
+			}
+			#section_aboutus {
+				background: none;
+				background-color: black;
+				padding-top: 120px !important;
+				padding-bottom: 50px !important;
+				height: initial;
+				h3 { @include sprite_replace_text($camp5th_mobile_sprite, 'title_aboutus') }
+				.information {
+					margin-top: 30px !important;
+					padding: 50px !important;
+					width: initial;
+					margin-right: initial;
+					font-size: 16px;
+					line-height: 26px;
+					color: #c8c8c8;
+				}
+			}
+			#section_programs {
+				background-color: black;
+				padding-top: 120px !important;
+				padding-bottom: 100px;
+				h3 { @include sprite_replace_text($camp5th_mobile_sprite, 'title_programs') }
+				.information {
+					display: block;
+					width: 100%;
+					text-align: center;
+					font-size: 16px;
+					color: #a0a0a0;
+					margin-top: 30px;
+				}
+				.programs {
+					width: initial;
+					margin-top: 0px;
+					margin-right: initial;
+					padding: 50px;
+					padding-bottom: 0px;
+					&.room3 {
+						.time { width: 13% !important }
+						.session { width: 29% !important }
+					}
+					.row {
+						border-top: 1px solid #3d3d3d;
+						&:first-child {
+							border-top: 1px solid #666;
+							.time,
+							.session .title {
+								border-top: none;
+							}
+						}
+						&.rooms {
+							.time {
+								height: 50px;
+							}
+							.session {
+								margin-right: 0px;
+								h4 {
+									border-top: none;
+									font-size: 20px !important;
+									color: white;
+									padding: 15px 0;
+								}
+							}
+						}
+						.time {
+							border-top: none;
+							p {
+								color: white;
+								font-size: 18px;
+							}
+						}
+						.session {
+							padding-top: 0px;
+							height: initial;
+							margin-right: 0px;
+							&.full {
+								width: initial !important;
+								float: none;
+							}
+							.head {
+								padding-top: 0px;
+								line-height: 16px;
+								border-top: none;
+								h4 {
+									padding-top: 8px;
+									padding-bottom: 26px;
+									font-size: 16px;
+									line-height: 26px;
+									color: #c8c8c8;
+									.d { display: none }
+									.title {
+										display: block;
+										padding-right: 10px;
+										word-wrap: break-word;
+										white-space: initial;
+									}
+								}
+							}
+						}
+					}
+				}
+				.program_comment {
+					float: none;
+					width: initial;
+					padding: 0 50px;
+					margin-right: 0px;
+					margin-top: 0px;
+					font-size: 16px;
+					line-height: 26px;
+				}
+			}
+
+			#section_speakers {
+				padding-top: 120px;
+				background-color: black;
+				h3 { @include sprite_replace_text($camp5th_mobile_sprite, 'title_speakers') }
+				ul {
+					width: initial !important;
+					float: left !important;
+					margin-right: 0px !important;
+					margin-bottom: 40px !important;
+					padding: 0 50px;
+					li {
+						position: relative;
+						float: none;
+						.photo {
+							position: absolute;
+							top: 0px;
+							left: 0px;
+						}
+						.header {
+							position: absolute;
+							top: 90px;
+							left: 158px;
+							.name {
+								font-size: 25px !important;
+								color: white !important;
+								span {
+									font-size: 16px;
+									color: silver !important;
+								}
+							}
+							.title {
+								color: white !important;
+								line-height: 36px !important;
+								border-bottom: none !important;
+								margin-bottom: 0px !important;
+							}
+						}
+						.col1,
+						.col2 {
+							width: 100% !important;
+							font-size: 16px !important;
+							line-height: 26px !important;
+							color: #c8c8c8 !important;
+						}
+						.col1 {
+							margin-top: 181px !important;
+							margin-bottom: 30px !important;
+							padding-top: 30px;
+							border-top: 1px solid white;
+						}
+					}
+				}
+			}
+
+			#section_supporters {
+				padding-top: 0px;
+				padding-bottom: 100px;
+				background-color: black;
+				h3 {
+					margin-top: 120px;
+					margin-bottom: 80px;
+					@include sprite_replace_text($camp5th_mobile_sprite, 'title_supporters');
+				}
+				ul.supporters {
+					width: initial !important;
+					float: left !important;
+					margin-top: 0px !important;
+					margin-right: 0px !important;
+					margin-bottom: -6px !important;
+					padding: 5% 0 0 5%;
+					li.supporter {
+						width: 45% !important;
+						background-color: white;
+						margin-right: 5% !important;
+						margin-bottom: 5% !important;
+						a {
+							border: none;
+							width: 100%;
+							height: auto;
+						}
+						img {
+							width: 100% !important;
+						}
+					}
+				}
+				.supporter_notice {
+					float: none;
+					width: initial;
+					color: #888;
+					line-height: 26px;
+					margin-top: -10px;
+					font-size: 16px;
+					padding: 0 40px;
+				}
+			}
+
+			#section_organizers {
+				padding-top: 0px;
+				padding-bottom: 100px;
+				background-color: black;
+				h3 {
+					margin-top: 120px;
+					margin-bottom: 60px;
+					@include sprite_replace_text($camp5th_mobile_sprite, 'title_organizers');
+				}
+				.organizers {
+					float: none;
+					width: initial;
+					margin-top: 0px;
+					margin-right: 0px;
+					padding: 0 50px;
+					h4 {
+						padding: 8px 0px 6px;
+						font-size: 16px;
+						color: #c8c8c8;
+						border-color: #3d3d3d;
+					}
+					ul.group {
+						li.organizer {
+							.name {
+								color: white;
+								font-size: 16px;
+							}
+							.name_en { display: none }
+							.link { color: #c8c8c8 }
+						}
+					}
+				}
+			}
+
+			#section_location {
+				padding-top: 120px;
+				padding-bottom: 110px;
+				height: initial;
+				h3 {
+					position: initial !important;
+					@include sprite_replace_text($camp5th_mobile_sprite, 'title_location');
+				}
+				.location {
+					position: initial !important;
+					margin-top: 80px;
+					padding: 0 50px;
+					div {
+						float: left;
+						p {
+							font-size: 16px !important;
+							line-height: 26px !important;
+						}
+					}
+					a {
+						@include sprite_replace_text($camp5th_mobile_sprite, 'btn_location') ;
+						float: right;
+						margin-top: 30px;
+					}
+				}
+				img { display: none !important }
+			}
+		}
+
+		#footer {
+			.centering {
+			}
+		}
+	}
+}
+
+@media all and (max-width:480px) {
+	body {
+		background-color: blue !important;
+	}
+	#header ul.gnb {
+		li {
+			height: 60px !important;
+			a {
+				text-indent: 0 !important;
+				font-size: 20px !important;
+				line-height: 60px !important;
+				text-align: center !important;
+				background-image: none !important;
+				&.uxcamp {
+					color: white !important;
+					text-decoration: underline;
+				}
+				&.history { color: #cacaca !important }
+			}
+		}
+	}
+	#section_programs {
+		.programs {
+			padding: 20px 0px !important;
+		}
+		.program_comment {
+			padding: 0px 10px !important;
+		}
+	}
+	#section_speakers {
+		.speakers {
+			padding: 10px !important;
+		}
+	}
 }
