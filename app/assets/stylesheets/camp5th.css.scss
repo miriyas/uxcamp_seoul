@@ -2,6 +2,7 @@
 @import "compass/reset";
 @import "mixin";
 
+#dimension { width: 5px }
 
 .centering {
 	max-width: 1180px;
@@ -59,7 +60,7 @@
 		position: fixed;
 		width: 100%;
 		height: 45px;
-		z-index: 99999;
+		z-index: 100;
 		bottom: 80px;
 		left: 50%;
 		margin-left: -590px;
@@ -420,6 +421,7 @@
 
 
 @media all and (max-width:1180px) {
+	#dimension { width: 4px }
 	h3 { margin-left: 20px }
 	#contents {
 		.register_wrap {
@@ -435,8 +437,21 @@
 
 @media all and (max-width:767px) {
 	// FOR MOBILE
+	#dimension { width: 3px }
+
 	body {
 		background-color: black !important;
+		#more_info_shader {
+			display: none;
+			background-color: black;
+			opacity: 0.8;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			z-index: 200;
+		}
 		.centering {
 			max-width: initial;
 			min-width: initial;
@@ -616,6 +631,28 @@
 										word-wrap: break-word;
 										white-space: initial;
 									}
+								}
+							}
+							.more_info {
+								z-index: 201;
+								top: 50%;
+								margin-top: -80px;
+								background-color: black;
+								border-color: white;
+								.header {
+									border-color: white;
+									color: white;
+									font-size: 16px;
+								}
+								.content {
+									color: #999;
+									font-size: 16px;
+								}
+								.close {
+									@include sprite_replace_text($camp5th_mobile_sprite, 'btn_close');
+									position: absolute;
+									top: -60px;
+									right: 0px;
 								}
 							}
 						}
@@ -799,6 +836,7 @@
 }
 
 @media all and (max-width:480px) {
+	#dimension { width: 2px }
 	body {
 		background-color: blue !important;
 	}

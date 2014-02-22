@@ -27,12 +27,40 @@ $(window).bind('scroll', function(event) {
 
 
 $('.session').hover(
-	function(){ $(this).children('.more_info').show(); },
-	function(){ $(this).children('.more_info').hide(); }
+  // only works at desktop mode
+	function(){
+    if ($('#dimension').width() == (5 || 4)) {
+      $(this).children('.more_info').show();
+    }
+  },
+	function(){
+    if ($('#dimension').width() == (5 || 4)) {
+      $(this).children('.more_info').hide();
+    }
+  }
 )
 $('.more_info').hover(
-	function(){ $(this).hide(); }
+  // only works at desktop mode
+	function(){
+    if ($('#dimension').width() == (5 || 4)) {
+      $(this).hide();
+    }
+  }
 )
+
+$('.head').click(function(){
+  // only works at mobile mode
+  if ($('#dimension').width() < 4 && $(this).parent().children().length > 0 ) {
+    console.log(22)
+    $('#more_info_shader').show();
+    $(this).parent().children('.more_info').show();
+  }
+});
+$('#more_info_shader, .more_info .close').click(function(){
+  $('.more_info').hide();
+  $('#more_info_shader').hide();
+})
+
 
 $(".gnb a").click(function(e) {
 	var target = $($(e.target).attr("href"));
