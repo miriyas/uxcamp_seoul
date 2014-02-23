@@ -22,7 +22,7 @@ gem "sorcery"
 gem "carrierwave"
 gem "carrierwave_backgrounder"
 gem "mini_magick"
-
+gem "user-agent"
 
 gem "unicorn", group: :production
 

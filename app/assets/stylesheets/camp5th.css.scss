@@ -834,8 +834,45 @@
 	}
 }
 
-@media all and (max-width:480px) {
+@media all and (max-width:640px) {
 	#dimension { width: 2px }
+	#header {
+		width: 640px;
+		ul.gnb {
+			li {
+				height: 60px !important;
+			}
+		}
+	}
+	#contents {
+		width: 640px;
+	}
+	#section_aboutus {
+		.information {
+			padding: 20px !important; 
+		}
+	}
+
+	#section_programs {
+		.programs {
+			padding: 20px 0px !important;
+		}
+		.program_comment {
+			padding: 0px 10px !important;
+		}
+	}
+	#section_speakers {
+		.speakers {
+			padding: 10px !important;
+		}
+	}
+	#footer {
+		width: 640px;
+	}
+}
+
+@media all and (max-width:320px) {
+	#dimension { width: 1px }
 	#header ul.gnb {
 		li {
 			height: 60px !important;

@@ -1,4 +1,9 @@
 <title>UX Camp Seoul</title>
+<% if Agent.new(request.env["HTTP_USER_AGENT"]).engine_version.to_i >= 537 %>
+	<meta name="viewport" content="user-scalable=no, width=640" />
+<% else %>
+	<meta name="viewport" content="width=640, initial-scale=0.5">
+<% end %>
 <meta property="og:title" content="UX Camp Seoul">
 <meta property="og:url" content="http://www.uxcamp.co.kr">
 <meta name="description" content="UXCamp는 UX(User eXperience)관련 전문가, 교육자, 학생 혹은 UX에 관심 있는 모든 사람들이 자유롭게 생각을 공유하는 행사입니다. 2014년 3월 15일 토요일 서울 크리에이티브 랩" />
