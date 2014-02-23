@@ -490,8 +490,7 @@
 						.uxcamp { background: image-url('camp5th/mobile/gnb_uxcamp.png') center center no-repeat; }
 						.history { background: image-url('camp5th/mobile/gnb_history.png') center center no-repeat; }
 					}
-				}
-				
+				}				
 			}
 		}
 		#contents {
@@ -837,9 +836,6 @@
 
 @media all and (max-width:480px) {
 	#dimension { width: 2px }
-	body {
-		background-color: blue !important;
-	}
 	#header ul.gnb {
 		li {
 			height: 60px !important;

@@ -10,6 +10,9 @@ $('.event .title').hover(function(){
 
 $(window).bind('scroll', function(event) {
   var $register = $('#another');
+  if ($register.length == 0) {
+    return;
+  }
 	var scrtop = $(window).scrollTop();
   var woffset = scrtop + $(window).height() - 57;
 

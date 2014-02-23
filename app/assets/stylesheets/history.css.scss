@@ -9,7 +9,6 @@ body {
 
 .centering {
 	max-width: 1180px;
-	min-width: 960px;
 	margin: 0 auto;
 }
 
@@ -19,6 +18,10 @@ body {
 	background-color: white;
 	.logo {
 		float: left;
+		.big {
+			width: 0px;
+			height: 0px;
+		}
 		a {
 			display: block;
 			height: 50px;
@@ -28,31 +31,31 @@ body {
 
 	&.show {
 		border-bottom: 2px solid #8dc63f;
-		.gnb {
+		ul.gnb {
 			float: right;
 			li {
 				float: left;
 				color: black;
 				a.uxcamp { @include sprite_replace_text_anchor($history_sprite, 'gnb_uxcamp') }
-				&.history {	@include sprite_replace_text_anchor($history_sprite, 'gnb_history') }
+				a.history {	@include sprite_replace_text_anchor($history_sprite, 'gnb_history') }
 			}
 		}
 	}
 	&.index {
 		border-bottom: 2px solid black;
-		.gnb {
+		ul.gnb {
 			float: right;
 			li {
 				float: left;
 				color: black;
 				a.uxcamp { @include sprite_replace_text_anchor($camp5th_sprite, 'gnb_uxcamp') }
-				&.history {	@include sprite_replace_text_anchor_selected($camp5th_sprite, 'gnb_history') }
+				a.history {	@include sprite_replace_text_anchor_selected($camp5th_sprite, 'gnb_history') }
 			}
 		}
 	}
 }
 
-.history {
+.history_content {
 	background: white image-url('history/bg_aboutus.png') no-repeat 580px 180px;
 	.another_wrap {
 		position: fixed;
@@ -121,8 +124,11 @@ body {
 				margin-top: 10px;
 			}
 		}
+		.photolink {
+			display: none;
+		}
 	}
-	#organizers_section {
+	#section_organizers {
 		h3 { @include sprite_replace_text($history_sprite, 'title_organizers') }
 		@include organizers;
 		.organizers { margin-bottom: 170px }
@@ -208,7 +214,7 @@ body {
 	h3, #header img {
 		margin-left: 15px;
 	}
-	.history {
+	.history_content {
 		.another_wrap {
 			margin-left: -490px;
 		}
@@ -267,5 +273,226 @@ body {
 	#header .centering,
 	#footer .centering {
 		width: initial;
+	}
+}
+
+@media all and (max-width:767px) {
+	// FOR MOBILE
+
+	.centering {
+		max-width: initial;
+		min-width: initial;
+	}
+
+
+	#header {
+		height: 80px;
+		&.index {
+			.logo {
+				width: 100%;
+				height: 80px;
+				border-bottom: 2px solid black;
+				img { display: none; }
+				h1 {
+					@include sprite_replace_text($camp5th_mobile_sprite, 'uxcamp_logo');
+					margin: 0 auto;
+				}
+			}
+			ul.gnb {
+				width: 100%;
+				overflow: hidden;
+				background-color: white;
+				border-bottom: 2px solid black;
+				li {
+					width: 50%;
+					height: 78px;
+					&:last-child {
+						background-color: black;
+					}
+					a {
+						width: 100% !important;
+						height: 100% !important;
+						margin: 0 auto;
+					}
+					@media all and (max-width:767px) {
+						.uxcamp { background: image-url('history/mobile/gnb_uxcamp.png') center center no-repeat !important; }
+						.history {
+							width: 100% !important;
+							height: 100% !important;
+							margin: 0 auto;
+							background: image-url('history/mobile/gnb_history.png') center center no-repeat !important;
+						}
+					}
+					@media all and (max-width:480px) {
+						.uxcamp { background-image: none !important }
+						.history { background-image: none !important }
+					}
+				}
+			}
+		}
+		&.show {
+			.logo {
+				width: 100%;
+				height: 80px;
+				border-bottom: 2px solid #8dc63f;
+				img { display: none; }
+				h1 {
+					@include sprite_replace_text($history_mobile_sprite, 'uxcamp_logo');
+					margin: 0 auto;
+				}
+			}
+			.gnb { display: none }
+		}
+	}
+
+	.history_content {
+		.mobile_spacer {
+			@include sprite_replace_text($history_mobile_sprite, 'mobile_spacer');
+			margin: 0 auto;
+		}
+		.another_wrap {
+			margin-left: 0px;
+			left: 50px;
+			bottom: 40px;
+		}
+		ul.events {
+			li.event {
+				width: auto;
+				height: 300px;
+				overflow: hidden;
+				border-bottom: 1px solid black;
+				.title {
+					opacity: 1;
+					font-size: 40px;
+					color: black;
+					font-weight: bold;
+					margin-top: 40px;
+					margin-left: 30px;
+				}
+				.cover {
+					display: none;
+				}
+				.shade {
+					display: block;
+					width: 100%;
+					height: 100%;
+					background-color: white;
+					opacity: 0.5;
+					position: absolute;
+					z-index: 9;
+				}
+				.banner {
+					left: -25%;
+					width: auto;
+					height: 300px;
+				}
+			}
+		}
+
+		#section_about {
+			height: initial;
+			h2 { display: none }
+			h3 {
+				margin: 0 auto;
+				margin-top: 110px;
+			}
+			.information {
+				width: initial;
+				padding: 0 50px;
+				color: black;
+			}
+		}
+
+		#section_photos {
+			height: initial;
+			padding-bottom: 80px;
+			h3 {
+				margin: 0 auto;
+				margin-top: 120px;
+				margin-bottom: 80px;
+			}
+			#photos {
+				display: none;
+			}
+			.photolink {
+				display: block;
+				width: 100%;
+				text-align: center;
+				font-size: 20px;
+				text-decoration: underline;
+			}
+		}
+
+		#section_organizers {
+			h3 {
+				margin: 0 auto;
+				margin-top: 120px;
+				margin-bottom: 60px;
+			}
+			.organizers {
+				margin-top: 0px;
+				margin-bottom: 130px;
+				margin-right: 0px;
+				padding: 0 50px;
+				box-sizing: border-box;
+				width: 100%;
+				h4 {
+					border-color: #adadad !important;
+					color: #666 !important;
+					font-size: 16px !important;
+					line-height: 22px !important;
+				}
+				.name {
+					color: black !important;
+					font-size: 16px !important;
+				}
+				.link {
+					color: #666 !important;
+					font-size: 14px !important;
+					font-weight: 100 !important;
+				}
+			}
+		}
+	}
+}
+@media all and (max-width:480px) {
+	// FOR MOBILE
+	#header ul.gnb {
+		li {
+			height: 60px !important;
+			a {
+				text-indent: 0 !important;
+				font-size: 20px !important;
+				line-height: 60px !important;
+				text-align: center !important;
+				background-image: none !important;
+				&.uxcamp {
+					color: #cacaca !important;
+				}
+				&.history {
+					color: white !important;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	.history_content {
+		ul.events {
+			li.event {
+				width: auto;
+				height: 200px;
+				overflow: hidden;
+				.cover {
+					width: auto;
+					height: 200px;
+				}
+				.banner {
+					left: -25%;
+					width: auto;
+					height: 200px;
+				}
+			}
+		}
 	}
 }

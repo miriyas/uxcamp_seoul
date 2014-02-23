@@ -1,6 +1,7 @@
 $camp5th_sprite: sprite-map('camp5th/s/*.png');
 $camp5th_mobile_sprite: sprite-map('camp5th/mobile/s/*.png');
 $history_sprite: sprite-map('history/s/*.png');
+$history_mobile_sprite: sprite-map('history/mobile/s/*.png');
  
 @mixin sprite_replace_text($sprite, $img-name){
 	@include hide_text;
@@ -92,10 +93,19 @@ $history_sprite: sprite-map('history/s/*.png');
 		&.histories {
 			&.show {
 				background-color: #8dc63f;
-				a {
-					&.mail { @include sprite_replace_text_anchor($history_sprite, 'footer_btn_mail'); }
-					&.twitter { @include sprite_replace_text_anchor($history_sprite, 'footer_btn_twitter'); }
-					&.facebook { @include sprite_replace_text_anchor($history_sprite, 'footer_btn_facebook'); }
+				@media all and (min-width:768px) {
+					a {
+						&.mail { @include sprite_replace_text_anchor($history_sprite, 'footer_btn_mail'); }
+						&.twitter { @include sprite_replace_text_anchor($history_sprite, 'footer_btn_twitter'); }
+						&.facebook { @include sprite_replace_text_anchor($history_sprite, 'footer_btn_facebook'); }
+					}
+				}
+				@media all and (max-width:767px) {
+					a {
+						&.mail { @include sprite_replace_text($history_mobile_sprite, 'footer_btn_mail'); }
+						&.twitter { @include sprite_replace_text($history_mobile_sprite, 'footer_btn_twitter'); }
+						&.facebook { @include sprite_replace_text($history_mobile_sprite, 'footer_btn_facebook'); }
+					}
 				}
 				.copyright {
 					color: white;

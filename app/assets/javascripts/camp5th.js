@@ -50,8 +50,7 @@ $('.more_info').hover(
 
 $('.head').click(function(){
   // only works at mobile mode
-  if ($('#dimension').width() < 4 && $(this).parent().children().length > 0 ) {
-    console.log(22)
+  if ($('#dimension').width() < 4 && $(this).parent().children('.more_info').length > 0 ) {
     $('#more_info_shader').show();
     $(this).parent().children('.more_info').show();
   }
