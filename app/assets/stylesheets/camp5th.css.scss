@@ -380,6 +380,7 @@
 		color: white;
 		height: 800px;
 		padding-bottom: 70px;
+		overflow: hidden;
 		.centering {
 			position: relative;
 			h3 {
@@ -574,6 +575,11 @@
 					&.room3 {
 						.time { width: 13% !important }
 						.session { width: 29% !important }
+					}
+
+					&.room4 {
+						.time { width: 12% !important }
+						.session { width: 22% !important }
 					}
 					.row {
 						border-top: 1px solid #3d3d3d;
