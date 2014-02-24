@@ -7,9 +7,9 @@ task "test_speed" => :environment do
 			:email => (0...20).map { ('a'..'z').to_a[rand(10)] }.join + "@mail.com",
 			:name => (0...10).map { ('a'..'z').to_a[rand(10)] }.join
 		)
-    puts "#{n} : #{user.email}"
     
     if n%10 == 0
+      puts "#{n} : #{user.email}"
       if n%100 == 0
         puts "====================================#{Time.now}"
       else
