@@ -23,20 +23,59 @@ development:
   port: 3306
   password:
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
   database: uxcamp_seoul_test
   host: 127.0.0.1
   port: 3306
   password:
-
+    
 production:
   <<: *default
   database: uxcamp_seoul_production
-  # host: 192.241.203.133
+  host: 107.170.250.10
+  port: 3306
+  password:
+
+
+sf1:
+  <<: *default
+  database: uxcamp_seoul_production
+  host: 192.241.203.133
+  port: 3306
+  password: 12345
+
+sf2:
+  <<: *default
+  database: uxcamp_seoul_production
   host: 162.243.129.10
+  port: 3306
+  password: 12345
+
+ny1:
+  <<: *default
+  database: uxcamp_seoul_production
+  host: 162.243.231.45
+  port: 3306
+  password: 12345
+
+ny2:
+  <<: *default
+  database: uxcamp_seoul_production
+  host: 162.243.55.27
+  port: 3306
+  password: 12345
+
+sg1:
+  <<: *default
+  database: uxcamp_seoul_production
+  host: 128.199.237.37
+  port: 3306
+  password: 12345
+
+sg2:
+  <<: *default
+  database: uxcamp_seoul_production
+  host: 128.199.237.46
   port: 3306
   password: 12345

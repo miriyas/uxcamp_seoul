@@ -18,14 +18,14 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
 	has_many :authentications, :dependent => :destroy 
 
-  # validates_presence_of :email
-  # validates_uniqueness_of :email
-  # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  validates_presence_of :email
+  validates_uniqueness_of :email
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   # validates :password, length: { minimum: 4 }, :if => :password_required?
   # validates :password, confirmation: true, :if => :password_required?
   # validates :password_confirmation, presence: true, :if => :password_required?
-  # validates_presence_of :name
-  # validates_inclusion_of :role, :in => %w(admin organizer pending), :if => lambda { |m| m.role = "pending" if m.role.blank? }
+  validates_presence_of :name
+  validates_inclusion_of :role, :in => %w(admin organizer pending), :if => lambda { |m| m.role = "pending" if m.role.blank? }
 
   ROLES = {
     "최고관리자" => "admin",
