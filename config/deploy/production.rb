@@ -23,6 +23,8 @@ server '162.243.231.45', user: 'deployer', roles: %w{web app db}#, my_property: 
 server '162.243.55.27', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
 server '128.199.237.37', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
 server '128.199.237.46', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+server '107.170.235.81', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+server '107.170.235.82', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
