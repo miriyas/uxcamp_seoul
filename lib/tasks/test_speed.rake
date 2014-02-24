@@ -2,7 +2,7 @@ desc "test_speed"
 task "test_speed" => :environment do
   start_time = Time.now
   
-  5000.times do |n|
+  10000.times do |n|
     user = User.create!(
 			:email => (0...20).map { ('a'..'z').to_a[rand(10)] }.join + "@mail.com",
 			:name => (0...10).map { ('a'..'z').to_a[rand(10)] }.join
