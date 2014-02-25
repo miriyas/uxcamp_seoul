@@ -15,18 +15,18 @@
 # something that quacks like a hash can be used to set
 # extended properties on the server.
 
-# server '107.170.250.10', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+server '107.170.250.10', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
 
-server '192.241.203.133', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
-server '162.243.129.10', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
-server '162.243.231.45', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
-server '162.243.55.27', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
-server '128.199.237.37', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
-server '128.199.237.46', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
-server '107.170.235.81', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
-server '107.170.235.82', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
-server '107.170.234.246', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
-server '107.170.234.247', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+# server '192.241.203.133', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+# server '162.243.129.10', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+# server '162.243.231.45', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+# server '162.243.55.27', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+# server '128.199.237.37', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+# server '128.199.237.46', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+# server '107.170.235.81', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+# server '107.170.235.82', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+# server '107.170.234.246', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
+# server '107.170.234.247', user: 'deployer', roles: %w{web app db}#, my_property: :my_value
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
