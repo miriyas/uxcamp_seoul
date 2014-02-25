@@ -22,6 +22,7 @@ task "test_speed" => :environment do
   end_time = Time.now
   
   puts "------------------------------------"
+  puts "TEST SPEED #1"
   puts "START : #{start_time}"
   puts "END : #{end_time}"
   puts "------------------------------------"
