@@ -20,7 +20,7 @@
 					<% end %>
 					<div class="row">
 						<div class="time">
-							<p><%= htime(period.starts_at) %></p>
+							<p><%= htime(period.starts_at) %><br><span>~</span><br><%= htime(period.ends_at) %></p>
 						</div>
 						<% period.programs.each do |program| %>
 							<div class="session <%= "full" if period.programs.count == 1 %>">

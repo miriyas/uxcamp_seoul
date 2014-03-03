@@ -7,7 +7,9 @@
 		<%= f.input :starts_at, label: "시작 시간", label_html: { class: "fwb" }, input_html: { class: "form-control dib w100" }, error: false, discard_day: true, discard_year: true, discard_month: true %>
 		<% flash_error_message(:starts_at) %>
 		<br>
+		<%= f.input :ends_at, label: "종료 시간", label_html: { class: "fwb" }, input_html: { class: "form-control dib w100" }, error: false, discard_day: true, discard_year: true, discard_month: true %>
+		<% flash_error_message(:ends_at) %>
 		<hr>
-		<%= render "/shared/form_confirm_or_cancel" %>
+		<%= render "/admin/events/form_confirm_or_cancel" %>
 	<% end %>
 </div>

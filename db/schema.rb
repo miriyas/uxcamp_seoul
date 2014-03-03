@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221200000) do
+ActiveRecord::Schema.define(version: 20140303000000) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",      null: false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140221200000) do
     t.datetime "starts_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "ends_at"
   end
 
   create_table "programs", force: true do |t|

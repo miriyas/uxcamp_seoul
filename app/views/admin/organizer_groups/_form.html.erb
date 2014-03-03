@@ -14,6 +14,6 @@
 			<%= link_to '오거나이저 그룹 삭제', admin_event_organizer_groups_path(params[:event_id]), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "btn btn-danger w100p tac" %>
 		<% end %>
 		<hr>
-		<%= render "/shared/form_confirm_or_cancel" %>
+		<%= render "/admin/events/form_confirm_or_cancel" %>
 	<% end %>
 </div>

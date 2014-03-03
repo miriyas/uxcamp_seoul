@@ -27,6 +27,7 @@ gem "mobile-fu"
 
 gem "unicorn", group: :production
 
+gem "spring", group: :development
 gem "capistrano", group: :development
 gem "capistrano-bundler", group: :development
 gem "capistrano-rails", group: :development

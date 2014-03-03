@@ -252,10 +252,10 @@ body,input,textarea,select,button,table,pre{
 .pr5 { padding-right: 5px !important}
 .pr10 { padding-right: 10px !important}
 
-.di { display: inline }
-.db { display: block }
-.dib { display: inline-block }
-.dn { display: none }
+.di { display: inline !important}
+.db { display: block !important}
+.dib { display: inline-block !important}
+.dn { display: none !important}
 
 .w20p { width: 20% }
 .w33p { width: 33% }

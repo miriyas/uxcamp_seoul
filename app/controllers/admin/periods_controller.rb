@@ -45,6 +45,6 @@ class Admin::PeriodsController < ApplicationController
   end
   
   def period_params
-    params.require(:period).permit(:starts_at, :event_id)
+    params.require(:period).permit(:starts_at, :ends_at, :event_id)
   end
 end

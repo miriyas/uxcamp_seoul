@@ -20,7 +20,7 @@
 		<% @periods.each do |period| %>
 			<tr>
 				<td class="time">
-					<h4><%= htime(period.starts_at) %></h4>
+					<h4><%= htime(period.starts_at) %><br>~<br><%= htime(period.ends_at) %></h4>
 						<%= link_to "", edit_admin_event_period_path(@event, period), class: "fs10 glyphicon glyphicon-cog orange" %>
 						<%= link_to "", admin_event_period_path(@event, period), method: :delete, data: { confirm: "잘못 누른게 아니라면 삭제합니다."}, class: "fs10 glyphicon glyphicon-remove fcr" %>
 						<%= link_to "프로그램 추가", new_admin_event_period_program_path(@event, period), class: "btn btn-success btn-xs mt5 mb10 w80" %>
