@@ -26,4 +26,7 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  config.assets.precompile += %w( camp5th.css history.css admin.css camp5th.js history.js css3-mediaqueries.js jquery.scrollTo.min.js )
+
+  config.assets.quiet = true
 end

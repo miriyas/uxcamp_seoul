@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module UxcampSeoul
   class Application < Rails::Application
     config.time_zone = 'Seoul'
-		config.i18n.enforce_available_locales = true
+    config.i18n.enforce_available_locales = true
     # config.assets.paths << "#{Rails}/vendor/assets"
   end
 end

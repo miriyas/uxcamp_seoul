@@ -1,10 +1,10 @@
 class HistoriesController < ApplicationController
-	layout 'history'
-	
+  layout 'history'
+
   def index
     @events = Event.all
   end
-  
+
   def show
     @event = Event.find(params[:id])
     @organizergroups = @event.organizer_groups.order("position")

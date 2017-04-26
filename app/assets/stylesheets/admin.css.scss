@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require bootstrap.min
- *= require jquery.ui.datepicker
+ *= require jquery-ui/datepicker
  */
 
 @import "compass";
@@ -64,7 +64,7 @@ hr {
 		h1 {
 			margin: 30px 0px;
 			font-size: 36px;
-			color: white;	
+			color: white;
 		}
 
 		form {
@@ -145,9 +145,9 @@ a {
 @font-face {
 	font-family: 'Glyphicons Halflings';
 	src: url('/stylesheets/fonts/glyphicons-halflings-regular.eot');
-	src: url('/stylesheets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
-	url('/stylesheets/fonts/glyphicons-halflings-regular.woff') format('woff'), 
-	url('/stylesheets/fonts/glyphicons-halflings-regular.ttf') format('truetype'), 
+	src: url('/stylesheets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+	url('/stylesheets/fonts/glyphicons-halflings-regular.woff') format('woff'),
+	url('/stylesheets/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
 	url('/stylesheets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
@@ -188,7 +188,7 @@ a {
 		float: left;
 		width: 100%;
 	}
-	
+
 	.information_section {
 		.poster {
 			float: left;
@@ -211,9 +211,9 @@ a {
 				line-height: 28px;
 				color: #666;
 			}
-		}	
+		}
 	}
-	
+
 	.programs_section {
 		.programs{
 			td { padding: 0px }
@@ -224,7 +224,7 @@ a {
 					margin: 10px;
 				}
 			}
-			&.room4 { 
+			&.room4 {
 				.time { width: 8% }
 				.session { width: 23% }
 			}
@@ -242,7 +242,7 @@ a {
 					padding: 10px;
 				}
 				.room {
-					
+
 				}
 				.content {
 					margin: 0px;
@@ -265,7 +265,7 @@ a {
 			}
 		}
 	}
-	
+
 	.organizers_section {
 		.organizers {
 			.group {
@@ -280,7 +280,7 @@ a {
 					font-size: 12px;
 					line-height: 24px;
 					a {
-						text-decoration: none;					
+						text-decoration: none;
 					}
 					.photo,
 					.new_photo {
@@ -311,7 +311,7 @@ a {
 				font-size: 12px;
 				line-height: 24px;
 				a {
-					text-decoration: none;					
+					text-decoration: none;
 				}
 				.photo,
 				.new_photo {
@@ -332,7 +332,7 @@ a {
 				}
 			}
 		}
-	}	
+	}
 }
 
 @media all and (max-width:1180px) {
